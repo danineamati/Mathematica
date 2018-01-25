@@ -1,0 +1,114 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3554,        106]
+NotebookOptionsPosition[      2738,         82]
+NotebookOutlinePosition[      3080,         97]
+CellTagsIndexPosition[      3037,         94]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Chemistry 1B Set 3
+Daniel Neamati
+25 January 2018\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.725900778915778*^9, 
+  3.7259008252210855`*^9}},ExpressionUUID->"46e9841b-ea27-4638-9191-\
+b30b6b2f87d2"],
+
+Cell[TextData[{
+ "Problem 1\n",
+ StyleBox["1a\n1b\n1c\n1d\n1e", "Subsection"]
+}], "Section",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellChangeTimes->{{3.7259010709456263`*^9, 3.7259010719467154`*^9}, {
+  3.7259011218927283`*^9, 3.7259011728669653`*^9}, {3.7259012206548853`*^9, 
+  3.7259012238242583`*^9}},ExpressionUUID->"320284ba-8e5a-4c51-9920-\
+c760020c0e2c"],
+
+Cell[TextData[{
+ "Problem 2\n",
+ StyleBox["2ai\n2aii\n2aiii\n2bi\n2bii\n2ci\n2cii", "Subsection"]
+}], "Section",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellChangeTimes->{{3.7259010709456263`*^9, 3.7259010719467154`*^9}, {
+  3.7259011218927283`*^9, 3.7259011728669653`*^9}, {3.7259012206548853`*^9, 
+  3.725901307549404*^9}},ExpressionUUID->"7c841d9d-3580-40bc-b363-\
+65488f796d53"],
+
+Cell[TextData[{
+ "Problem 3\n",
+ StyleBox["3a\n3b\n3ci\n3cii\n3di\n3dii\n3diii", "Subsection"]
+}], "Section",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellChangeTimes->{{3.7259010709456263`*^9, 3.7259010719467154`*^9}, {
+  3.7259011218927283`*^9, 3.7259011728669653`*^9}, {3.7259012206548853`*^9, 
+  3.725901235585788*^9}, {3.7259012888515573`*^9, 
+  3.725901323857459*^9}},ExpressionUUID->"f5392756-8649-43b2-8518-\
+a018f179a6af"],
+
+Cell[TextData[{
+ "Problem 4\n",
+ StyleBox["4a\n4b\n4c", "Subsection"]
+}], "Section",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellChangeTimes->{{3.7259010709456263`*^9, 3.7259010719467154`*^9}, {
+  3.7259011218927283`*^9, 3.7259011728669653`*^9}, {3.7259012206548853`*^9, 
+  3.725901239857394*^9}, {3.725901329558713*^9, 
+  3.7259013376852293`*^9}},ExpressionUUID->"56b470be-1d50-40f4-a252-\
+1d46fc4ce78c"],
+
+Cell[TextData[{
+ "Problem 5\n",
+ StyleBox["5a\n5b\n5c", "Subsection"]
+}], "Section",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellChangeTimes->{{3.7259010709456263`*^9, 3.7259010719467154`*^9}, {
+  3.7259011218927283`*^9, 3.7259011728669653`*^9}, {3.7259012206548853`*^9, 
+  3.7259012429280424`*^9}, {3.725901344014812*^9, 
+  3.725901351098997*^9}},ExpressionUUID->"8c0d92d2-388f-49c2-a91f-\
+8c9128bbc478"]
+},
+WindowSize->{766, 772},
+WindowMargins->{{-7, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (April 18, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 210, 7, 95, "Subsubsection", "ExpressionUUID" -> \
+"46e9841b-ea27-4638-9191-b30b6b2f87d2"],
+Cell[771, 29, 357, 8, 211, "Section", "ExpressionUUID" -> \
+"320284ba-8e5a-4c51-9920-c760020c0e2c"],
+Cell[1131, 39, 375, 8, 273, "Section", "ExpressionUUID" -> \
+"7c841d9d-3580-40bc-b363-65488f796d53"],
+Cell[1509, 49, 423, 9, 273, "Section", "ExpressionUUID" -> \
+"f5392756-8649-43b2-8518-a018f179a6af"],
+Cell[1935, 60, 398, 9, 149, "Section", "ExpressionUUID" -> \
+"56b470be-1d50-40f4-a252-1d46fc4ce78c"],
+Cell[2336, 71, 398, 9, 149, "Section", "ExpressionUUID" -> \
+"8c0d92d2-388f-49c2-a91f-8c9128bbc478"]
+}
+]
+*)
+
