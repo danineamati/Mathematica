@@ -1,0 +1,606 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     24297,        598]
+NotebookOptionsPosition[     23006,        562]
+NotebookOutlinePosition[     23559,        581]
+CellTagsIndexPosition[     23516,        578]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Planetary Orbits", "Section",
+ CellChangeTimes->{{3.6449793623700285`*^9, 
+  3.644979365234193*^9}},ExpressionUUID->"dbecd960-4ce6-4cf2-b508-\
+da499231d4b8"],
+
+Cell[TextData[{
+ "The two-body orbit problem is famous both because it is ",
+ ButtonBox["analytically solvable",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    FrontEnd`FileName[{
+     "DynamicModule[{r, ", "[Theta], e, L, ", "[Epsilon], "}, 
+     "[Theta]0, p, v},", CharacterEncoding -> "WindowsANSI"], None}],
+ " and because it well approximates the motion of the planets. Many people \
+who have taken a classical mechanics class will remember that two-body orbits \
+must be either circles, ellipses, parabolas, or hyperbolas. And provided we \
+plot these curves with foci along the ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]],ExpressionUUID->
+  "5176627a-2e07-481c-8500-3268b7f8d71a"],
+ "-axis, the code is as quaint and simple as the theory."
+}], "Text",
+ CellChangeTimes->{{3.644979737950511*^9, 3.6449797403066454`*^9}, {
+  3.64497983006978*^9, 3.64497998741778*^9}, {3.6449800624450707`*^9, 
+  3.644980085996418*^9}, {3.6449803100062304`*^9, 
+  3.644980338758875*^9}},ExpressionUUID->"062df71f-8e8b-4064-87ef-\
+4963bfbf5943"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"Orbit", " ", "shown", " ", "in", " ", 
+     RowBox[{"blue", ".", " ", 
+      InterpretationBox[
+       ButtonBox[
+        TooltipBox[
+         RowBox[{
+          GraphicsBox[{
+            {GrayLevel[0], RectangleBox[{0, 0}]}, 
+            {GrayLevel[0], RectangleBox[{1, -1}]}, 
+            {RGBColor[0.922526, 0.385626, 0.209179], 
+             RectangleBox[{0, -1}, {2, 1}]}},
+           AspectRatio->1,
+           Frame->True,
+           
+           FrameStyle->RGBColor[
+            0.6150173333333333, 0.25708400000000003`, 0.13945266666666667`],
+           FrameTicks->None,
+           
+           ImageSize->
+            Dynamic[{
+             Automatic, 
+              1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+               Magnification])}],
+           PlotRangePadding->None], "\[InvisibleSpace]"}],
+         "RGBColor[0.922526, 0.385626, 0.209179]"],
+        Appearance->None,
+        BaseStyle->{},
+        BaselinePosition->Baseline,
+        ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+          If[
+           Not[
+            AbsoluteCurrentValue["Deployed"]], 
+           SelectionMove[Typeset`box$, All, Expression]; 
+           FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+           FrontEnd`Private`$ColorSelectorInitialColor = 
+            RGBColor[0.922526, 0.385626, 0.209179]; 
+           FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+           MathLink`CallFrontEnd[
+             FrontEnd`AttachCell[Typeset`box$, 
+              FrontEndResource["RGBColorValueSelector"], {
+              0, {Left, Bottom}}, {Left, Top}, 
+              "ClosingActions" -> {
+               "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+        DefaultBaseStyle->{},
+        Evaluator->Automatic,
+        Method->"Preemptive"],
+       RGBColor[0.922526, 0.385626, 0.209179],
+       Editable->False,
+       Selectable->False]}], " ", "curve", " ", "shows", " ", "a", " ", 
+     "parabola"}], ",", " ", 
+    RowBox[{
+    "the", " ", "tipping", " ", "point", " ", "between", " ", "elliptical", 
+     " ", "and", " ", "hyperbolic", " ", "orbits"}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{"Show", "[", 
+     RowBox[{
+      RowBox[{"PolarPlot", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          FractionBox["1", 
+           RowBox[{"1", "+", 
+            RowBox[{"\[Epsilon]", " ", 
+             RowBox[{"Cos", "[", "\[Theta]", "]"}]}]}]], ",", 
+          FractionBox["1", 
+           RowBox[{"1", "+", 
+            RowBox[{"0.", " ", 
+             RowBox[{"Cos", "[", "\[Theta]", "]"}]}]}]], ",", 
+          FractionBox["1", 
+           RowBox[{"1", "+", 
+            RowBox[{"0.5", " ", 
+             RowBox[{"Cos", "[", "\[Theta]", "]"}]}]}]]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Theta]", ",", "0", ",", 
+          RowBox[{"2", "\[Pi]"}]}], "}"}], ",", 
+        RowBox[{"Ticks", "\[Rule]", "None"}], ",", 
+        RowBox[{"PlotStyle", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"Automatic", ",", "Dashed", ",", "Dashed", ",", "Dashed"}], 
+          "}"}]}], ",", 
+        RowBox[{"PlotLabel", "\[Rule]", 
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{
+           "\"\<Orbits at different eccentricities\\n\[Epsilon] = \>\"", "<>", 
+            RowBox[{"ToString", "@", "\[Epsilon]"}]}], ",", "14"}], "]"}]}]}],
+        "]"}], ",", 
+      RowBox[{"PolarPlot", "[", 
+       RowBox[{
+        FractionBox["1", 
+         RowBox[{"1", "+", 
+          RowBox[{"1", 
+           RowBox[{"Cos", "[", "\[Theta]", "]"}]}]}]], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Theta]", ",", 
+          RowBox[{
+           RowBox[{"-", "\[Pi]"}], "+", "0.01"}], ",", 
+          RowBox[{"\[Pi]", "-", "0.01"}]}], "}"}], ",", 
+        RowBox[{"PlotStyle", "\[Rule]", 
+         RowBox[{
+          RowBox[{"ColorData", "[", "97", "]"}], "[", "4", "]"}]}]}], "]"}]}],
+      "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\[Epsilon]", ",", "0.2"}], "}"}], ",", "0", ",", "2"}], 
+     "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.625115893436184*^9, 3.6251159059358063`*^9}, {
+  3.6251159385332637`*^9, 3.625115943712473*^9}, {3.62511597585353*^9, 
+  3.6251159897017546`*^9}, {3.625116496178998*^9, 3.625116653705488*^9}, {
+  3.644980150064082*^9, 
+  3.6449802884179955`*^9}},ExpressionUUID->"6e64b8ff-96f9-43fc-81f8-\
+5ea003994d8e"],
+
+Cell[TextData[{
+ "Generalizing the problem: what is the orbit generated by a mass ",
+ Cell[BoxData[
+  FormBox["m", TraditionalForm]],ExpressionUUID->
+  "10493733-fc68-446f-ba37-a2df76007509"],
+ " starting at a position ",
+ Cell[BoxData[
+  FormBox[
+   OverscriptBox["r", "\[RightVector]"], TraditionalForm]],ExpressionUUID->
+  "205242aa-b969-40e7-8d7b-ccaca520d3f9"],
+ " and with a velocity ",
+ Cell[BoxData[
+  FormBox[
+   OverscriptBox["v", "\[RightVector]"], TraditionalForm]],ExpressionUUID->
+  "5fc03778-8fb4-4374-8004-3a7fc35168a8"],
+ "? "
+}], "Text",
+ CellChangeTimes->{{3.6449803437511606`*^9, 3.6449805380092716`*^9}, {
+  3.644981518469351*^9, 
+  3.6449815222795687`*^9}},ExpressionUUID->"c8585a86-f1ba-49c7-80de-\
+8f6ddc1839c3"],
+
+Cell[TextData[{
+ "The answer is shown below. You can move the mass ",
+ Cell[BoxData[
+  FormBox["m", TraditionalForm]],ExpressionUUID->
+  "4ffc0647-3b95-43b4-b6c3-6085e8769835"],
+ " (black dot) and the vector ",
+ Cell[BoxData[
+  FormBox[
+   OverscriptBox["v", "\[RightVector]"], TraditionalForm]],ExpressionUUID->
+  "bc607698-c1ac-404a-936a-43ae6336ff8a"],
+ " (blue dashed arrow) by clicking and dragging them with your mouse."
+}], "Text",
+ CellChangeTimes->{{3.6449803437511606`*^9, 
+  3.6449805380092716`*^9}},ExpressionUUID->"05a80a3a-9730-44b9-8724-\
+9315a95e0eb6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DynamicModule", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "r", ",", "\[Theta]", ",", "e", ",", "L", ",", "\[Epsilon]", ",", 
+     "\[Theta]0", ",", "p", ",", "v"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"r", "=", 
+       RowBox[{"EuclideanDistance", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0.", ",", "0."}], "}"}], ",", "p"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\[Theta]", "=", 
+       RowBox[{"ArcTan", "@@", "p"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"e", "=", 
+       RowBox[{
+        FractionBox[
+         SuperscriptBox[
+          RowBox[{"Norm", "[", 
+           RowBox[{"v", "-", "p"}], "]"}], "2."], "2."], "-", 
+        FractionBox["1.", 
+         RowBox[{"Norm", "[", "p", "]"}]]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"L", "=", 
+       RowBox[{"Last", "@", 
+        RowBox[{"Cross", "[", 
+         RowBox[{
+          RowBox[{"Append", "[", 
+           RowBox[{"p", ",", "0."}], "]"}], ",", 
+          RowBox[{"Append", "[", 
+           RowBox[{
+            RowBox[{"v", "-", "p"}], ",", "0."}], "]"}]}], "]"}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\[Epsilon]", "=", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"1.", "+", 
+          RowBox[{"2.", "e", " ", 
+           SuperscriptBox["L", "2"]}]}], ")"}], 
+        RowBox[{"1", "/", "2"}]]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"\[Theta]0", "=", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Sign", "[", 
+           RowBox[{"p", ".", 
+            RowBox[{"(", 
+             RowBox[{"v", "-", "p"}], ")"}]}], "]"}], "\[Equal]", 
+          RowBox[{"Sign", "[", "L", "]"}]}], ",", 
+         RowBox[{"\[Theta]", "-", 
+          RowBox[{"ArcCos", "[", 
+           FractionBox[
+            RowBox[{
+             SuperscriptBox["L", "2."], "-", "r"}], 
+            RowBox[{"r", " ", "\[Epsilon]"}]], "]"}]}], ",", 
+         RowBox[{"\[Theta]", "+", 
+          RowBox[{"ArcCos", "[", 
+           FractionBox[
+            RowBox[{
+             SuperscriptBox["L", "2."], "-", "r"}], 
+            RowBox[{"r", " ", "\[Epsilon]"}]], "]"}]}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Show", "[", 
+       RowBox[{
+        RowBox[{"Graphics", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"Dashed", ",", "Red", ",", 
+            RowBox[{"Arrow", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"0.", ",", "0."}], "}"}], ",", "p"}], "}"}], "]"}], 
+            ",", 
+            RowBox[{"Text", "[", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{
+               "\"\<\!\(\*OverscriptBox[\(r\), \(\[RightVector]\)]\)\>\"", 
+                ",", "14"}], "]"}], ",", 
+              RowBox[{
+               RowBox[{"p", "/", "2."}], "+", 
+               RowBox[{"0.1", "*", 
+                RowBox[{"Normalize", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"-", "1."}], ",", "1."}], "}"}], "*", 
+                  RowBox[{"Reverse", "@", "p"}]}], "]"}]}]}]}], "]"}], ",", 
+            "Blue", ",", 
+            RowBox[{"Arrow", "[", 
+             RowBox[{"{", 
+              RowBox[{"p", ",", "v"}], "}"}], "]"}], ",", 
+            RowBox[{"Text", "[", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{
+               "\"\<\!\(\*OverscriptBox[\(v\), \(\[RightVector]\)]\)\>\"", 
+                ",", "14"}], "]"}], ",", 
+              RowBox[{"p", "+", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"v", "-", "p"}], ")"}], "/", "2"}], "+", 
+               RowBox[{"0.1", "*", 
+                RowBox[{"Normalize", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"1", ",", 
+                    RowBox[{"-", "1"}]}], "}"}], "*", 
+                  RowBox[{"Reverse", "[", 
+                   RowBox[{"v", "-", "p"}], "]"}]}], "]"}]}]}]}], "]"}], ",", 
+            "Black", ",", 
+            RowBox[{"PointSize", "[", "0.02", "]"}], ",", 
+            RowBox[{"Point", "[", 
+             RowBox[{"{", "p", "}"}], "]"}], ",", "Gray", ",", 
+            RowBox[{"PointSize", "[", "0.08", "]"}], ",", 
+            RowBox[{"Point", "[", 
+             RowBox[{"{", 
+              RowBox[{"0.", ",", "0."}], "}"}], "]"}]}], "}"}], ",", 
+          RowBox[{"PlotLabel", "\[Rule]", 
+           RowBox[{"\"\<\!\(\*
+StyleBox[\"r\",
+FontSlant->\"Italic\"]\)=\>\"", "<>", 
+            RowBox[{"ToString", "@", 
+             RowBox[{"Round", "[", 
+              RowBox[{"r", ",", 
+               SuperscriptBox["10", 
+                RowBox[{"-", "2."}]]}], "]"}]}], "<>", "\"\<, \[Theta]=\>\"", 
+            "<>", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"Round", "[", 
+              RowBox[{"\[Theta]", ",", 
+               SuperscriptBox["10", 
+                RowBox[{"-", "2."}]]}], "]"}], "]"}], "<>", "\"\<\\n\!\(\*
+StyleBox[\"L\",
+FontSlant->\"Italic\"]\)=\>\"", "<>", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"Round", "[", 
+              RowBox[{
+               RowBox[{"Last", "@", 
+                RowBox[{"Cross", "[", 
+                 RowBox[{
+                  RowBox[{"Append", "[", 
+                   RowBox[{"p", ",", "0."}], "]"}], ",", 
+                  RowBox[{"Append", "[", 
+                   RowBox[{
+                    RowBox[{"v", "-", "p"}], ",", "0."}], "]"}]}], "]"}]}], 
+               ",", 
+               SuperscriptBox["10", 
+                RowBox[{"-", "2."}]]}], "]"}], "]"}], "<>", "\"\<, \!\(\*
+StyleBox[\"E\",
+FontSlant->\"Italic\"]\)=\>\"", "<>", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"Round", "[", 
+              RowBox[{"e", ",", 
+               SuperscriptBox["10", 
+                RowBox[{"-", "2."}]]}], "]"}], "]"}], "<>", 
+            "\"\<\\n\[Epsilon]=\>\"", "<>", 
+            RowBox[{"ToString", "[", 
+             RowBox[{"Round", "[", 
+              RowBox[{"\[Epsilon]", ",", 
+               SuperscriptBox["10", 
+                RowBox[{"-", "2."}]]}], "]"}], "]"}]}]}], ",", 
+          RowBox[{"PlotRange", "\[Rule]", "1.5"}]}], "]"}], ",", 
+        RowBox[{"PolarPlot", "[", 
+         RowBox[{
+          FractionBox[
+           SuperscriptBox["L", "2."], 
+           RowBox[{"1.", "+", 
+            RowBox[{"\[Epsilon]", " ", 
+             RowBox[{"Cos", "[", 
+              RowBox[{"\[Theta]\[Theta]", "-", "\[Theta]0"}], "]"}]}]}]], ",", 
+          RowBox[{"{", 
+           RowBox[{"\[Theta]\[Theta]", ",", "0.", ",", 
+            RowBox[{"2.", "\[Pi]"}]}], "}"}], ",", 
+          RowBox[{"Ticks", "\[Rule]", "None"}], ",", 
+          RowBox[{"PerformanceGoal", "\[Rule]", "\"\<Speed\>\""}]}], "]"}]}], 
+       "]"}]}], "\[IndentingNewLine]", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"p", ",", 
+         RowBox[{"{", 
+          RowBox[{"1.0", ",", "0.6"}], "}"}]}], "}"}], ",", "Locator", ",", 
+       RowBox[{"Appearance", "\[Rule]", "None"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"v", ",", 
+         RowBox[{"{", 
+          RowBox[{"0.8", ",", "1."}], "}"}]}], "}"}], ",", "Locator", ",", 
+       RowBox[{"Appearance", "\[Rule]", "None"}]}], "}"}]}], "]"}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.625170655042632*^9, 3.6251707596490192`*^9}, {
+   3.6251708341027513`*^9, 3.6251708696416135`*^9}, {3.625170910538286*^9, 
+   3.6251710295767026`*^9}, {3.625171077600587*^9, 3.6251711874959826`*^9}, {
+   3.625171232154662*^9, 3.6251713110816593`*^9}, {3.6251713431185164`*^9, 
+   3.6251713631227517`*^9}, {3.6251714246968613`*^9, 
+   3.6251717295594034`*^9}, {3.625282099896998*^9, 3.625282128398248*^9}, {
+   3.625458697229203*^9, 3.6254588341646447`*^9}, {3.6254590172633686`*^9, 
+   3.625459034566799*^9}, {3.6254591839106636`*^9, 3.625459194701486*^9}, {
+   3.6254593527939653`*^9, 3.6254594199338837`*^9}, {3.6254594538337436`*^9, 
+   3.625459472233176*^9}, {3.6254595126694474`*^9, 3.625459518098257*^9}, {
+   3.6254595963855953`*^9, 3.6254596073856153`*^9}, {3.6254596452048836`*^9, 
+   3.6254597098407974`*^9}, {3.6254597950243483`*^9, 
+   3.6254598125813794`*^9}, {3.625459927590584*^9, 3.625460016072542*^9}, {
+   3.625460103301098*^9, 3.625460110604911*^9}, {3.6254602792930117`*^9, 
+   3.625460313675274*^9}, {3.625460391812013*^9, 3.625460400489629*^9}, 
+   3.6254605068668194`*^9, {3.6254607599802685`*^9, 3.6254607607914696`*^9}, {
+   3.6254608760788746`*^9, 3.6254608799632816`*^9}, {3.625460911207537*^9, 
+   3.625460911597538*^9}, {3.6254610026400995`*^9, 3.6254610296809473`*^9}, {
+   3.6254615246516347`*^9, 3.625461629760223*^9}, {3.6254616801607127`*^9, 
+   3.6254617432496243`*^9}, {3.6254617810104933`*^9, 
+   3.6254618296063805`*^9}, {3.625461882259874*^9, 3.625461904155713*^9}, {
+   3.625461935892971*^9, 3.625461938644576*^9}, {3.6254619728548365`*^9, 
+   3.625462085662238*^9}},ExpressionUUID->"60bd2add-2e3e-4344-9aea-\
+42ceddce15e2"],
+
+Cell[BoxData[
+ DynamicModuleBox[{$CellContext`r$$ = 
+  1.0016805878123025`, $CellContext`\[Theta]$$ = 
+  1.5128612331714795`, $CellContext`e$$ = -0.43215973182444534`, \
+$CellContext`L$$ = -1.0294299999999998`, $CellContext`\[Epsilon]$$ = 
+  0.2899277222200647, $CellContext`\[Theta]0$$ = 
+  0.1432911912678123, $CellContext`p$$, $CellContext`v$$}, 
+  TagBox[
+   StyleBox[
+    DynamicModuleBox[{$CellContext`p$$ = {0.05800000000000005, 
+     1.}, $CellContext`v$$ = {1.068, 0.665}, Typeset`show$$ = True, 
+     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+     Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+     "\"untitled\"", Typeset`specs$$ = {{{
+        Hold[$CellContext`p$$], {1., 0.6}}, Automatic}, {{
+        Hold[$CellContext`v$$], {0.8, 1.}}, Automatic}}, Typeset`size$$ = {
+     360., {204., 210.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+     Typeset`skipInitDone$$ = True}, 
+     DynamicBox[Manipulate`ManipulateBoxes[
+      1, StandardForm, 
+       "Variables" :> {$CellContext`p$$ = {1., 0.6}, $CellContext`v$$ = {0.8, 
+          1.}}, "ControllerVariables" :> {}, 
+       "OtherVariables" :> {
+        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+         Typeset`specs$$, Typeset`size$$, Typeset`update$$, 
+         Typeset`initDone$$, Typeset`skipInitDone$$}, 
+       "Body" :> ($CellContext`r$$ = 
+         EuclideanDistance[{0., 
+           0.}, $CellContext`p$$]; $CellContext`\[Theta]$$ = 
+         Apply[ArcTan, $CellContext`p$$]; $CellContext`e$$ = 
+         Norm[$CellContext`v$$ - $CellContext`p$$]^2./2. - 1./
+          Norm[$CellContext`p$$]; $CellContext`L$$ = Last[
+           Cross[
+            Append[$CellContext`p$$, 0.], 
+            
+            Append[$CellContext`v$$ - $CellContext`p$$, 
+             0.]]]; $CellContext`\[Epsilon]$$ = (1. + 
+           2. $CellContext`e$$ $CellContext`L$$^2)^(1/
+           2); $CellContext`\[Theta]0$$ = If[Sign[
+             Dot[$CellContext`p$$, $CellContext`v$$ - $CellContext`p$$]] == 
+           Sign[$CellContext`L$$], $CellContext`\[Theta]$$ - 
+           ArcCos[($CellContext`L$$^2. - $CellContext`r$$)/($CellContext`r$$ \
+$CellContext`\[Epsilon]$$)], $CellContext`\[Theta]$$ + 
+           ArcCos[($CellContext`L$$^2. - $CellContext`r$$)/($CellContext`r$$ \
+$CellContext`\[Epsilon]$$)]]; Show[
+          Graphics[{Dashed, Red, 
+            Arrow[{{0., 0.}, $CellContext`p$$}], 
+            Text[
+             Style[
+             "\!\(\*OverscriptBox[\(r\), \(\[RightVector]\)]\)", 
+              14], $CellContext`p$$/2. + 
+             0.1 Normalize[{-1., 1.} Reverse[$CellContext`p$$]]], Blue, 
+            Arrow[{$CellContext`p$$, $CellContext`v$$}], 
+            Text[
+             Style[
+             "\!\(\*OverscriptBox[\(v\), \(\[RightVector]\)]\)", 
+              14], $CellContext`p$$ + ($CellContext`v$$ - $CellContext`p$$)/2 + 
+             0.1 Normalize[{1, -1} 
+                Reverse[$CellContext`v$$ - $CellContext`p$$]]], Black, 
+            PointSize[0.02], 
+            Point[{$CellContext`p$$}], Gray, 
+            PointSize[0.08], 
+            Point[{0., 0.}]}, PlotLabel -> 
+           StringJoin["\!\(\*\nStyleBox[\"r\",\nFontSlant->\"Italic\"]\)=", 
+             ToString[
+              Round[$CellContext`r$$, 10^(-2.)]], ", \[Theta]=", 
+             ToString[
+              Round[$CellContext`\[Theta]$$, 10^(-2.)]], 
+             "\n\!\(\*\nStyleBox[\"L\",\nFontSlant->\"Italic\"]\)=", 
+             ToString[
+              Round[
+               Last[
+                Cross[
+                 Append[$CellContext`p$$, 0.], 
+                 Append[$CellContext`v$$ - $CellContext`p$$, 0.]]], 
+               10^(-2.)]], 
+             ", \!\(\*\nStyleBox[\"E\",\nFontSlant->\"Italic\"]\)=", 
+             ToString[
+              Round[$CellContext`e$$, 10^(-2.)]], "\n\[Epsilon]=", 
+             ToString[
+              Round[$CellContext`\[Epsilon]$$, 10^(-2.)]]], PlotRange -> 1.5], 
+          
+          PolarPlot[$CellContext`L$$^2./(
+           1. + $CellContext`\[Epsilon]$$ 
+            Cos[$CellContext`\[Theta]\[Theta] - $CellContext`\[Theta]0$$]), \
+{$CellContext`\[Theta]\[Theta], 0., 2. Pi}, Ticks -> None, PerformanceGoal -> 
+           "Speed"]]), 
+       "Specifications" :> {{{$CellContext`p$$, {1., 0.6}}, Automatic, 
+          ControlType -> Locator, Appearance -> 
+          None}, {{$CellContext`v$$, {0.8, 1.}}, Automatic, ControlType -> 
+          Locator, Appearance -> None}}, "Options" :> {}, 
+       "DefaultOptions" :> {}],
+      ImageSizeCache->{417., {239., 245.}},
+      SingleEvaluation->True],
+     Deinitialization:>None,
+     DynamicModuleValues:>{},
+     SynchronousInitialization->True,
+     UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+     UnsavedVariables:>{Typeset`initDone$$},
+     UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+    Deployed->True,
+    StripOnInput->False],
+   Manipulate`InterpretManipulate[1]],
+  DynamicModuleValues:>{}]], "Output",
+ CellChangeTimes->{
+  3.726444076432186*^9},ExpressionUUID->"2f9c94b5-fc96-40d1-ab92-\
+17cbdd32646a"]
+}, Open  ]],
+
+Cell[TextData[{
+ "You may be surprised at how much longer the code is (I certainly was). \
+Mostly it is due to drawing more objects, but the calculations themselves \
+were much more intricate. It turns out that in this general case, there are \
+some serious subtleties arising from which quadrant the particle is in (due \
+to ArcCos having the limited range ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"[", 
+    RowBox[{"0", ",", "\[Pi]"}], "]"}], TraditionalForm]],ExpressionUUID->
+  "1e89bb3f-0af8-4dee-b171-93b0ca348bf4"],
+ "). Like many math proofs, you need to try it yourself to see how difficult \
+this seemingly easy calculation really is. "
+}], "Text",
+ CellChangeTimes->{{3.644980556010301*^9, 3.6449806164757595`*^9}, {
+   3.6449806466534853`*^9, 3.644980678999336*^9}, {3.6449807150653987`*^9, 
+   3.644980737681692*^9}, {3.644980795647008*^9, 3.6449808892913637`*^9}, 
+   3.644981526482809*^9},ExpressionUUID->"a5ae5d1a-bba0-421f-a725-\
+0309643d0e0b"]
+}, Open  ]]
+},
+WindowSize->{1350, 710},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (April 18, 2017)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]]}, Visible -> False, 
+  FrontEndVersion -> "11.1 for Microsoft Windows (64-bit) (April 18, 2017)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 163, 3, 70, "Section", "ExpressionUUID" -> \
+"dbecd960-4ce6-4cf2-b508-da499231d4b8"],
+Cell[746, 27, 1039, 21, 68, "Text", "ExpressionUUID" -> \
+"062df71f-8e8b-4064-87ef-4963bfbf5943"],
+Cell[1788, 50, 4516, 118, 157, "Input", "ExpressionUUID" -> \
+"6e64b8ff-96f9-43fc-81f8-5ea003994d8e"],
+Cell[6307, 170, 736, 20, 33, "Text", "ExpressionUUID" -> \
+"c8585a86-f1ba-49c7-80de-8f6ddc1839c3"],
+Cell[7046, 192, 568, 14, 33, "Text", "ExpressionUUID" -> \
+"05a80a3a-9730-44b9-8724-9315a95e0eb6"],
+Cell[CellGroupData[{
+Cell[7639, 210, 9222, 219, 463, "Input", "ExpressionUUID" -> \
+"60bd2add-2e3e-4344-9aea-42ceddce15e2"],
+Cell[16864, 431, 5151, 107, 501, "Output", "ExpressionUUID" -> \
+"2f9c94b5-fc96-40d1-ab92-17cbdd32646a"]
+}, Open  ]],
+Cell[22030, 541, 960, 18, 68, "Text", "ExpressionUUID" -> \
+"a5ae5d1a-bba0-421f-a725-0309643d0e0b"]
+}, Open  ]]
+}
+]
+*)
+
