@@ -15,7 +15,7 @@ print("Complete!")
 sigma = 5.67e-8  #The Stefan-Boltzmann constant
 Cp = 1000
 P = 10**5
-g = 10
+g = 10 
 C = Cp * P / g
 print(C)
 
@@ -30,22 +30,29 @@ matplotlib.rc('ytick',labelsize = 18)
 matplotlib.rc('axes',linewidth = 2)
 
 
-def feedbackEarth(X, Y, dTsdt, lines, surface = False):
-    
+def feedbackEarth(X, Y, dTsdt, lines, Tmin, Tmax,\
+                  surface = False, refline = False, labels = True):
+    '''Makes the actual graph of feedback in the Earth CO2 cycle.'''
     fig = plt.figure()
     if surface:
         ax = fig.add_subplot(111, projection='3d')
 
     p1 = plt.contour(X, Y, dTsdt, lines, color = 'k')
 
-    plt.clabel(p1, p1.levels)
-    plt.clabel(p1,inline=1,fontsize=10,fmt='%4.6f K/day')
+    if not labels:
+        plt.clabel(p1,inline=1,fontsize=10,fmt='%4.2f')
+    else:
+        plt.clabel(p1,inline=1,fontsize=10,fmt='%4.2f K/day')
+        
     plt.xlabel('$T_0 \quad (K)$', fontsize = 15)
     plt.ylabel('$T_S \quad (K)$', fontsize = 15)
-    plt.title('Surface Energy Balance')
+    plt.title('Surface Energy Balance \n' +\
+              'Contour Plot of Change in Surface Temperature ' +\
+              'with Respect to Time' )
 
-    plt.plot([220,320],[288,288],'r',linewidth=2) #TS = 288 K
-    #plt.plot([T0,T0],[Tmin,Tmax],'b',linewidth=2) # plug in for T0
+    if refline:
+        plt.plot([220,320],[288,288],'r',linewidth=2) #TS = 288 K
+        plt.plot([276.56,276.56],[Tmin,Tmax],'r',linewidth=2) # plug in for T0
 
     if surface:
         ax.plot_surface(X, Y, dTsdt, cmap=cm.coolwarm,
@@ -53,7 +60,7 @@ def feedbackEarth(X, Y, dTsdt, lines, surface = False):
 
     plt.show()
 
-def makeGraph(iceOn, lines, surface = False):
+def makeGraph(iceOn, lines, surface = False, refline = False, labels = True):
     '''Makes specific of the two plots.'''
     if iceOn:
         ########## Problem 1 ##############
@@ -83,16 +90,20 @@ def makeGraph(iceOn, lines, surface = False):
 
     if iceOn:
         ## Feedback function
-        dTsdt = (1/C)*(sigma*(X**4)*(1 - AofTs(Y))-(1/(1+tau))*sigma*(Y**4))
+        dTsdt = (1/C)*(sigma*(X**4)*(1 - AofTs(Y))-(1/(1+tau))*sigma*(Y**4))\
+                * (60 * 60 * 24)
     else:
         ## Feedback function
-        dTsdt = (1/C)*(sigma*(X**4)*(1 - A0)- (1/(1 + Tau(Y)))*sigma*(Y**4))
+        dTsdt = (1/C)*(sigma*(X**4)*(1 - A0)- (1/(1 + Tau(Y)))*sigma*(Y**4))\
+                * (60 * 60 * 24)
 
-    feedbackEarth(X, Y, dTsdt, lines, surface)
+    feedbackEarth(X, Y, dTsdt, lines, Tmin, Tmax, surface, refline, labels)
 
     
-
-makeGraph(True, 20)
+#makeGraph(True, 15)
+makeGraph(True, 15, refline = True)
+#makeGraph(False, 15)
+#makeGraph(False, 15, refline = True)
 
 
 
