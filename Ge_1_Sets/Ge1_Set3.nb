@@ -1,0 +1,1313 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     47635,       1305]
+NotebookOptionsPosition[     41303,       1143]
+NotebookOutlinePosition[     41645,       1158]
+CellTagsIndexPosition[     41602,       1155]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Problem 1", "Subsubsection",
+ CellChangeTimes->{{3.7344059118010316`*^9, 
+  3.7344059139570017`*^9}},ExpressionUUID->"f4d2b88f-52da-48a8-82e6-\
+585348f205de"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"depthDiff", "=", " ", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"4", ",", "\"\<Kilometers\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rhoContintent", " ", "=", " ", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"2.7", ",", 
+     RowBox[{"\"\<Grams\>\"", "/", 
+      RowBox[{"(", 
+       RowBox[{"\"\<Centimeters\>\"", "^", "3"}], ")"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rhoOceanic", " ", "=", " ", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"2.9", ",", 
+     RowBox[{"\"\<Grams\>\"", "/", 
+      RowBox[{"(", 
+       RowBox[{"\"\<Centimeters\>\"", "^", "3"}], ")"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rhoAstheno", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"3.2", ",", 
+     RowBox[{"\"\<Grams\>\"", "/", 
+      RowBox[{"(", 
+       RowBox[{"\"\<Centimeters\>\"", "^", "3"}], ")"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"heightOceanic", " ", "=", 
+  RowBox[{"Quantity", "[", 
+   RowBox[{"7", ",", "\"\<Kilometers\>\""}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"dC", 
+      RowBox[{"(", "rhoAstheno", ")"}]}], "\[Equal]", 
+     RowBox[{"hC", 
+      RowBox[{"(", "rhoContintent", ")"}]}]}], "&&", 
+    RowBox[{
+     RowBox[{"dO", 
+      RowBox[{"(", "rhoAstheno", ")"}]}], "\[Equal]", 
+     RowBox[{"heightOceanic", 
+      RowBox[{"(", "rhoOceanic", ")"}]}]}], "&&", "\[IndentingNewLine]", " ", 
+    RowBox[{"tC", "\[Equal]", 
+     RowBox[{"hC", "-", "dC"}]}], "&&", "\[IndentingNewLine]", 
+    RowBox[{"tO", "==", 
+     RowBox[{"(", 
+      RowBox[{"heightOceanic", "-", "dO"}], ")"}]}], "&&", 
+    "\[IndentingNewLine]", " ", 
+    RowBox[{
+     RowBox[{"tC", "-", "tO"}], "\[Equal]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"4", ",", "\"\<Kilometers\>\""}], "]"}]}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"dC", ",", "hC", ",", "dO", ",", "tC", ",", "tO"}], "}"}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.734405921137709*^9, 3.7344062934598026`*^9}, {
+  3.734406327500578*^9, 3.734406330641425*^9}, {3.7344826117835093`*^9, 
+  3.73448263179656*^9}, {3.734482719340393*^9, 3.734482733575343*^9}, {
+  3.734483369162035*^9, 3.734483405880395*^9}, {3.734484597117691*^9, 
+  3.7344846081341906`*^9}},ExpressionUUID->"6558496e-78fe-4fde-bfcf-\
+dc13a9a46b33"],
+
+Cell[BoxData[
+ TemplateBox[{"7","\"km\"","kilometers","\"Kilometers\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{3.7344062187967596`*^9, 3.7344062939769287`*^9, 
+  3.7344063354417076`*^9, 3.7344826366078663`*^9, 3.734482734190242*^9, 
+  3.7344834073251133`*^9, 3.7344846094080496`*^9, 3.734841395289755*^9, 
+  3.7349907272221727`*^9},ExpressionUUID->"0d45f204-6063-4df6-b140-\
+33f3a0925eae"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"dC", "\[Rule]", 
+     TemplateBox[{"25143.749999999996`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"hC", "\[Rule]", 
+     TemplateBox[{"29799.999999999993`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"dO", "\[Rule]", 
+     TemplateBox[{"6343.750000000001`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"tC", "\[Rule]", 
+     TemplateBox[{"4656.249999999999`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"tO", "\[Rule]", 
+     TemplateBox[{"656.2499999999994`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{3.7344062187967596`*^9, 3.7344062939769287`*^9, 
+  3.7344063354417076`*^9, 3.7344826366078663`*^9, 3.734482734190242*^9, 
+  3.7344834073251133`*^9, 3.7344846094080496`*^9, 3.734841395289755*^9, 
+  3.734990727861123*^9},ExpressionUUID->"ef7a8793-ffa5-4318-9c44-\
+70bfb720bfc0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"Quantity", "[", 
+     RowBox[{"4", ",", "\"\<Kilometers\>\""}], "]"}], "+", 
+    RowBox[{"(", 
+     RowBox[{"heightOceanic", "-", 
+      RowBox[{"heightOceanic", 
+       RowBox[{"(", 
+        RowBox[{"rhoOceanic", "/", "rhoAstheno"}], ")"}]}]}], ")"}]}], ")"}], 
+  "/", 
+  RowBox[{"(", 
+   RowBox[{"1", "-", 
+    RowBox[{"(", 
+     RowBox[{"rhoContintent", "/", "rhoAstheno"}], ")"}]}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.734486332230962*^9, 
+  3.734486373199232*^9}},ExpressionUUID->"4c23419d-5b90-4c2e-b0f8-\
+32af1a8015a6"],
+
+Cell[BoxData[
+ TemplateBox[{"29.8`","\"km\"","kilometers","\"Kilometers\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{3.7344863742004604`*^9, 3.734841395737089*^9, 
+  3.73499072812681*^9},ExpressionUUID->"54f33c18-f933-41cc-a099-399cd022c657"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Problem 2", "Subsubsection",
+ CellChangeTimes->{{3.7344063557010956`*^9, 
+  3.7344063591425333`*^9}},ExpressionUUID->"214baf8f-24ae-476e-a8da-\
+d6afc9087826"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"dO", 
+      RowBox[{"(", "rhoAstheno", ")"}]}], "\[Equal]", 
+     RowBox[{"heightOceanic", 
+      RowBox[{"(", "rhoOceanic", ")"}]}]}], "&&", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"dOP", 
+      RowBox[{"(", "rhoAstheno", ")"}]}], "\[Equal]", 
+     RowBox[{"hOP", 
+      RowBox[{"(", "rhoOceanic", ")"}]}]}], "&&", "\[IndentingNewLine]", 
+    RowBox[{"tO", "==", 
+     RowBox[{"(", 
+      RowBox[{"heightOceanic", "-", "dO"}], ")"}]}], "&&", 
+    RowBox[{"tOP", "==", 
+     RowBox[{"(", 
+      RowBox[{"hOP", "-", "dOP"}], ")"}]}], "&&", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"tOP", "-", "tO"}], "\[Equal]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"3", ",", "\"\<Kilometers\>\""}], "]"}]}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"dOP", ",", "hOP", ",", "dO", ",", "tC", ",", "tO", ",", "tOP"}], 
+    "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7344835005290704`*^9, 3.734483615989375*^9}, {
+  3.7344846131815224`*^9, 
+  3.734484618200773*^9}},ExpressionUUID->"5cae3c93-0b76-408a-a31b-\
+7fd749c04dbd"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"dOP", "\[Rule]", 
+     TemplateBox[{"35343.749999999985`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"hOP", "\[Rule]", 
+     TemplateBox[{"38999.999999999985`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"dO", "\[Rule]", 
+     TemplateBox[{"6343.750000000001`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"tO", "\[Rule]", 
+     TemplateBox[{"656.2499999999994`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"tOP", "\[Rule]", 
+     TemplateBox[{"3656.2499999999995`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{{3.734483589653427*^9, 3.7344836170492015`*^9}, 
+   3.734484620141674*^9, 3.7348413960773115`*^9, 
+   3.7349907285220947`*^9},ExpressionUUID->"547b11f0-4995-4564-a99b-\
+9fa07c250c30"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"Quantity", "[", 
+     RowBox[{"3", ",", "\"\<Kilometers\>\""}], "]"}], "+", 
+    RowBox[{"(", 
+     RowBox[{"heightOceanic", "-", 
+      RowBox[{"heightOceanic", 
+       RowBox[{"(", 
+        RowBox[{"rhoOceanic", "/", "rhoAstheno"}], ")"}]}]}], ")"}]}], ")"}], 
+  "/", 
+  RowBox[{"(", 
+   RowBox[{"1", "-", 
+    RowBox[{"(", 
+     RowBox[{"rhoOceanic", "/", "rhoAstheno"}], ")"}]}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.7344867456316175`*^9, 
+  3.7344867860726805`*^9}},ExpressionUUID->"b00f2b77-206a-43de-8de2-\
+9985d36c5fe1"],
+
+Cell[BoxData[
+ TemplateBox[{"39.`","\"km\"","kilometers","\"Kilometers\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{3.7344867539055157`*^9, 3.734486786902506*^9, 
+  3.734841396088331*^9, 
+  3.734990728541105*^9},ExpressionUUID->"fdd895c6-3499-442c-90a7-\
+4fb0aec91bfe"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"rhoOceanic", "/", 
+  RowBox[{"(", 
+   RowBox[{"rhoAstheno", "-", "rhoOceanic"}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.7350056626910925`*^9, 
+  3.735005674024336*^9}},ExpressionUUID->"b4df49dd-57a3-4d4e-9b2e-\
+18ed2eb30c7c"],
+
+Cell[BoxData["9.666666666666657`"], "Output",
+ CellChangeTimes->{
+  3.735005674493651*^9},ExpressionUUID->"9cdc4ccb-8f8b-4417-aa49-\
+a6e94028bb0a"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Problem 3a", "Subsubsection",
+ CellChangeTimes->{{3.73440637825799*^9, 3.73440638038817*^9}, 
+   3.7344840183126106`*^9},ExpressionUUID->"57c02931-1bf2-49d5-adf5-\
+b0ebf2649cfb"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"heightContinent1", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"27", ",", "\"\<Kilometers\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"heightContinent2", "=", 
+  RowBox[{"heightContinent1", "+", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"8", ",", "\"\<Kilometers\>\""}], 
+    "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rhoBasalt", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"2.9", ",", " ", 
+     RowBox[{"\"\<Grams\>\"", "/", 
+      RowBox[{"(", 
+       RowBox[{"\"\<Centimeters\>\"", "^", "3"}], ")"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rhoEclogite", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"4.2", ",", " ", 
+     RowBox[{"\"\<Grams\>\"", "/", 
+      RowBox[{"(", 
+       RowBox[{"\"\<Centimeters\>\"", "^", "3"}], ")"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"rho8km", "=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"heightContinent1", 
+      RowBox[{"(", "rhoContintent", ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{"8", ",", "\"\<Kilometers\>\""}], "]"}], 
+      RowBox[{"(", "rhoBasalt", ")"}]}]}], ")"}], "/", 
+   RowBox[{"(", 
+    RowBox[{"heightContinent1", "+", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"8", ",", "\"\<Kilometers\>\""}], "]"}]}], ")"}]}]}]}], "Input",
+ CellChangeTimes->{{3.734484036529719*^9, 3.734484298376954*^9}, {
+   3.7344843912068987`*^9, 3.734484415166325*^9}, {3.7344844957847767`*^9, 
+   3.7344845296479836`*^9}, {3.7344845735304127`*^9, 3.734484590766362*^9}, {
+   3.7344847332670484`*^9, 3.734484733623027*^9}, 
+   3.735008852784867*^9},ExpressionUUID->"d4997cbd-37a3-4b30-b3ee-\
+9b3e8ef7a552"],
+
+Cell[BoxData[
+ TemplateBox[{"35","\"km\"","kilometers","\"Kilometers\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.734484189354216*^9, 3.734484213777589*^9}, 
+   3.734484300245981*^9, {3.734484407919362*^9, 3.7344844185094423`*^9}, {
+   3.7344845132164016`*^9, 3.7344845922384415`*^9}, 3.734484647216713*^9, 
+   3.7344847344450593`*^9, 3.734841396148363*^9, 3.7349907286096745`*^9, 
+   3.735008853796446*^9},ExpressionUUID->"d0e88b48-91ba-46c6-a682-\
+b3251ceaa0b5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "2.745714285714286`",
+   RowBox[{"\"g\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+     SuperscriptBox["\"cm\"", "3"]}],"grams per centimeter cubed",FractionBox[
+   "\"Grams\"", 
+    SuperscriptBox["\"Centimeters\"", "3"]]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.734484189354216*^9, 3.734484213777589*^9}, 
+   3.734484300245981*^9, {3.734484407919362*^9, 3.7344844185094423`*^9}, {
+   3.7344845132164016`*^9, 3.7344845922384415`*^9}, 3.734484647216713*^9, 
+   3.7344847344450593`*^9, 3.734841396148363*^9, 3.7349907286096745`*^9, 
+   3.7350088538639936`*^9},ExpressionUUID->"d2e6b538-f161-4f7c-9e00-\
+63d6cfe500f7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"tC1", "\[Equal]", 
+     RowBox[{"heightContinent1", "-", "dC1"}]}], "&&", "\[IndentingNewLine]", 
+    RowBox[{"tC2", "\[Equal]", 
+     RowBox[{"heightContinent2", "-", "dC2"}]}], "&&", "\[IndentingNewLine]", 
+    RowBox[{"deltatC", "\[Equal]", " ", 
+     RowBox[{"tC1", "-", "tC2"}]}], "&&", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"dC1", 
+      RowBox[{"(", "rhoAstheno", ")"}]}], "\[Equal]", 
+     RowBox[{"heightContinent1", 
+      RowBox[{"(", "rhoContintent", ")"}]}]}], "&&", " ", 
+    RowBox[{
+     RowBox[{"dC2", 
+      RowBox[{"(", "rhoAstheno", ")"}]}], "\[Equal]", 
+     RowBox[{"heightContinent2", 
+      RowBox[{"(", "rho8km", ")"}]}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"dC1", ",", "dC2", ",", "tC1", ",", "tC2", ",", "deltatC"}], 
+    "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7344846635913744`*^9, 
+  3.734484725740898*^9}},ExpressionUUID->"e4c2abac-9c9a-4666-8fca-\
+f405c2f7237f"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"dC1", "\[Rule]", 
+     TemplateBox[{"22.78125`","\"km\"","kilometers","\"Kilometers\""},
+      "Quantity"]}], ",", 
+    RowBox[{"dC2", "\[Rule]", 
+     TemplateBox[{
+      "30.031250000000004`","\"km\"","kilometers","\"Kilometers\""},
+      "Quantity"]}], ",", 
+    RowBox[{"tC1", "\[Rule]", 
+     TemplateBox[{"4.21875`","\"km\"","kilometers","\"Kilometers\""},
+      "Quantity"]}], ",", 
+    RowBox[{"tC2", "\[Rule]", 
+     TemplateBox[{"4.968749999999995`","\"km\"","kilometers","\"Kilometers\""},
+      "Quantity"]}], ",", 
+    RowBox[{"deltatC", "\[Rule]", 
+     TemplateBox[{
+      RowBox[{"-", "0.7499999999999964`"}],"\"km\"","kilometers",
+       "\"Kilometers\""},
+      "Quantity"]}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{{3.734484189354216*^9, 3.734484213777589*^9}, 
+   3.734484300245981*^9, {3.734484407919362*^9, 3.7344844185094423`*^9}, {
+   3.7344845132164016`*^9, 3.7344845922384415`*^9}, 3.734484647582535*^9, {
+   3.73448468232388*^9, 3.734484736863784*^9}, 3.7348413964365654`*^9, 
+   3.7349907289223857`*^9},ExpressionUUID->"0969cc2d-3580-47a6-bc53-\
+e1f9f9134c02"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"heightContinent1", "-", 
+  RowBox[{"heightContinent1", 
+   RowBox[{"(", 
+    RowBox[{"rhoContintent", "/", "rhoAstheno"}], 
+    ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"dnCalc", "=", 
+  RowBox[{"heightContinent2", 
+   RowBox[{"(", 
+    RowBox[{"rho8km", "/", "rhoAstheno"}], ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"tnCalc", "=", 
+  RowBox[{"heightContinent2", "-", "dnCalc"}]}]}], "Input",
+ CellChangeTimes->{{3.7344871068381124`*^9, 3.7344871203715343`*^9}, {
+  3.7344879693484583`*^9, 3.7344879965650034`*^9}, {3.734488134484152*^9, 
+  3.734488170513627*^9}},ExpressionUUID->"364508b7-b725-4558-97ce-\
+8544018afabe"],
+
+Cell[BoxData[
+ TemplateBox[{"4.21875`","\"km\"","kilometers","\"Kilometers\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.734487120953618*^9, 3.7344879969292555`*^9, {3.734488144133994*^9, 
+   3.734488171077011*^9}, 3.734841396452579*^9, 
+   3.7349907289593987`*^9},ExpressionUUID->"1ae37bce-c560-4739-bd94-\
+fca0f036ada1"],
+
+Cell[BoxData[
+ TemplateBox[{"30.031250000000004`","\"km\"","kilometers","\"Kilometers\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.734487120953618*^9, 3.7344879969292555`*^9, {3.734488144133994*^9, 
+   3.734488171077011*^9}, 3.734841396452579*^9, 
+   3.7349907289659033`*^9},ExpressionUUID->"602e83f6-6632-491c-925e-\
+d3936844e6e7"],
+
+Cell[BoxData[
+ TemplateBox[{"4.9687499999999964`","\"km\"","kilometers","\"Kilometers\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.734487120953618*^9, 3.7344879969292555`*^9, {3.734488144133994*^9, 
+   3.734488171077011*^9}, 3.734841396452579*^9, 
+   3.7349907289679203`*^9},ExpressionUUID->"6886ace0-8544-47c3-8174-\
+628a08b83491"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Problem 3b", "Subsubsection",
+ CellChangeTimes->{{3.7344840216215353`*^9, 
+  3.734484023923745*^9}},ExpressionUUID->"5e5d8f97-e904-4d77-9d84-\
+4856ca00409a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"heightContinent3", " ", "=", " ", 
+  RowBox[{"heightContinent1", "+", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"18", ",", " ", "\"\<Kilometers\>\""}], 
+    "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"rho18km", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"heightContinent1", 
+      RowBox[{"(", "rhoContintent", ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{"8", ",", "\"\<Kilometers\>\""}], "]"}], 
+      RowBox[{"(", "rhoBasalt", ")"}]}], " ", "+", " ", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{"10", ",", "\"\<Kilometers\>\""}], "]"}], 
+      RowBox[{"(", "rhoEclogite", ")"}]}]}], ")"}], "/", 
+   RowBox[{"(", 
+    RowBox[{"heightContinent1", "+", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"18", ",", "\"\<Kilometers\>\""}], "]"}]}], ")"}]}]}]}], "Input",
+ CellChangeTimes->{{3.734990776687645*^9, 3.734990825137697*^9}, {
+  3.7349909628356194`*^9, 
+  3.73499098860167*^9}},ExpressionUUID->"5370448c-7f60-401f-be23-\
+5fc4b36664d5"],
+
+Cell[BoxData[
+ TemplateBox[{"45","\"km\"","kilometers","\"Kilometers\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.73499082691252*^9, {3.734990989485281*^9, 
+   3.73499101054983*^9}},ExpressionUUID->"4728e39e-45d7-4288-afeb-\
+92366b1bbf8d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "3.068888888888889`",
+   RowBox[{"\"g\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+     SuperscriptBox["\"cm\"", "3"]}],"grams per centimeter cubed",FractionBox[
+   "\"Grams\"", 
+    SuperscriptBox["\"Centimeters\"", "3"]]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.73499082691252*^9, {3.734990989485281*^9, 
+   3.7349910105858707`*^9}},ExpressionUUID->"8827e452-c93d-44e7-af36-\
+fa0db9d47194"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"tC1", "\[Equal]", 
+     RowBox[{"heightContinent1", "-", "dC1"}]}], "&&", "\[IndentingNewLine]", 
+    RowBox[{"tC2", "\[Equal]", 
+     RowBox[{"heightContinent3", "-", "dC2"}]}], "&&", "\[IndentingNewLine]", 
+    RowBox[{"deltatC", "\[Equal]", " ", 
+     RowBox[{"tC1", "-", "tC2"}]}], "&&", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"dC1", 
+      RowBox[{"(", "rhoAstheno", ")"}]}], "\[Equal]", 
+     RowBox[{"heightContinent1", 
+      RowBox[{"(", "rhoContintent", ")"}]}]}], "&&", " ", 
+    RowBox[{
+     RowBox[{"dC2", 
+      RowBox[{"(", "rhoAstheno", ")"}]}], "\[Equal]", 
+     RowBox[{"heightContinent3", 
+      RowBox[{"(", "rho18km", ")"}]}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"dC1", ",", "dC2", ",", "tC1", ",", "tC2", ",", "deltatC"}], 
+    "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.7349908530380325`*^9, {3.7349910018398514`*^9, 
+   3.7349910032533493`*^9}},ExpressionUUID->"0955622f-43fb-437a-b415-\
+d667a2bf0cf3"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"dC1", "\[Rule]", 
+     TemplateBox[{"22.78125`","\"km\"","kilometers","\"Kilometers\""},
+      "Quantity"]}], ",", 
+    RowBox[{"dC2", "\[Rule]", 
+     TemplateBox[{"43.15625`","\"km\"","kilometers","\"Kilometers\""},
+      "Quantity"]}], ",", 
+    RowBox[{"tC1", "\[Rule]", 
+     TemplateBox[{"4.21875`","\"km\"","kilometers","\"Kilometers\""},
+      "Quantity"]}], ",", 
+    RowBox[{"tC2", "\[Rule]", 
+     TemplateBox[{"1.84375`","\"km\"","kilometers","\"Kilometers\""},
+      "Quantity"]}], ",", 
+    RowBox[{"deltatC", "\[Rule]", 
+     TemplateBox[{"2.375`","\"km\"","kilometers","\"Kilometers\""},
+      "Quantity"]}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{3.734990855790517*^9, 
+  3.734991012683839*^9},ExpressionUUID->"cb893635-9019-4a47-ab64-\
+54bf42b1bc8d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"declo", "=", 
+  RowBox[{"heightContinent3", 
+   RowBox[{"(", 
+    RowBox[{"rho18km", "/", "rhoAstheno"}], ")"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"teclo", " ", "=", " ", 
+  RowBox[{"heightContinent3", "-", "declo"}]}]}], "Input",
+ CellChangeTimes->{{3.734990898747755*^9, 3.7349909511561227`*^9}, {
+  3.73499100548895*^9, 
+  3.734991007833373*^9}},ExpressionUUID->"15fd9876-840d-4bf2-b2e7-\
+55b74d34d7fb"],
+
+Cell[BoxData[
+ TemplateBox[{"43.15625`","\"km\"","kilometers","\"Kilometers\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.734990924019907*^9, 3.734990951667474*^9}, 
+   3.734991014797373*^9},ExpressionUUID->"4dc9412a-67a8-44ca-804b-\
+4a7c00386a07"],
+
+Cell[BoxData[
+ TemplateBox[{"1.84375`","\"km\"","kilometers","\"Kilometers\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.734990924019907*^9, 3.734990951667474*^9}, 
+   3.734991014800875*^9},ExpressionUUID->"883f1b5a-d06c-4e09-8164-\
+d925d2bda8ed"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Problem 3c", "Subsubsection",
+ CellChangeTimes->{{3.7344840256780243`*^9, 
+  3.734484032595341*^9}},ExpressionUUID->"b9069785-b0b3-4a1b-8a94-\
+ba929304b9bb"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"dC1", 
+      RowBox[{"(", "rhoAstheno", ")"}]}], "\[Equal]", 
+     RowBox[{"heightContinent1", 
+      RowBox[{"(", "rhoContintent", ")"}]}]}], "&&", " ", 
+    RowBox[{
+     RowBox[{"dC2", 
+      RowBox[{"(", "rhoAstheno", ")"}]}], "\[Equal]", 
+     RowBox[{"heightNoChange", 
+      RowBox[{"(", "rhoDepth", ")"}]}]}], "&&", "\[IndentingNewLine]", 
+    RowBox[{"tC1", " ", "\[Equal]", " ", 
+     RowBox[{"heightContinent1", " ", "-", " ", "dC1"}]}], " ", "&&", 
+    "\[IndentingNewLine]", 
+    RowBox[{"tC2", "\[Equal]", 
+     RowBox[{"heightNoChange", "-", "dC2"}]}], "&&", "\[IndentingNewLine]", 
+    RowBox[{"tC1", "\[Equal]", " ", "tC2"}], " ", "&&", "\[IndentingNewLine]", 
+    RowBox[{"rhoDepth", "\[Equal]", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"heightContinent1", 
+         RowBox[{"(", "rhoContintent", ")"}]}], "+", 
+        RowBox[{"amountBasalt", 
+         RowBox[{"(", "rhoBasalt", ")"}]}], "+", 
+        RowBox[{"amountEclo", 
+         RowBox[{"(", "rhoEclogite", ")"}]}]}], ")"}], "/", 
+      RowBox[{"(", "heightNoChange", ")"}]}]}], "&&", "\[IndentingNewLine]", 
+    RowBox[{"heightNoChange", "\[Equal]", 
+     RowBox[{"heightContinent1", "+", "amountBasalt", "+", "amountEclo"}]}], "&&",
+     "\[IndentingNewLine]", 
+    RowBox[{"amountEclo", "\[Equal]", 
+     RowBox[{"heightNoChange", "-", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"35", ",", "\"\<Kilometers\>\""}], "]"}]}]}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+    "dC1", ",", "dC2", ",", "tC1", ",", "tC2", ",", "rhoDepth", ",", " ", 
+     "heightNoChange", ",", " ", "amountBasalt", ",", " ", "amountEclo"}], 
+    "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7350039868341737`*^9, 3.7350040754921856`*^9}, {
+  3.7350041366940393`*^9, 3.7350041974092236`*^9}, {3.735004253230508*^9, 
+  3.7350043761553*^9}, {3.735004433518781*^9, 3.7350044342938285`*^9}, {
+  3.735004473473078*^9, 3.7350044844963865`*^9}, {3.735004629370366*^9, 
+  3.7350047987599697`*^9}, {3.7350048433526907`*^9, 3.7350048520218225`*^9}, {
+  3.7350049016213074`*^9, 3.7350050819446063`*^9}, {3.735018464273661*^9, 
+  3.735018464741993*^9}},ExpressionUUID->"ed64f08e-f3c2-43ba-a85c-\
+136a64fc92b9"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,64,25,32699945787177275305,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7350050053211775`*^9, 3.7350050493302207`*^9, 3.7350050833661346`*^9, {
+   3.7350184593856945`*^9, 
+   3.7350184665713573`*^9}},ExpressionUUID->"aa8f3f3e-0d95-411a-b271-\
+12b81092abb4"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"dC1", "\[Rule]", 
+     TemplateBox[{"22781.25`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"dC2", "\[Rule]", 
+     TemplateBox[{"33181.25`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"tC1", "\[Rule]", 
+     TemplateBox[{"4218.75`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"tC2", "\[Rule]", 
+     TemplateBox[{"4218.75`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"rhoDepth", "\[Rule]", 
+     TemplateBox[{
+      "2.8390374331550803`*^6",
+       RowBox[{"\"g\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+         SuperscriptBox["\"m\"", "3"]}],"grams per meter cubed",FractionBox[
+       "\"Grams\"", 
+        SuperscriptBox["\"Meters\"", "3"]]},
+      "Quantity"]}], ",", 
+    RowBox[{"heightNoChange", "\[Rule]", 
+     TemplateBox[{"37400.`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"amountBasalt", "\[Rule]", 
+     TemplateBox[{"8000.`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"amountEclo", "\[Rule]", 
+     TemplateBox[{"2400.`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{{3.735004994934293*^9, 3.7350050053276815`*^9}, 
+   3.7350050495213566`*^9, 3.7350050833906403`*^9, {3.7350184594167166`*^9, 
+   3.735018466600878*^9}},ExpressionUUID->"c4e1cc7b-9df2-42a7-9ee9-\
+4b7ac6759b14"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"dC1", 
+      RowBox[{"(", "rhoAstheno", ")"}]}], "\[Equal]", 
+     RowBox[{"heightContinent1", 
+      RowBox[{"(", "rhoContintent", ")"}]}]}], "&&", " ", 
+    RowBox[{
+     RowBox[{"dC2", 
+      RowBox[{"(", "rhoAstheno", ")"}]}], "\[Equal]", 
+     RowBox[{"heightNoChange", 
+      RowBox[{"(", "rhoDepth", ")"}]}]}], "&&", "\[IndentingNewLine]", 
+    RowBox[{"tC1", " ", "\[Equal]", " ", 
+     RowBox[{"heightContinent1", " ", "-", " ", "dC1"}]}], " ", "&&", 
+    "\[IndentingNewLine]", 
+    RowBox[{"tC2", "\[Equal]", 
+     RowBox[{"heightNoChange", "-", "dC2"}]}], "&&", "\[IndentingNewLine]", 
+    RowBox[{"tC1", "\[Equal]", " ", "tC2"}], " ", "&&", "\[IndentingNewLine]", 
+    RowBox[{"rhoDepth", "\[Equal]", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"heightContinent1", 
+         RowBox[{"(", "rhoContintent", ")"}]}], "+", 
+        RowBox[{"amountBasalt", 
+         RowBox[{"(", "rhoBasalt", ")"}]}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"heightContinent1", "+", "amountBasalt"}], ")"}]}]}], "&&", 
+    "\[IndentingNewLine]", 
+    RowBox[{"heightNoChange", "\[Equal]", 
+     RowBox[{"heightContinent1", "+", "amountBasalt"}]}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+    "dC1", ",", "dC2", ",", "tC1", ",", "tC2", ",", "rhoDepth", ",", " ", 
+     "heightNoChange", ",", " ", "amountBasalt"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7350039868341737`*^9, 3.7350040754921856`*^9}, {
+  3.7350041366940393`*^9, 3.7350041974092236`*^9}, {3.735004253230508*^9, 
+  3.7350043761553*^9}, {3.735004433518781*^9, 3.7350044342938285`*^9}, {
+  3.735004473473078*^9, 3.7350044844963865`*^9}, {3.735004629370366*^9, 
+  3.7350047987599697`*^9}, {3.7350048433526907`*^9, 3.7350048520218225`*^9}, {
+  3.7350049016213074`*^9, 
+  3.7350049890996447`*^9}},ExpressionUUID->"83c45e7a-1863-42ab-b2df-\
+a5c78f1ce334"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,47,20,32699945787177275305,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.735004771047415*^9, 3.7350047998172193`*^9}, 
+   3.735004843793993*^9, {3.7350048919934883`*^9, 3.735004912450122*^9}, 
+   3.73500495303397*^9},ExpressionUUID->"743318d9-f53c-4921-93fa-\
+d46984393147"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"dC1", "\[Rule]", 
+     TemplateBox[{"22781.25`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"dC2", "\[Rule]", 
+     TemplateBox[{"22781.25`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"tC1", "\[Rule]", 
+     TemplateBox[{"4218.75`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"tC2", "\[Rule]", 
+     TemplateBox[{"4218.75`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"rhoDepth", "\[Rule]", 
+     TemplateBox[{
+      "2.7`*^6",
+       RowBox[{"\"g\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+         SuperscriptBox["\"m\"", "3"]}],"grams per meter cubed",FractionBox[
+       "\"Grams\"", 
+        SuperscriptBox["\"Meters\"", "3"]]},
+      "Quantity"]}], ",", 
+    RowBox[{"heightNoChange", "\[Rule]", 
+     TemplateBox[{"27000.`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"amountBasalt", "\[Rule]", 
+     TemplateBox[{"0.`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{{3.735004342612735*^9, 3.735004378569501*^9}, 
+   3.735004438388241*^9, 3.7350044865246253`*^9, {3.7350047710178947`*^9, 
+   3.7350048000128555`*^9}, 3.7350048440141478`*^9, {3.7350048922161446`*^9, 
+   3.7350049125872183`*^9}, 
+   3.735004953057495*^9},ExpressionUUID->"984362bb-e880-4eca-9d5c-\
+21364ecbba77"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"hn", "\[Equal]", 
+     RowBox[{"heightContinent1", "+", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"8", ",", " ", "\"\<Kilometers\>\""}], "]"}], "+", "he"}]}], 
+    " ", "&&", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"rhoAstheno", 
+      RowBox[{"(", 
+       RowBox[{"hn", " ", "-", " ", "heightContinent1", "+", 
+        RowBox[{"heightContinent1", 
+         RowBox[{"(", 
+          RowBox[{"rhoContintent", "/", "rhoAstheno"}], ")"}]}]}], ")"}]}], 
+     "\[Equal]", 
+     RowBox[{
+      RowBox[{"heightContinent1", 
+       RowBox[{"(", "rhoContintent", ")"}]}], " ", "+", " ", 
+      RowBox[{
+       RowBox[{"Quantity", "[", 
+        RowBox[{"8", ",", " ", "\"\<Kilometers\>\""}], "]"}], 
+       RowBox[{"(", "rhoBasalt", ")"}]}], " ", "+", " ", 
+      RowBox[{"he", " ", 
+       RowBox[{"(", "rhoEclogite", ")"}]}]}]}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"hn", ",", "he"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7350179834634724`*^9, 3.7350181864604006`*^9}, {
+  3.7350183225451593`*^9, 
+  3.7350183254942627`*^9}},ExpressionUUID->"f6302fcc-1fa9-4be3-95c5-\
+a91e40cacc9f"],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{{3.7350181472558165`*^9, 3.735018187033806*^9}, 
+   3.735018326726616*^9},ExpressionUUID->"0a24a42d-4448-4eee-8635-\
+dc96844ea5c8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"heightNoChange", 
+      RowBox[{
+       RowBox[{"(", "rhoDepth", ")"}], "/", 
+       RowBox[{"(", "rhoAstheno", ")"}]}]}], "\[Equal]", 
+     RowBox[{"heightNoChange", "-", "heightContinent1", "+", 
+      RowBox[{"heightContinent1", 
+       RowBox[{
+        RowBox[{"(", "rhoContintent", ")"}], "/", 
+        RowBox[{"(", "rhoAstheno", ")"}]}]}]}]}], "&&", "\[IndentingNewLine]", 
+    RowBox[{"rhoDepth", "\[Equal]", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"heightContinent1", 
+         RowBox[{"(", "rhoContintent", ")"}]}], "+", 
+        RowBox[{"amountBasalt", 
+         RowBox[{"(", "rhoBasalt", ")"}]}], "+", 
+        RowBox[{"amountEclo", 
+         RowBox[{"(", "rhoEclogite", ")"}]}]}], ")"}], "/", 
+      RowBox[{"(", "heightNoChange", ")"}]}]}], "&&", "\[IndentingNewLine]", 
+    RowBox[{"heightNoChange", "\[Equal]", 
+     RowBox[{"heightContinent1", "+", "amountBasalt", "+", "amountEclo"}]}], "&&",
+     "\[IndentingNewLine]", 
+    RowBox[{"amountEclo", "\[Equal]", 
+     RowBox[{"heightNoChange", "-", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"35", ",", "\"\<Kilometers\>\""}], "]"}]}]}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+    "rhoDepth", ",", " ", "heightNoChange", ",", " ", "amountBasalt", ",", 
+     " ", "amountEclo"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.735018588744512*^9, 3.735018742369733*^9}, {
+  3.735018836516589*^9, 3.7350188407861085`*^9}, {3.735018945835617*^9, 
+  3.7350189991250563`*^9}, {3.7350190475905657`*^9, 
+  3.7350191850402384`*^9}},ExpressionUUID->"99221def-9bab-44a8-9f69-\
+82cdd79a1e6b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,78,35,32699945787177275305,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7350189474247403`*^9, {3.735018992584899*^9, 3.735019000820759*^9}, {
+   3.7350190611113634`*^9, 3.7350190768995867`*^9}, 3.735019131067029*^9, {
+   3.735019175141241*^9, 
+   3.7350191856511707`*^9}},ExpressionUUID->"58662bf5-ddd2-4d05-85a4-\
+b079ca598ec8"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"rhoDepth", "\[Rule]", 
+     TemplateBox[{
+      "2839.03743315508`",
+       RowBox[{"\"kg\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+         SuperscriptBox["\"m\"", "3"]}],"kilograms per meter cubed",
+       FractionBox["\"Kilograms\"", 
+        SuperscriptBox["\"Meters\"", "3"]]},
+      "Quantity"]}], ",", 
+    RowBox[{"heightNoChange", "\[Rule]", 
+     TemplateBox[{"37400.`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"amountBasalt", "\[Rule]", 
+     TemplateBox[{"8000.`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}], ",", 
+    RowBox[{"amountEclo", "\[Rule]", 
+     TemplateBox[{"2400.`","\"m\"","meters","\"Meters\""},
+      "Quantity"]}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{{3.7350186877854395`*^9, 3.735018744006944*^9}, 
+   3.735018842137064*^9, 3.7350189474502583`*^9, {3.7350189926154194`*^9, 
+   3.7350190008472767`*^9}, {3.7350190611368814`*^9, 3.7350190769251046`*^9}, 
+   3.735019131092045*^9, {3.7350191751622562`*^9, 
+   3.7350191856756873`*^9}},ExpressionUUID->"0b3243d8-b615-4d8b-af2a-\
+977579a7c394"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"rhoDepth", "\[Equal]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", "rhoAstheno", ")"}], "/", 
+       RowBox[{"(", "heightNoChange", ")"}]}], 
+      RowBox[{"(", 
+       RowBox[{"heightNoChange", "-", "heightContinent1", "+", 
+        RowBox[{"heightContinent1", 
+         RowBox[{
+          RowBox[{"(", "rhoContintent", ")"}], "/", 
+          RowBox[{"(", "rhoAstheno", ")"}]}]}]}], ")"}]}]}], "&&", 
+    "\[IndentingNewLine]", 
+    RowBox[{"rhoDepth", "\[Equal]", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"heightContinent1", 
+         RowBox[{"(", "rhoContintent", ")"}]}], "+", 
+        RowBox[{"amountBasalt", 
+         RowBox[{"(", "rhoBasalt", ")"}]}], "+", 
+        RowBox[{"amountEclo", 
+         RowBox[{"(", "rhoEclogite", ")"}]}]}], ")"}], "/", 
+      RowBox[{"(", "heightNoChange", ")"}]}]}], "&&", "\[IndentingNewLine]", 
+    RowBox[{"heightNoChange", "\[Equal]", 
+     RowBox[{"heightContinent1", "+", "amountBasalt", "+", "amountEclo"}]}], "&&",
+     "\[IndentingNewLine]", 
+    RowBox[{"amountEclo", "\[Equal]", 
+     RowBox[{"heightNoChange", "-", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"35", ",", "\"\<Kilometers\>\""}], "]"}]}]}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+    "rhoDepth", ",", " ", "heightNoChange", ",", " ", "amountBasalt", ",", 
+     " ", "amountEclo"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.735019210702515*^9, 
+  3.7350192375200863`*^9}},ExpressionUUID->"1e2a228b-e14b-441a-8aa7-\
+75d47942bda3"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,79,36,32699945787177275305,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.73501923930133*^9},ExpressionUUID->"53cb0413-9bbf-4627-921f-93a6b2dcbae6"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"rhoDepth", "\[Rule]", 
+     TemplateBox[{
+      "2.83903743315508`*^15",
+       RowBox[{"\"g\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+         SuperscriptBox["\"km\"", "3"]}],"grams per kilometer cubed",
+       FractionBox["\"Grams\"", 
+        SuperscriptBox["\"Kilometers\"", "3"]]},
+      "Quantity"]}], ",", 
+    RowBox[{"heightNoChange", "\[Rule]", 
+     TemplateBox[{"37.4`","\"km\"","kilometers","\"Kilometers\""},
+      "Quantity"]}], ",", 
+    RowBox[{"amountBasalt", "\[Rule]", 
+     TemplateBox[{"8.`","\"km\"","kilometers","\"Kilometers\""},
+      "Quantity"]}], ",", 
+    RowBox[{"amountEclo", "\[Rule]", 
+     TemplateBox[{"2.4`","\"km\"","kilometers","\"Kilometers\""},
+      "Quantity"]}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.735019239303833*^9},ExpressionUUID->"9b7db67b-a59d-4100-8b04-\
+6a49f3880d07"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", "rhoAstheno", ")"}], "/", 
+       RowBox[{"(", "heightNoChange", ")"}]}], 
+      RowBox[{"(", 
+       RowBox[{"heightNoChange", "-", "heightContinent1", "+", 
+        RowBox[{"heightContinent1", 
+         RowBox[{
+          RowBox[{"(", "rhoContintent", ")"}], "/", 
+          RowBox[{"(", "rhoAstheno", ")"}]}]}]}], ")"}]}], "\[Equal]", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"heightContinent1", 
+         RowBox[{"(", "rhoContintent", ")"}]}], "+", 
+        RowBox[{"amountBasalt", 
+         RowBox[{"(", "rhoBasalt", ")"}]}], "+", 
+        RowBox[{"amountEclo", 
+         RowBox[{"(", "rhoEclogite", ")"}]}]}], ")"}], "/", 
+      RowBox[{"(", "heightNoChange", ")"}]}]}], "&&", "\[IndentingNewLine]", 
+    RowBox[{"heightNoChange", "\[Equal]", 
+     RowBox[{"heightContinent1", "+", "amountBasalt", "+", "amountEclo"}]}], "&&",
+     "\[IndentingNewLine]", 
+    RowBox[{"amountEclo", "\[Equal]", 
+     RowBox[{"heightNoChange", "-", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"35", ",", "\"\<Kilometers\>\""}], "]"}]}]}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+    "rhoDepth", ",", " ", "heightNoChange", ",", " ", "amountBasalt", ",", 
+     " ", "amountEclo"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.735019360560398*^9, 3.735019386411713*^9}, {
+  3.7350194210462594`*^9, 
+  3.735019425013585*^9}},ExpressionUUID->"38e18913-7db3-4b63-a601-\
+de6a194a0d2d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,84,38,32699945787177275305,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.735019367201092*^9, 
+  3.7350194357967415`*^9},ExpressionUUID->"1b9c4ee7-7b7c-4961-bbbc-\
+4d315426634b"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"heightNoChange", "\[Rule]", 
+     TemplateBox[{"37.4`","\"km\"","kilometers","\"Kilometers\""},
+      "Quantity"]}], ",", 
+    RowBox[{"amountBasalt", "\[Rule]", 
+     TemplateBox[{"8.000000000000002`","\"km\"","kilometers","\"Kilometers\""},
+      "Quantity"]}], ",", 
+    RowBox[{"amountEclo", "\[Rule]", 
+     TemplateBox[{
+      "2.3999999999999986`","\"km\"","kilometers","\"Kilometers\""},
+      "Quantity"]}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{3.7350193672030935`*^9, 
+  3.7350194358212585`*^9},ExpressionUUID->"6f49d512-160e-4c77-8377-\
+ea08044ddd4a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"hb", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"8", ",", "\"\<Kilometers\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"UnitConvert", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"heightContinent1", "*", "rhoAstheno"}], "+", 
+      RowBox[{"hb", "*", "rhoBasalt"}], "-", 
+      RowBox[{"heightContinent1", "*", "rhoEclogite"}], "-", 
+      RowBox[{"hb", "*", "rhoEclogite"}]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"rhoAstheno", "-", "rhoEclogite"}], ")"}]}], ",", 
+   "\"\<Kilometers\>\""}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7350213896756835`*^9, 3.735021495902232*^9}, {
+  3.735021557075812*^9, 3.7350217103510666`*^9}, {3.7350222007006435`*^9, 
+  3.735022264555478*^9}},ExpressionUUID->"50ee9c2c-e461-4465-a1df-\
+616b96c4f345"],
+
+Cell[BoxData[
+ TemplateBox[{"37.4`","\"km\"","kilometers","\"Kilometers\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.735021478891971*^9, 3.735021496301998*^9}, {
+   3.735021558565621*^9, 3.735021710774498*^9}, 
+   3.7350222654024997`*^9},ExpressionUUID->"772f9a44-bac4-4577-9a50-\
+dc909b3d6d53"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{766, 772},
+WindowMargins->{{Automatic, -7}, {Automatic, 0}},
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (April 18, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 164, 3, 39, "Subsubsection", "ExpressionUUID" -> \
+"f4d2b88f-52da-48a8-82e6-585348f205de"],
+Cell[CellGroupData[{
+Cell[769, 29, 2405, 65, 202, "Input", "ExpressionUUID" -> \
+"6558496e-78fe-4fde-bfcf-dc13a9a46b33"],
+Cell[3177, 96, 396, 7, 39, "Output", "ExpressionUUID" -> \
+"0d45f204-6063-4df6-b140-33f3a0925eae"],
+Cell[3576, 105, 1015, 23, 38, "Output", "ExpressionUUID" -> \
+"ef7a8793-ffa5-4318-9c44-70bfb720bfc0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4628, 133, 596, 18, 50, "Input", "ExpressionUUID" -> \
+"4c23419d-5b90-4c2e-b0f8-32af1a8015a6"],
+Cell[5227, 153, 247, 4, 39, "Output", "ExpressionUUID" -> \
+"54f33c18-f933-41cc-a099-399cd022c657"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5523, 163, 164, 3, 39, "Subsubsection", "ExpressionUUID" -> \
+"214baf8f-24ae-476e-a8da-d6afc9087826"],
+Cell[CellGroupData[{
+Cell[5712, 170, 1147, 31, 107, "Input", "ExpressionUUID" -> \
+"5cae3c93-0b76-408a-a31b-7fd749c04dbd"],
+Cell[6862, 203, 926, 22, 38, "Output", "ExpressionUUID" -> \
+"547b11f0-4995-4564-a99b-9fa07c250c30"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7825, 230, 597, 18, 50, "Input", "ExpressionUUID" -> \
+"b00f2b77-206a-43de-8de2-9985d36c5fe1"],
+Cell[8425, 250, 274, 6, 39, "Output", "ExpressionUUID" -> \
+"fdd895c6-3499-442c-90a7-4fb0aec91bfe"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8736, 261, 251, 6, 30, "Input", "ExpressionUUID" -> \
+"b4df49dd-57a3-4d4e-9b2e-18ed2eb30c7c"],
+Cell[8990, 269, 147, 3, 30, "Output", "ExpressionUUID" -> \
+"9cdc4ccb-8f8b-4417-aa49-a6e94028bb0a"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9186, 278, 184, 3, 39, "Subsubsection", "ExpressionUUID" -> \
+"57c02931-1bf2-49d5-adf5-b0ebf2649cfb"],
+Cell[CellGroupData[{
+Cell[9395, 285, 1713, 46, 126, "Input", "ExpressionUUID" -> \
+"d4997cbd-37a3-4b30-b3ee-9b3e8ef7a552"],
+Cell[11111, 333, 472, 8, 39, "Output", "ExpressionUUID" -> \
+"d0e88b48-91ba-46c6-a682-b3251ceaa0b5"],
+Cell[11586, 343, 667, 13, 44, "Output", "ExpressionUUID" -> \
+"d2e6b538-f161-4f7c-9e00-63d6cfe500f7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12290, 361, 1014, 25, 126, "Input", "ExpressionUUID" -> \
+"e4c2abac-9c9a-4666-8fca-f405c2f7237f"],
+Cell[13307, 388, 1165, 27, 71, "Output", "ExpressionUUID" -> \
+"0969cc2d-3580-47a6-bc53-e1f9f9134c02"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14509, 420, 652, 15, 69, "Input", "ExpressionUUID" -> \
+"364508b7-b725-4558-97ce-8544018afabe"],
+Cell[15164, 437, 331, 7, 39, "Output", "ExpressionUUID" -> \
+"1ae37bce-c560-4739-bd94-fca0f036ada1"],
+Cell[15498, 446, 342, 7, 39, "Output", "ExpressionUUID" -> \
+"602e83f6-6632-491c-925e-d3936844e6e7"],
+Cell[15843, 455, 342, 7, 39, "Output", "ExpressionUUID" -> \
+"6886ace0-8544-47c3-8174-628a08b83491"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16234, 468, 163, 3, 39, "Subsubsection", "ExpressionUUID" -> \
+"5e5d8f97-e904-4d77-9d84-4856ca00409a"],
+Cell[CellGroupData[{
+Cell[16422, 475, 1042, 27, 107, "Input", "ExpressionUUID" -> \
+"5370448c-7f60-401f-be23-5fc4b36664d5"],
+Cell[17467, 504, 249, 6, 39, "Output", "ExpressionUUID" -> \
+"4728e39e-45d7-4288-afeb-92366b1bbf8d"],
+Cell[17719, 512, 445, 11, 44, "Output", "ExpressionUUID" -> \
+"8827e452-c93d-44e7-af36-fa0db9d47194"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18201, 528, 1045, 26, 126, "Input", "ExpressionUUID" -> \
+"0955622f-43fb-437a-b415-d667a2bf0cf3"],
+Cell[19249, 556, 845, 21, 71, "Output", "ExpressionUUID" -> \
+"cb893635-9019-4a47-ab64-54bf42b1bc8d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20131, 582, 434, 10, 50, "Input", "ExpressionUUID" -> \
+"15fd9876-840d-4bf2-b2e7-55b74d34d7fb"],
+Cell[20568, 594, 255, 5, 39, "Output", "ExpressionUUID" -> \
+"4dc9412a-67a8-44ca-804b-4a7c00386a07"],
+Cell[20826, 601, 254, 5, 39, "Output", "ExpressionUUID" -> \
+"883f1b5a-d06c-4e09-8164-d925d2bda8ed"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21129, 612, 163, 3, 39, "Subsubsection", "ExpressionUUID" -> \
+"b9069785-b0b3-4a1b-8a94-ba929304b9bb"],
+Cell[CellGroupData[{
+Cell[21317, 619, 2300, 51, 221, "Input", "ExpressionUUID" -> \
+"ed64f08e-f3c2-43ba-a85c-136a64fc92b9"],
+Cell[23620, 672, 507, 11, 39, "Message", "ExpressionUUID" -> \
+"aa8f3f3e-0d95-411a-b271-12b81092abb4"],
+Cell[24130, 685, 1496, 36, 104, "Output", "ExpressionUUID" -> \
+"c4e1cc7b-9df2-42a7-9ee9-4b7ac6759b14"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25663, 726, 1965, 45, 183, "Input", "ExpressionUUID" -> \
+"83c45e7a-1863-42ab-b2df-a5c78f1ce334"],
+Cell[27631, 773, 521, 10, 39, "Message", "ExpressionUUID" -> \
+"743318d9-f53c-4921-93fa-d46984393147"],
+Cell[28155, 785, 1456, 35, 74, "Output", "ExpressionUUID" -> \
+"984362bb-e880-4eca-9d5c-21364ecbba77"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29648, 825, 1175, 31, 88, "Input", "ExpressionUUID" -> \
+"f6302fcc-1fa9-4be3-95c5-a91e40cacc9f"],
+Cell[30826, 858, 196, 4, 30, "Output", "ExpressionUUID" -> \
+"0a24a42d-4448-4eee-8635-dc96844ea5c8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31059, 867, 1698, 41, 183, "Input", "ExpressionUUID" -> \
+"99221def-9bab-44a8-9f69-82cdd79a1e6b"],
+Cell[32760, 910, 579, 12, 39, "Message", "ExpressionUUID" -> \
+"58662bf5-ddd2-4d05-85a4-b079ca598ec8"],
+Cell[33342, 924, 1152, 26, 74, "Output", "ExpressionUUID" -> \
+"0b3243d8-b615-4d8b-af2a-977579a7c394"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34531, 955, 1590, 41, 183, "Input", "ExpressionUUID" -> \
+"1e2a228b-e14b-441a-8aa7-75d47942bda3"],
+Cell[36124, 998, 396, 8, 39, "Message", "ExpressionUUID" -> \
+"53cb0413-9bbf-4627-921f-93a6b2dcbae6"],
+Cell[36523, 1008, 919, 23, 75, "Output", "ExpressionUUID" -> \
+"9b7db67b-a59d-4100-8b04-6a49f3880d07"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37479, 1036, 1554, 40, 164, "Input", "ExpressionUUID" -> \
+"38e18913-7db3-4b63-a601-de6a194a0d2d"],
+Cell[39036, 1078, 423, 9, 39, "Message", "ExpressionUUID" -> \
+"1b9c4ee7-7b7c-4961-bbbc-4d315426634b"],
+Cell[39462, 1089, 641, 16, 41, "Output", "ExpressionUUID" -> \
+"6f49d512-160e-4c77-8377-ea08044ddd4a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[40140, 1110, 829, 21, 88, "Input", "ExpressionUUID" -> \
+"50ee9c2c-e461-4465-a1df-616b96c4f345"],
+Cell[40972, 1133, 303, 6, 39, "Output", "ExpressionUUID" -> \
+"772f9a44-bac4-4577-9a50-dc909b3d6d53"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
