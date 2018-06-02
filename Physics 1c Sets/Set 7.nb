@@ -1,0 +1,364 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11352,        356]
+NotebookOptionsPosition[      9963,        314]
+NotebookOutlinePosition[     10307,        329]
+CellTagsIndexPosition[     10264,        326]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Problem 7", "Subsubsection",
+ CellChangeTimes->{{3.736515066819513*^9, 
+  3.7365150718158903`*^9}},ExpressionUUID->"da364d2e-beb7-4dd8-9986-\
+a0874a9e0c2e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"alphaVol", " ", "=", " ", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{
+     RowBox[{"0.21", "*", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "30"}]}]}], ",", 
+     RowBox[{"\"\<Meters\>\"", "^", "3"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"radius", "=", 
+   RowBox[{"CubeRoot", "[", 
+    RowBox[{"2", "*", "alphaVol"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ScientificForm", "[", 
+  RowBox[{"UnitConvert", "[", 
+   RowBox[{"alphaVol", ",", 
+    RowBox[{"\"\<Angstroms\>\"", "^", "3"}]}], "]"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"UnitConvert", "[", 
+  RowBox[{"radius", ",", "\"\<Angstroms\>\""}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7365150800723124`*^9, 3.7365151836370373`*^9}, {
+  3.7365152513832173`*^9, 3.736515277451004*^9}, {3.736515429460328*^9, 
+  3.736515429552021*^9}, {3.736515947011899*^9, 
+  3.7365159474738655`*^9}},ExpressionUUID->"7da0248a-dcda-41a3-90aa-\
+ff07c2fdd8a0"],
+
+Cell[BoxData[
+ TagBox[
+  TemplateBox[{InterpretationBox[
+     RowBox[{"\"2.1\"", "\[Times]", 
+       SuperscriptBox["10", "\"-1\""]}], 0.21, AutoDelete -> True],RowBox[{
+      SuperscriptBox["\"\[CapitalARing]\"", 
+       InterpretationBox["\"3\"", 3, Editable -> False]]}],
+    "\[ARing]ngstr\[ODoubleDot]ms cubed",SuperscriptBox["\"Angstroms\"", 
+     InterpretationBox["\"3\"", 3, Editable -> False]]},
+   "Quantity"],
+  ScientificForm]], "Output",
+ CellChangeTimes->{
+  3.7365151207676163`*^9, {3.736515156241268*^9, 3.736515184046404*^9}, {
+   3.7365152537514944`*^9, 3.7365152782955923`*^9}, 3.7365154304807377`*^9, 
+   3.7365159478176403`*^9},ExpressionUUID->"53adefd7-1b47-41d9-9a15-\
+b86a51b68c48"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "0.7488872387218516`","\"\[CapitalARing]\"","\[ARing]ngstr\[ODoubleDot]ms",
+   "\"Angstroms\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.7365151207676163`*^9, {3.736515156241268*^9, 3.736515184046404*^9}, {
+   3.7365152537514944`*^9, 3.7365152782955923`*^9}, 3.7365154304807377`*^9, 
+   3.7365159478201556`*^9},ExpressionUUID->"10b9caad-cb6b-48b6-8829-\
+3ad461f01212"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"x", ",", 
+      RowBox[{"UnitConvert", "[", 
+       RowBox[{
+        RowBox[{"CubeRoot", "[", 
+         RowBox[{"Quantity", "[", 
+          RowBox[{
+           RowBox[{"x", "*", 
+            RowBox[{"10", "^", 
+             RowBox[{"-", "30"}]}]}], ",", 
+           RowBox[{"\"\<Meters\>\"", "^", "3"}]}], "]"}], "]"}], ",", 
+        "\"\<Angstroms\>\""}], "]"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "0.66", ",", "0.21", ",", "12.", ",", "9.3", ",", "1.5", ",", "0.4", 
+        ",", "27.", ",", "1.6", ",", "34.", ",", "1"}], "}"}]}], "}"}]}], 
+   "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.736516003631117*^9, 3.736516005345907*^9}, {
+  3.7365160463610525`*^9, 3.7365161263537855`*^9}, {3.7365161621302443`*^9, 
+  3.7365161746793966`*^9}, {3.7365162637001014`*^9, 3.7365162960357056`*^9}, {
+  3.736521553354786*^9, 
+  3.7365215537518845`*^9}},ExpressionUUID->"55bd446f-03cf-4907-b7a2-\
+8142b1122956"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"0.66`", 
+     TemplateBox[{
+      "0.8706587691173623`","\"\[CapitalARing]\"",
+       "\[ARing]ngstr\[ODoubleDot]ms","\"Angstroms\""},
+      "Quantity"]},
+    {"0.21`", 
+     TemplateBox[{
+      "0.5943921952763137`","\"\[CapitalARing]\"",
+       "\[ARing]ngstr\[ODoubleDot]ms","\"Angstroms\""},
+      "Quantity"]},
+    {"12.`", 
+     TemplateBox[{
+      "2.2894284851066664`","\"\[CapitalARing]\"",
+       "\[ARing]ngstr\[ODoubleDot]ms","\"Angstroms\""},
+      "Quantity"]},
+    {"9.3`", 
+     TemplateBox[{
+      "2.102943717461423`","\"\[CapitalARing]\"",
+       "\[ARing]ngstr\[ODoubleDot]ms","\"Angstroms\""},
+      "Quantity"]},
+    {"1.5`", 
+     TemplateBox[{
+      "1.1447142425533332`","\"\[CapitalARing]\"",
+       "\[ARing]ngstr\[ODoubleDot]ms","\"Angstroms\""},
+      "Quantity"]},
+    {"0.4`", 
+     TemplateBox[{
+      "0.7368062997280782`","\"\[CapitalARing]\"",
+       "\[ARing]ngstr\[ODoubleDot]ms","\"Angstroms\""},
+      "Quantity"]},
+    {"27.`", 
+     TemplateBox[{
+      "3.0000000000000036`","\"\[CapitalARing]\"",
+       "\[ARing]ngstr\[ODoubleDot]ms","\"Angstroms\""},
+      "Quantity"]},
+    {"1.6`", 
+     TemplateBox[{
+      "1.1696070952851478`","\"\[CapitalARing]\"",
+       "\[ARing]ngstr\[ODoubleDot]ms","\"Angstroms\""},
+      "Quantity"]},
+    {"34.`", 
+     TemplateBox[{
+      "3.239611801277487`","\"\[CapitalARing]\"",
+       "\[ARing]ngstr\[ODoubleDot]ms","\"Angstroms\""},
+      "Quantity"]},
+    {"1", 
+     TemplateBox[{
+      "1","\"\[CapitalARing]\"","\[ARing]ngstr\[ODoubleDot]ms",
+       "\"Angstroms\""},
+      "Quantity"]}
+   },
+   AutoDelete->False,
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{{3.736516114653713*^9, 3.7365161275931816`*^9}, 
+   3.736516175370446*^9, 3.736516296460766*^9, 
+   3.7365215542815237`*^9},ExpressionUUID->"4d6fca93-5d17-4720-9c70-\
+7758ec8787c8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"2", "x"}], ",", 
+      RowBox[{"UnitConvert", "[", 
+       RowBox[{
+        RowBox[{"CubeRoot", "[", 
+         RowBox[{"2", "*", 
+          RowBox[{"Quantity", "[", 
+           RowBox[{
+            RowBox[{"x", "*", 
+             RowBox[{"10", "^", 
+              RowBox[{"-", "30"}]}]}], ",", 
+            RowBox[{"\"\<Meters\>\"", "^", "3"}]}], "]"}]}], "]"}], ",", 
+        "\"\<Angstroms\>\""}], "]"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "0.66", ",", "0.21", ",", "12.", ",", "9.3", ",", "1.5", ",", "0.4", 
+        ",", "27.", ",", "1.6", ",", "34.", ",", " ", "1."}], "}"}]}], 
+     "}"}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7365165457401657`*^9, 3.736516546210428*^9}, 
+   3.736520947466874*^9, {3.7365215481533413`*^9, 
+   3.73652155994335*^9}},ExpressionUUID->"8000b7d7-96c6-4607-916a-\
+6693bed5c29f"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"1.32`", 
+     TemplateBox[{
+      "1.096961310486525`","\"\[CapitalARing]\"",
+       "\[ARing]ngstr\[ODoubleDot]ms","\"Angstroms\""},
+      "Quantity"]},
+    {"0.42`", 
+     TemplateBox[{
+      "0.7488872387218516`","\"\[CapitalARing]\"",
+       "\[ARing]ngstr\[ODoubleDot]ms","\"Angstroms\""},
+      "Quantity"]},
+    {"24.`", 
+     TemplateBox[{
+      "2.88449914061482`","\"\[CapitalARing]\"",
+       "\[ARing]ngstr\[ODoubleDot]ms","\"Angstroms\""},
+      "Quantity"]},
+    {"18.6`", 
+     TemplateBox[{
+      "2.649543056373824`","\"\[CapitalARing]\"",
+       "\[ARing]ngstr\[ODoubleDot]ms","\"Angstroms\""},
+      "Quantity"]},
+    {"3.`", 
+     TemplateBox[{
+      "1.44224957030741`","\"\[CapitalARing]\"",
+       "\[ARing]ngstr\[ODoubleDot]ms","\"Angstroms\""},
+      "Quantity"]},
+    {"0.8`", 
+     TemplateBox[{
+      "0.9283177667225568`","\"\[CapitalARing]\"",
+       "\[ARing]ngstr\[ODoubleDot]ms","\"Angstroms\""},
+      "Quantity"]},
+    {"54.`", 
+     TemplateBox[{
+      "3.779763149684624`","\"\[CapitalARing]\"",
+       "\[ARing]ngstr\[ODoubleDot]ms","\"Angstroms\""},
+      "Quantity"]},
+    {"3.2`", 
+     TemplateBox[{
+      "1.4736125994561564`","\"\[CapitalARing]\"",
+       "\[ARing]ngstr\[ODoubleDot]ms","\"Angstroms\""},
+      "Quantity"]},
+    {"68.`", 
+     TemplateBox[{
+      "4.081655101917353`","\"\[CapitalARing]\"",
+       "\[ARing]ngstr\[ODoubleDot]ms","\"Angstroms\""},
+      "Quantity"]},
+    {"2.`", 
+     TemplateBox[{
+      "1.2599210498948747`","\"\[CapitalARing]\"",
+       "\[ARing]ngstr\[ODoubleDot]ms","\"Angstroms\""},
+      "Quantity"]}
+   },
+   AutoDelete->False,
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{
+  3.736516547316352*^9, 3.7365209491233387`*^9, {3.7365215499523664`*^9, 
+   3.736521561107608*^9}},ExpressionUUID->"8981a7c0-b3c5-4ec2-bf60-\
+97b7a412e270"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"x", ",", 
+      RowBox[{"2", "x"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "0.53", ",", "0.31", ",", "1.7", ",", "1.1", ",", "0.67", ",", "0.38", 
+        ",", "1.9", ",", "0.71", ",", "2.4"}], "}"}]}], "}"}]}], "]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.736516580387809*^9, 
+  3.7365166261340847`*^9}},ExpressionUUID->"78b3f1d8-ed04-425b-baf8-\
+7ee91d4b2d01"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"0.53`", "1.06`"},
+    {"0.31`", "0.62`"},
+    {"1.7`", "3.4`"},
+    {"1.1`", "2.2`"},
+    {"0.67`", "1.34`"},
+    {"0.38`", "0.76`"},
+    {"1.9`", "3.8`"},
+    {"0.71`", "1.42`"},
+    {"2.4`", "4.8`"}
+   },
+   AutoDelete->False,
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{
+  3.7365166264083996`*^9},ExpressionUUID->"5826fd27-ef16-4639-abc6-\
+ae775cfea2a3"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{775, 657},
+WindowMargins->{{Automatic, 269}, {Automatic, 12}},
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (April 18, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 162, 3, 39, "Subsubsection", "ExpressionUUID" -> \
+"da364d2e-beb7-4dd8-9986-a0874a9e0c2e"],
+Cell[CellGroupData[{
+Cell[767, 29, 979, 25, 88, "Input", "ExpressionUUID" -> \
+"7da0248a-dcda-41a3-90aa-ff07c2fdd8a0"],
+Cell[1749, 56, 707, 15, 56, "Output", "ExpressionUUID" -> \
+"53adefd7-1b47-41d9-9a15-b86a51b68c48"],
+Cell[2459, 73, 409, 9, 41, "Output", "ExpressionUUID" -> \
+"10b9caad-cb6b-48b6-8829-3ad461f01212"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2905, 87, 1074, 28, 50, "Input", "ExpressionUUID" -> \
+"55bd446f-03cf-4907-b7a2-8142b1122956"],
+Cell[3982, 117, 1936, 59, 302, "Output", "ExpressionUUID" -> \
+"4d6fca93-5d17-4720-9c70-7758ec8787c8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5955, 181, 1009, 28, 50, "Input", "ExpressionUUID" -> \
+"8000b7d7-96c6-4607-916a-6693bed5c29f"],
+Cell[6967, 211, 1927, 59, 335, "Output", "ExpressionUUID" -> \
+"8981a7c0-b3c5-4ec2-bf60-97b7a412e270"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8931, 275, 533, 16, 30, "Input", "ExpressionUUID" -> \
+"78b3f1d8-ed04-425b-baf8-7ee91d4b2d01"],
+Cell[9467, 293, 468, 17, 165, "Output", "ExpressionUUID" -> \
+"5826fd27-ef16-4639-abc6-ae775cfea2a3"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

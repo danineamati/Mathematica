@@ -39,11 +39,14 @@ if verbose:
 def Energy(magRange, countM):
     '''Determines the energy released in each magnitude bin.'''
     energy = []
+    mag = 2.75
+    print()
     for binM in range(len(magRange)):
         EperEarthquake = 10**(1.5 * magRange[binM] + 4.8)
         energy.append(EperEarthquake * countM[binM])
-        print(Decimal(str(EperEarthquake * countM[binM])))
-
+        print(mag, ":", Decimal(str(EperEarthquake * countM[binM])))
+        mag += 0.5
+    print()
     if energy == [] and verbose:
         print('No values added.')
         print()
@@ -59,19 +62,26 @@ def EarthquakeNumPlot(X, Y, logY):
     fig = plt.figure()
     ax = fig.add_subplot(111)
 
+##    for (index, num) in enumerate(Y):
+##        print(index, num)
+##        if num == 0:
+##            X.pop(index)
+##            Y.pop(index)
+##            print("Pop")
+
     rawplot = plt.scatter(X, Y, color = 'black', \
                 label = 'Cumulative Total of Earthquakes')
     plt.xlabel('Magnitude Range')
     plt.ylabel('Cumulative Total above lower bound of the Magnitude Range')
-    plt.title('Earthquake Numbers in Southern California, 2007 through 2016')
+    plt.title('Log-Linear Plot of Earthquake Numbers in \n Southern California, 2007 through 2016')
 
     #fit = np.polyfit(X, logY, deg = 1)
     #fitline = 10**(fit[0] * X + fit[1])
     #print('The line has a slope of', fit[0], 'and a y-int of', fit[1])
     #print(fit)
     
-    slope, yint, r_val, p_val, std_err = stats.linregress(X, logY)
-    fitline = 10**(slope * X + yint)
+    slope, yint, r_val, p_val, std_err = stats.linregress(X[:6], logY)
+    fitline = 10**(slope * X[:6] + yint)
     print('The line has a slope of', slope, 'and a y-int of', yint)
     print('r =', r_val, 'r^2 =', r_val**2)
     
@@ -81,13 +91,15 @@ def EarthquakeNumPlot(X, Y, logY):
         print()
 
     TWOPLACES = Decimal(10) ** -2
-    lbl = 'Best Fit Line \nlog10(y) = {0} x + {1}'.format(\
-        Decimal(slope).quantize(TWOPLACES), Decimal(yint).quantize(TWOPLACES))
-    fitplot = plt.plot(X, fitline, label = lbl)
+    THREEPLACES = Decimal(10) ** -3
+    lbl = 'Best Fit Line \nlog10(y) = {0} x + {1} \nr^2 = {2}'.format(\
+        Decimal(slope).quantize(TWOPLACES), Decimal(yint).quantize(TWOPLACES),\
+        Decimal(r_val**2).quantize(THREEPLACES))
+    fitplot = plt.plot(X[:6], fitline, label = lbl)
 
     ax.set_yscale('log')
     #ax.set_ylim(0, 10**4)
-    ax.set_xlim(2.5, 5.5)
+    ax.set_xlim(2.5, 7.5)
 
     plt.legend()
     
@@ -103,7 +115,7 @@ def EnergyPlot(X, Y, XAdj, YAdj):
                 label = 'Total Energy of Earthquakes in bin')
     plt.xlabel('Magnitude Range')
     plt.ylabel('Total Energy of Eartquakes in Magnitude Range (J)')
-    plt.title('Earthquake Energy in Southern California, 2007 through 2016')
+    plt.title('Log-Linear Plot Earthquake Energy in \n Southern California, 2007 through 2016')
 
     ## Include last point
     '''fit = np.polyfit(XAdj, np.log10(YAdj), deg = 1)
@@ -117,7 +129,7 @@ def EnergyPlot(X, Y, XAdj, YAdj):
         
     fitplot = plt.plot(XAdj, fitline, label = 'Best Fit Line')'''
 
-    slope, yint, r_val, p_val, std_err = stats.linregress(\
+    '''slope, yint, r_val, p_val, std_err = stats.linregress(\
         XAdj, np.log10(YAdj))
     fitline = 10**(slope * XAdj + yint)
     print('The line has a slope of', slope, 'and a y-int of', yint)
@@ -129,9 +141,10 @@ def EnergyPlot(X, Y, XAdj, YAdj):
         print()
 
     TWOPLACES = Decimal(10) ** -2
-    lbl = 'Best Fit Line \nlog10(y) = {0} x + {1}'.format(\
-        Decimal(slope).quantize(TWOPLACES), Decimal(yint).quantize(TWOPLACES))
-    fitplot = plt.plot(XAdj, fitline, label = lbl)
+    lbl = 'Best Fit Line \nlog10(y) = {0} x + {1} \nr^2 = {2}'.format(\
+        Decimal(slope).quantize(TWOPLACES), Decimal(yint).quantize(TWOPLACES),\
+        Decimal(r_val**2).quantize(TWOPLACES))
+    fitplot = plt.plot(XAdj, fitline, label = lbl)'''
 
     ## Ignore last point
     stopPt = 6
@@ -147,7 +160,7 @@ def EnergyPlot(X, Y, XAdj, YAdj):
         
     fitplot = plt.plot(X[:stopPt], fitline2, label = 'Best Fit Line')'''
 
-    slope, yint, r_val, p_val, std_err = stats.linregress(\
+    '''slope, yint, r_val, p_val, std_err = stats.linregress(\
         X[:stopPt], np.log10(Y[:stopPt]))
     fitline = 10**(slope * X[:stopPt] + yint)
     print('The line has a slope of', slope, 'and a y-int of', yint)
@@ -159,9 +172,10 @@ def EnergyPlot(X, Y, XAdj, YAdj):
         print()
 
     TWOPLACES = Decimal(10) ** -2
-    lbl = 'Best Fit Line \nlog10(y) = {0} x + {1}'.format(\
-        Decimal(slope).quantize(TWOPLACES), Decimal(yint).quantize(TWOPLACES))
-    fitplot = plt.plot(X[:stopPt], fitline, label = lbl)
+    lbl = 'Best Fit Line \nlog10(y) = {0} x + {1} \nr^2 = {2}'.format(\
+        Decimal(slope).quantize(TWOPLACES), Decimal(yint).quantize(TWOPLACES),\
+        Decimal(r_val**2).quantize(TWOPLACES))
+    fitplot = plt.plot(X[:stopPt], fitline, label = lbl)'''
     
     ax.set_yscale('log')
     ax.set_ylim(10**12, 10**17)
@@ -172,6 +186,6 @@ def EnergyPlot(X, Y, XAdj, YAdj):
     plt.show()
 
 ## Run Code
-EarthquakeNumPlot(magRange[:6], cumulM[:6], log10cumul[:6])
+EarthquakeNumPlot(magRange, cumulM, log10cumul[:6])
 EnergyPlot(magRange, Energy(magRange, countM),\
            magRangeAdj, Energy(magRangeAdj, countMAdj))
