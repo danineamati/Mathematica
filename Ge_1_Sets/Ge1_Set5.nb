@@ -1,0 +1,1457 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     53426,       1449]
+NotebookOptionsPosition[     45657,       1255]
+NotebookOutlinePosition[     45999,       1270]
+CellTagsIndexPosition[     45956,       1267]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Ge 1 Set 5\n",
+ StyleBox["Marine Chemistry", "Chapter"]
+}], "Title",
+ CellChangeTimes->{{3.737304724427188*^9, 3.7373047268418565`*^9}, {
+  3.73730486568367*^9, 
+  3.7373048834745274`*^9}},ExpressionUUID->"862028f8-3e79-4830-b5eb-\
+a5052fe3ad8c"],
+
+Cell[CellGroupData[{
+
+Cell["Problem 1a", "Subsubsection",
+ CellChangeTimes->{{3.7373048876481566`*^9, 
+  3.737304892304161*^9}},ExpressionUUID->"1111119e-9134-47c3-839d-\
+f74f382dfbf8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pCO2pre", " ", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{
+     RowBox[{"3", "*", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "4"}]}]}], ",", "\"\<Bars\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pHpre", "=", "8.2"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"hpre", "=", 
+  RowBox[{"Quantity", "[", 
+   RowBox[{
+    RowBox[{"10", "^", 
+     RowBox[{"-", "pHpre"}]}], ",", 
+    RowBox[{"\"\<Moles\>\"", "/", "\"\<Kilograms\>\""}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.737305245083325*^9, 3.73730533467143*^9}, 
+   3.737305640791957*^9, 3.737305743084057*^9, 
+   3.737340628288438*^9},ExpressionUUID->"f3a33e22-9fcf-4ed7-a510-\
+43f1b1691e0e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "6.309573444801943`*^-9",
+   RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+     "\"kg\""}],"moles per kilogram",FractionBox[
+   "\"Moles\"", "\"Kilograms\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.737340628902862*^9, 3.7373406927190638`*^9, 3.7374383969176617`*^9, 
+   3.737441130091263*^9, 3.7374413294418607`*^9, 3.737474328157293*^9, {
+   3.737474542916499*^9, 3.7374745816373763`*^9}, 
+   3.73747542621144*^9},ExpressionUUID->"d0a25516-7a69-4e8a-ab1f-\
+d15bf94f4b23"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"pCO2pre", "/", "h2co3"}], "\[Equal]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"32.2", ",", 
+       RowBox[{"\"\<Bars\>\"", "*", 
+        RowBox[{"\"\<Kilograms\>\"", "/", "\"\<Moles\>\""}]}]}], "]"}]}], "&&", 
+    RowBox[{
+     RowBox[{"hpre", "*", 
+      RowBox[{"hco3", "/", "h2co3"}]}], "\[Equal]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"10", "^", 
+        RowBox[{"-", "5.9"}]}], ",", 
+       RowBox[{"\"\<Moles\>\"", "/", "\"\<Kilograms\>\""}]}], "]"}]}], "&&", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"hpre", "*", 
+      RowBox[{"co3", "/", "hco3"}]}], "\[Equal]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"10", "^", 
+        RowBox[{"-", "9.05"}]}], ",", 
+       RowBox[{"\"\<Moles\>\"", "/", "\"\<Kilograms\>\""}]}], "]"}]}], "&&", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"2", "ca"}], "+", 
+      RowBox[{"10", "ca"}], "+", "hpre"}], "\[Equal]", 
+     RowBox[{"hco3", "+", 
+      RowBox[{"2", "co3"}], "+", "oh"}]}], "&&", 
+    RowBox[{
+     RowBox[{"hpre", "*", "oh"}], "\[Equal]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"10", "^", 
+        RowBox[{"-", "13.2"}]}], ",", 
+       RowBox[{
+        RowBox[{"\"\<Moles\>\"", "^", "2"}], "/", 
+        RowBox[{"(", 
+         RowBox[{"\"\<Kilograms\>\"", "^", "2"}], ")"}]}]}], "]"}]}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"h2co3", ",", "hco3", ",", "co3", ",", "ca", ",", "oh"}], "}"}]}],
+   "]"}]], "Input",
+ CellChangeTimes->{{3.7373053368387003`*^9, 3.7373054906213636`*^9}, {
+  3.737305528615263*^9, 3.7373055543543634`*^9}, {3.737305586307621*^9, 
+  3.7373055972145166`*^9}, {3.737305672867664*^9, 3.7373057054499197`*^9}, {
+  3.7373057550756507`*^9, 
+  3.7373059309613447`*^9}},ExpressionUUID->"e2ec5b39-fbfe-4991-a874-\
+66798df690c5"],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{
+  3.737305491792179*^9, {3.737305532480032*^9, 3.7373055556043215`*^9}, 
+   3.73730559874568*^9, 3.737305644511448*^9, {3.737305683182866*^9, 
+   3.737305706636483*^9}, {3.7373057458085756`*^9, 3.737305758120633*^9}, {
+   3.7373058315107985`*^9, 3.7373058401523204`*^9}, 3.737305886636423*^9, 
+   3.7373059325425305`*^9, {3.7373063160846863`*^9, 3.737306326136489*^9}, 
+   3.737340694855819*^9, 3.737344985749648*^9, 3.737438397318431*^9, 
+   3.7374411302911525`*^9, 3.7374413296147604`*^9, 3.73747432820228*^9, {
+   3.737474542960488*^9, 3.7374745816823344`*^9}, 
+   3.7374754263543596`*^9},ExpressionUUID->"60bd3090-128d-4645-b311-\
+e11666af8621"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"h2co3", "=", 
+  RowBox[{"pCO2pre", "/", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"32.2", ",", 
+     RowBox[{"\"\<Bars\>\"", "*", 
+      RowBox[{"\"\<Kilograms\>\"", "/", "\"\<Moles\>\""}]}]}], 
+    "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"hco3", "=", 
+  RowBox[{
+   RowBox[{"Quantity", "[", 
+    RowBox[{
+     RowBox[{"10", "^", 
+      RowBox[{"-", "5.9"}]}], ",", 
+     RowBox[{"\"\<Moles\>\"", "/", "\"\<Kilograms\>\""}]}], "]"}], "*", 
+   RowBox[{"h2co3", "/", "hpre"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"co3", "=", 
+  RowBox[{
+   RowBox[{"Quantity", "[", 
+    RowBox[{
+     RowBox[{"10", "^", 
+      RowBox[{"-", "9.05"}]}], ",", 
+     RowBox[{"\"\<Moles\>\"", "/", "\"\<Kilograms\>\""}]}], "]"}], "*", 
+   RowBox[{"hco3", "/", "hpre"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"ohpre", "=", 
+  RowBox[{
+   RowBox[{"Quantity", "[", 
+    RowBox[{
+     RowBox[{"10", "^", 
+      RowBox[{"-", "13.2"}]}], ",", 
+     RowBox[{
+      RowBox[{"\"\<Moles\>\"", "^", "2"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"\"\<Kilograms\>\"", "^", "2"}], ")"}]}]}], "]"}], "/", 
+   "hpre"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ca", "=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"hco3", "+", 
+     RowBox[{"2", "co3"}], "+", "ohpre", "-", "hpre"}], ")"}], "/", 
+   "12"}]}]}], "Input",
+ CellChangeTimes->{{3.737305983588716*^9, 
+  3.737306122495982*^9}},ExpressionUUID->"b0ecbc86-370c-4f96-8b86-\
+803ebc2fe5cf"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "9.316770186335402`*^-6",
+   RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+     "\"kg\""}],"moles per kilogram",FractionBox[
+   "\"Moles\"", "\"Kilograms\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.7373060023701043`*^9, 3.7373060287137933`*^9}, {
+   3.737306067433167*^9, 3.737306123120023*^9}, {3.7373063161047344`*^9, 
+   3.7373063367141256`*^9}, 3.7373406982106695`*^9, 3.7373449875312533`*^9, 
+   3.7374383973564124`*^9, 3.7374411303830943`*^9, 3.737441329671728*^9, 
+   3.737474328220257*^9, {3.737474542971479*^9, 3.7374745816943274`*^9}, 
+   3.737475426365354*^9},ExpressionUUID->"8b1de0d0-0431-4f9a-ae71-\
+0381a770ac65"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "0.0018589400450020567`",
+   RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+     "\"kg\""}],"moles per kilogram",FractionBox[
+   "\"Moles\"", "\"Kilograms\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.7373060023701043`*^9, 3.7373060287137933`*^9}, {
+   3.737306067433167*^9, 3.737306123120023*^9}, {3.7373063161047344`*^9, 
+   3.7373063367141256`*^9}, 3.7373406982106695`*^9, 3.7373449875312533`*^9, 
+   3.7374383973564124`*^9, 3.7374411303830943`*^9, 3.737441329671728*^9, 
+   3.737474328220257*^9, {3.737474542971479*^9, 3.7374745816943274`*^9}, 
+   3.7374754263733377`*^9},ExpressionUUID->"a1e787d7-ba2a-4091-b51a-\
+d34233b605f6"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "0.00026258226067681095`",
+   RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+     "\"kg\""}],"moles per kilogram",FractionBox[
+   "\"Moles\"", "\"Kilograms\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.7373060023701043`*^9, 3.7373060287137933`*^9}, {
+   3.737306067433167*^9, 3.737306123120023*^9}, {3.7373063161047344`*^9, 
+   3.7373063367141256`*^9}, 3.7373406982106695`*^9, 3.7373449875312533`*^9, 
+   3.7374383973564124`*^9, 3.7374411303830943`*^9, 3.737441329671728*^9, 
+   3.737474328220257*^9, {3.737474542971479*^9, 3.7374745816943274`*^9}, 
+   3.7374754263753366`*^9},ExpressionUUID->"8d52d8da-1d15-482c-a919-\
+ea9e4b239cde"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "0.00001`",
+   RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+     "\"kg\""}],"moles per kilogram",FractionBox[
+   "\"Moles\"", "\"Kilograms\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.7373060023701043`*^9, 3.7373060287137933`*^9}, {
+   3.737306067433167*^9, 3.737306123120023*^9}, {3.7373063161047344`*^9, 
+   3.7373063367141256`*^9}, 3.7373406982106695`*^9, 3.7373449875312533`*^9, 
+   3.7374383973564124`*^9, 3.7374411303830943`*^9, 3.737441329671728*^9, 
+   3.737474328220257*^9, {3.737474542971479*^9, 3.7374745816943274`*^9}, 
+   3.7374754263783336`*^9},ExpressionUUID->"f85385d2-bd94-4a33-b9e9-\
+beffee774662"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "0.00019950818806518613`",
+   RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+     "\"kg\""}],"moles per kilogram",FractionBox[
+   "\"Moles\"", "\"Kilograms\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.7373060023701043`*^9, 3.7373060287137933`*^9}, {
+   3.737306067433167*^9, 3.737306123120023*^9}, {3.7373063161047344`*^9, 
+   3.7373063367141256`*^9}, 3.7373406982106695`*^9, 3.7373449875312533`*^9, 
+   3.7374383973564124`*^9, 3.7374411303830943`*^9, 3.737441329671728*^9, 
+   3.737474328220257*^9, {3.737474542971479*^9, 3.7374745816943274`*^9}, 
+   3.7374754263993225`*^9},ExpressionUUID->"bd809487-2538-490b-8c39-\
+1a17d0a63c5e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"10", "^", 
+   RowBox[{"-", "13.2"}]}], "/", 
+  RowBox[{"(", 
+   RowBox[{"10", "^", 
+    RowBox[{"-", "8.2"}]}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.7373406638714857`*^9, 
+  3.7373406729426436`*^9}},ExpressionUUID->"a83fa66a-fdea-472d-a80e-\
+d598b8d5bf4b"],
+
+Cell[BoxData["0.00001`"], "Output",
+ CellChangeTimes->{
+  3.737340673378996*^9, 3.737438397402384*^9, 3.7374411305599937`*^9, 
+   3.7374413299005985`*^9, 3.73747432824724*^9, {3.737474543009448*^9, 
+   3.737474581744311*^9}, 
+   3.7374754264083176`*^9},ExpressionUUID->"f79167c8-9093-4cbc-aea4-\
+e6aade621a0f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"0.0018589", "+", 
+  RowBox[{"2", "*", "0.0002658"}], "+", "0.00001", "-", 
+  RowBox[{"10", "^", 
+   RowBox[{"-", "8.2"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"ca", " ", "*", "12"}]}], "Input",
+ CellChangeTimes->{{3.737340713148122*^9, 
+  3.737340794855935*^9}},ExpressionUUID->"8c721b56-df4e-4bef-bc6b-\
+1fc4d21815d4"],
+
+Cell[BoxData["0.002400493690426555`"], "Output",
+ CellChangeTimes->{
+  3.737340715472104*^9, {3.7373407866562505`*^9, 3.737340795209038*^9}, 
+   3.737438397414377*^9, 3.7374411306119676`*^9, 3.73744132994757*^9, 
+   3.7374743282582335`*^9, {3.737474543019454*^9, 3.737474581754302*^9}, 
+   3.737475426419324*^9},ExpressionUUID->"8f5b1ec0-69e0-43f0-a0e9-\
+7bfe2092793d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "0.0023940982567822334`",
+   RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+     "\"kg\""}],"moles per kilogram",FractionBox[
+   "\"Moles\"", "\"Kilograms\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.737340715472104*^9, {3.7373407866562505`*^9, 3.737340795209038*^9}, 
+   3.737438397414377*^9, 3.7374411306119676`*^9, 3.73744132994757*^9, 
+   3.7374743282582335`*^9, {3.737474543019454*^9, 3.737474581754302*^9}, 
+   3.737475426422322*^9},ExpressionUUID->"91afac2e-6bae-4d2b-8ef9-\
+e0d86f3791c8"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Problem 1b", "Subsubsection",
+ CellChangeTimes->{{3.7373048964296036`*^9, 
+  3.737304898823983*^9}},ExpressionUUID->"d2ccf759-9848-47dd-a170-\
+bc728a09b9fa"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"ksp", "=", 
+  RowBox[{"ca", "*", "co3"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ksp", "/", 
+  RowBox[{"(", 
+   RowBox[{"10", "^", 
+    RowBox[{"-", "8.4"}]}], ")"}]}]}], "Input",
+ CellChangeTimes->{{3.737305961963827*^9, 3.7373059684169087`*^9}, {
+  3.7373450123063173`*^9, 3.7373450208596725`*^9}, {3.7374745694653196`*^9, 
+  3.73747457877101*^9}},ExpressionUUID->"72824257-0105-4d91-aa8b-\
+73dd339005af"],
+
+Cell[BoxData[
+ TemplateBox[{"5.238731104569093`*^-8",RowBox[{
+     SuperscriptBox["\"mol\"", "2"], "\[NegativeMediumSpace]", "\"/\"", 
+     "\[InvisibleSpace]", 
+     SuperscriptBox["\"kg\"", "2"]}],"moles squared per kilogram squared",
+   FractionBox[
+    SuperscriptBox["\"Moles\"", "2"], 
+    SuperscriptBox["\"Kilograms\"", "2"]]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.737306343601142*^9, {3.7373449816592083`*^9, 3.737344991197114*^9}, 
+   3.737345021213489*^9, 3.737438397428385*^9, 3.7374411306759276`*^9, 
+   3.737441330015532*^9, 3.7374743282722254`*^9, {3.7374745430324464`*^9, 
+   3.737474581766287*^9}, 
+   3.7374754264333153`*^9},ExpressionUUID->"687c6f4c-7187-42a9-b942-\
+f07848ae08c0"],
+
+Cell[BoxData[
+ TemplateBox[{"13.159097579894311`",RowBox[{
+     SuperscriptBox["\"mol\"", "2"], "\[NegativeMediumSpace]", "\"/\"", 
+     "\[InvisibleSpace]", 
+     SuperscriptBox["\"kg\"", "2"]}],"moles squared per kilogram squared",
+   FractionBox[
+    SuperscriptBox["\"Moles\"", "2"], 
+    SuperscriptBox["\"Kilograms\"", "2"]]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.737306343601142*^9, {3.7373449816592083`*^9, 3.737344991197114*^9}, 
+   3.737345021213489*^9, 3.737438397428385*^9, 3.7374411306759276`*^9, 
+   3.737441330015532*^9, 3.7374743282722254`*^9, {3.7374745430324464`*^9, 
+   3.737474581766287*^9}, 
+   3.7374754264363003`*^9},ExpressionUUID->"0b661840-b515-439d-876d-\
+b07d8934a55d"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Problem 1c", "Subsubsection",
+ CellChangeTimes->{{3.737304902433677*^9, 
+  3.737304907057169*^9}},ExpressionUUID->"898bc7b7-369c-4cd7-a194-\
+30b7e74306d9"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"pCO2now", "=", 
+  RowBox[{"Quantity", "[", 
+   RowBox[{
+    RowBox[{"4.1", "*", 
+     RowBox[{"10", "^", 
+      RowBox[{"-", "4"}]}]}], ",", "\"\<Bars\>\""}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Clear", "[", 
+  RowBox[{"h2co3", ",", "hco3", ",", "co3", ",", "oh"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"pCO2now", "/", "h2co3"}], "\[Equal]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"32.2", ",", 
+       RowBox[{"\"\<Bars\>\"", "*", 
+        RowBox[{"\"\<Kilograms\>\"", "/", "\"\<Moles\>\""}]}]}], "]"}]}], "&&", 
+    RowBox[{
+     RowBox[{"hnow", "*", 
+      RowBox[{"hco3", "/", "h2co3"}]}], "\[Equal]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"10", "^", 
+        RowBox[{"-", "5.9"}]}], ",", 
+       RowBox[{"\"\<Moles\>\"", "/", "\"\<Kilograms\>\""}]}], "]"}]}], "&&", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"hnow", "*", 
+      RowBox[{"co3", "/", "hco3"}]}], "\[Equal]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"10", "^", 
+        RowBox[{"-", "9.05"}]}], ",", 
+       RowBox[{"\"\<Moles\>\"", "/", "\"\<Kilograms\>\""}]}], "]"}]}], "&&", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"2", "ca"}], "+", 
+      RowBox[{"10", "ca"}], "+", "hnow"}], "\[Equal]", 
+     RowBox[{"hco3", "+", 
+      RowBox[{"2", "co3"}], "+", "oh"}]}], "&&", 
+    RowBox[{
+     RowBox[{"hnow", "*", "oh"}], "\[Equal]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"10", "^", 
+        RowBox[{"-", "13.2"}]}], ",", 
+       RowBox[{
+        RowBox[{"\"\<Moles\>\"", "^", "2"}], "/", 
+        RowBox[{"(", 
+         RowBox[{"\"\<Kilograms\>\"", "^", "2"}], ")"}]}]}], "]"}]}], "&&", 
+    RowBox[{"hnow", ">", "0"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"hnow", ",", "h2co3", ",", "hco3", ",", "co3", ",", "oh"}], "}"}],
+    ",", "Reals"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7373061871050158`*^9, 3.737306273417738*^9}, {
+  3.7373063085670414`*^9, 3.7373063089420214`*^9}, {3.73730635938558*^9, 
+  3.737306380906992*^9}, {3.737306493901389*^9, 3.7373064954953437`*^9}, {
+  3.7373065399473248`*^9, 
+  3.73730654952032*^9}},ExpressionUUID->"44978046-d752-47aa-be7c-\
+63dfff995468"],
+
+Cell[BoxData[
+ TemplateBox[{"0.00041`","\"bars\"","bars","\"Bars\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.737306224557844*^9, 3.7373062745270047`*^9, {3.7373063110117245`*^9, 
+   3.7373063161672497`*^9}, 3.73730635010497*^9, 3.737306381464556*^9, 
+   3.7373064961517477`*^9, 3.7373065500898285`*^9, 3.7373431984869003`*^9, 
+   3.737345069843493*^9, 3.73743839744536*^9, 3.7374411307428894`*^9, 
+   3.7374413300884895`*^9, 3.737474328287217*^9, {3.737474543045439*^9, 
+   3.737474581782276*^9}, 
+   3.737475426449293*^9},ExpressionUUID->"135c1273-f8db-4f0b-b245-\
+9817d443028f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,475,21,32715979734522068673,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.7373063861044655`*^9, 3.7373064966204653`*^9, 3.7373065503548574`*^9, 
+   3.7373431990975842`*^9, 3.7373450701062193`*^9, 3.737438398081995*^9, 
+   3.7374411322980003`*^9, 3.7374413314337215`*^9, 3.7374743285830493`*^9, {
+   3.7374745433562546`*^9, 3.7374745821100903`*^9}, 
+   3.737475426756117*^9},ExpressionUUID->"0ef55df9-3f34-4465-bbf9-\
+7c0527ca2ac7"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     TemplateBox[{
+      "8.18076200489989`*^-9",
+       RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+         "\"kg\""}],"moles per kilogram",FractionBox[
+       "\"Moles\"", "\"Kilograms\""]},
+      "Quantity"], "\[Rule]", 
+     TemplateBox[{
+      "8.180762004899891`*^-9",
+       RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+         "\"kg\""}],"moles per kilogram",FractionBox[
+       "\"Moles\"", "\"Kilograms\""]},
+      "Quantity"]}], ",", 
+    RowBox[{"h2co3", "\[Rule]", 
+     TemplateBox[{
+      "0.000012732919254658385`",
+       RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+         "\"kg\""}],"moles per kilogram",FractionBox[
+       "\"Moles\"", "\"Kilograms\""]},
+      "Quantity"]}], ",", 
+    RowBox[{"hco3", "\[Rule]", 
+     TemplateBox[{
+      "0.0019594501840307275`",
+       RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+         "\"kg\""}],"moles per kilogram",FractionBox[
+       "\"Moles\"", "\"Kilograms\""]},
+      "Quantity"]}], ",", 
+    RowBox[{"co3", "\[Rule]", 
+     TemplateBox[{
+      "0.00021347177850886446`",
+       RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+         "\"kg\""}],"moles per kilogram",FractionBox[
+       "\"Moles\"", "\"Kilograms\""]},
+      "Quantity"]}], ",", 
+    RowBox[{"oh", "\[Rule]", 
+     TemplateBox[{
+      "7.712696495782184`*^-6",
+       RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+         "\"kg\""}],"moles per kilogram",FractionBox[
+       "\"Moles\"", "\"Kilograms\""]},
+      "Quantity"]}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.737306224557844*^9, 3.7373062745270047`*^9, {3.7373063110117245`*^9, 
+   3.7373063161672497`*^9}, 3.73730635010497*^9, 3.737306381464556*^9, 
+   3.7373064961517477`*^9, 3.7373065500898285`*^9, 3.7373431984869003`*^9, 
+   3.737345069843493*^9, 3.73743839744536*^9, 3.7374411307428894`*^9, 
+   3.7374413300884895`*^9, 3.737474328287217*^9, {3.737474543045439*^9, 
+   3.737474581782276*^9}, 
+   3.737475426774107*^9},ExpressionUUID->"aeaa91a9-82db-4f31-b8e8-\
+8239d9795eba"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"h2co3", "=", 
+  RowBox[{"pCO2now", "/", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"32.2", ",", 
+     RowBox[{"\"\<Bars\>\"", "*", 
+      RowBox[{"\"\<Kilograms\>\"", "/", "\"\<Moles\>\""}]}]}], 
+    "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"12", " ", "ca"}], "+", "hnow"}], "\[Equal]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"h2co3", "/", "hnow"}], ")"}], " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"10", "^", 
+         RowBox[{"-", "5.9"}]}], ",", 
+        RowBox[{"\"\<Moles\>\"", "/", "\"\<Kilograms\>\""}]}], "]"}]}], "+", 
+     RowBox[{"2", 
+      RowBox[{"(", 
+       RowBox[{"Quantity", "[", 
+        RowBox[{
+         RowBox[{"10", "^", 
+          RowBox[{"-", "9.05"}]}], ",", 
+         RowBox[{"\"\<Moles\>\"", "/", "\"\<Kilograms\>\""}]}], "]"}], ")"}], 
+      RowBox[{"(", 
+       RowBox[{"h2co3", "/", 
+        RowBox[{"(", 
+         RowBox[{"hnow", "^", "2"}], ")"}]}], ")"}], 
+      RowBox[{"(", 
+       RowBox[{"Quantity", "[", 
+        RowBox[{
+         RowBox[{"10", "^", 
+          RowBox[{"-", "5.9"}]}], ",", 
+         RowBox[{"\"\<Moles\>\"", "/", "\"\<Kilograms\>\""}]}], "]"}], 
+       ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"10", "^", 
+         RowBox[{"-", "13.2"}]}], ",", 
+        RowBox[{
+         RowBox[{"\"\<Moles\>\"", "^", "2"}], "/", 
+         RowBox[{"(", 
+          RowBox[{"\"\<Kilograms\>\"", "^", "2"}], ")"}]}]}], "]"}], "/", 
+      "hnow"}]}]}], ",", 
+   RowBox[{"{", "hnow", "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7373432072106843`*^9, 3.7373432433465796`*^9}, {
+  3.7373432863388553`*^9, 3.737343356424637*^9}, {3.737343424756184*^9, 
+  3.7373434635933266`*^9}, {3.7373435396087713`*^9, 3.737343542903427*^9}, {
+  3.7373436047272644`*^9, 
+  3.7373436081402016`*^9}},ExpressionUUID->"e9cf5a6a-7c4a-4674-b2c0-\
+6f4a33d116ee"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "0.000012732919254658384`",
+   RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+     "\"kg\""}],"moles per kilogram",FractionBox[
+   "\"Moles\"", "\"Kilograms\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.737343238859222*^9, 3.737343543640828*^9, 3.737343608671878*^9, 
+   3.737345072905802*^9, 3.7373466886904955`*^9, 3.7374383981409636`*^9, 
+   3.7374411325998273`*^9, 3.737441331624612*^9, 3.7374743286220274`*^9, {
+   3.7374745433842382`*^9, 3.737474582131076*^9}, 
+   3.73747542680409*^9},ExpressionUUID->"526735b4-051a-4914-86f8-\
+5e642840eab8"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", "}"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.737343238859222*^9, 3.737343543640828*^9, 3.737343608671878*^9, 
+   3.737345072905802*^9, 3.7373466886904955`*^9, 3.7374383981409636`*^9, 
+   3.7374411325998273`*^9, 3.737441331624612*^9, 3.7374743286220274`*^9, {
+   3.7374745433842382`*^9, 3.737474582131076*^9}, 
+   3.7374754268110857`*^9},ExpressionUUID->"2742361f-d3fa-45d0-95bd-\
+8253412d0299"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"hnow", "=", 
+  TemplateBox[{
+   "8.18076200489989`*^-9",
+    RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+      "\"kg\""}],"moles per kilogram",FractionBox[
+    "\"Moles\"", "\"Kilograms\""]},
+   "Quantity"]}], "\[IndentingNewLine]", 
+ RowBox[{"N", "[", 
+  RowBox[{"-", 
+   RowBox[{"Log10", "[", 
+    RowBox[{"hnow", "/", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"1", ",", 
+       RowBox[{"\"\<Moles\>\"", "/", "\"\<Kilograms\>\""}]}], "]"}]}], 
+    "]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7373451258748517`*^9, 3.737345190142208*^9}, {
+  3.7373466198902645`*^9, 
+  3.737346638507329*^9}},ExpressionUUID->"5d95ba2b-8ac8-434a-9a16-\
+710380528cf2"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "8.18076200489989`*^-9",
+   RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+     "\"kg\""}],"moles per kilogram",FractionBox[
+   "\"Moles\"", "\"Kilograms\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.7373451915506153`*^9, 3.73734663895004*^9, 3.737346691212457*^9, 
+   3.73743839830087*^9, 3.7374411328227*^9, 3.737441331783522*^9, 
+   3.73747432865001*^9, {3.737474543402234*^9, 3.737474582170055*^9}, 
+   3.73747542682108*^9},ExpressionUUID->"e49366dd-b900-4c06-8939-\
+ea47b19ff586"],
+
+Cell[BoxData["8.087206241669739`"], "Output",
+ CellChangeTimes->{
+  3.7373451915506153`*^9, 3.73734663895004*^9, 3.737346691212457*^9, 
+   3.73743839830087*^9, 3.7374411328227*^9, 3.737441331783522*^9, 
+   3.73747432865001*^9, {3.737474543402234*^9, 3.737474582170055*^9}, 
+   3.7374754268240776`*^9},ExpressionUUID->"31a2d4ee-5791-49c5-9e16-\
+7d3d1fbb3f74"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"hco3", "=", 
+  RowBox[{
+   RowBox[{"Quantity", "[", 
+    RowBox[{
+     RowBox[{"10", "^", 
+      RowBox[{"-", "5.9"}]}], ",", 
+     RowBox[{"\"\<Moles\>\"", "/", "\"\<Kilograms\>\""}]}], "]"}], "*", 
+   RowBox[{"h2co3", "/", "hnow"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"co3", "=", 
+  RowBox[{
+   RowBox[{"Quantity", "[", 
+    RowBox[{
+     RowBox[{"10", "^", 
+      RowBox[{"-", "9.05"}]}], ",", 
+     RowBox[{"\"\<Moles\>\"", "/", "\"\<Kilograms\>\""}]}], "]"}], "*", 
+   RowBox[{"hco3", "/", "hnow"}]}]}]}], "Input",
+ CellChangeTimes->{{3.737346679796598*^9, 
+  3.7373466838746395`*^9}},ExpressionUUID->"b7795215-2062-4fca-a9fb-\
+cfcb33c1ca3f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "0.0019594501840307275`",
+   RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+     "\"kg\""}],"moles per kilogram",FractionBox[
+   "\"Moles\"", "\"Kilograms\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.73734669328223*^9, 3.737438398328868*^9, 3.737441132894658*^9, 
+   3.737441331846484*^9, 3.7374743286640015`*^9, {3.7374745434142165`*^9, 
+   3.7374745821830473`*^9}, 
+   3.7374754268350716`*^9},ExpressionUUID->"554351c1-827c-4074-b903-\
+8c458c0ff0f2"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "0.0002134717785088645`",
+   RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+     "\"kg\""}],"moles per kilogram",FractionBox[
+   "\"Moles\"", "\"Kilograms\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.73734669328223*^9, 3.737438398328868*^9, 3.737441132894658*^9, 
+   3.737441331846484*^9, 3.7374743286640015`*^9, {3.7374745434142165`*^9, 
+   3.7374745821830473`*^9}, 
+   3.737475426845079*^9},ExpressionUUID->"04bbe842-2a77-4488-82d9-\
+1a6ca7124bf0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"kspNow", "=", 
+  RowBox[{"ca", "*", "co3"}]}], "\[IndentingNewLine]", 
+ RowBox[{"kspNow", "/", 
+  RowBox[{"(", 
+   RowBox[{"10", "^", 
+    RowBox[{"-", "8.4"}]}], ")"}]}]}], "Input",
+ CellChangeTimes->{{3.737441091108553*^9, 3.737441120915509*^9}, {
+  3.7374412761878605`*^9, 3.7374412814388294`*^9}, {3.7374745490430136`*^9, 
+  3.73747456583241*^9}},ExpressionUUID->"75f8e7b8-9844-4add-97bd-\
+dec2ef511346"],
+
+Cell[BoxData[
+ TemplateBox[{"4.2589367733356295`*^-8",RowBox[{
+     SuperscriptBox["\"mol\"", "2"], "\[NegativeMediumSpace]", "\"/\"", 
+     "\[InvisibleSpace]", 
+     SuperscriptBox["\"kg\"", "2"]}],"moles squared per kilogram squared",
+   FractionBox[
+    SuperscriptBox["\"Moles\"", "2"], 
+    SuperscriptBox["\"Kilograms\"", "2"]]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.737441101265744*^9, 3.737441132995601*^9}, 
+   3.737441282171439*^9, 3.737441331916445*^9, 3.7374743286819935`*^9, {
+   3.7374745434332056`*^9, 3.737474582204035*^9}, 
+   3.737475426855062*^9},ExpressionUUID->"23674456-44d5-42c1-ac78-\
+734673e2354e"],
+
+Cell[BoxData[
+ TemplateBox[{"10.69796549359897`",RowBox[{
+     SuperscriptBox["\"mol\"", "2"], "\[NegativeMediumSpace]", "\"/\"", 
+     "\[InvisibleSpace]", 
+     SuperscriptBox["\"kg\"", "2"]}],"moles squared per kilogram squared",
+   FractionBox[
+    SuperscriptBox["\"Moles\"", "2"], 
+    SuperscriptBox["\"Kilograms\"", "2"]]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.737441101265744*^9, 3.737441132995601*^9}, 
+   3.737441282171439*^9, 3.737441331916445*^9, 3.7374743286819935`*^9, {
+   3.7374745434332056`*^9, 3.737474582204035*^9}, 
+   3.7374754268590717`*^9},ExpressionUUID->"63d82edd-e746-42ad-8531-\
+795d59c58aa9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Weaker", " ", "driving", " ", "force", " ", 
+  RowBox[{"(", 
+   RowBox[{"less", " ", "percipiatation"}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.737345333412098*^9, 3.7373453423437185`*^9}, {
+  3.7373466465452113`*^9, 
+  3.7373466590127153`*^9}},ExpressionUUID->"a594e4f6-5f88-410c-883e-\
+c0b0e936e2c5"],
+
+Cell[BoxData[
+ RowBox[{"driving", " ", "force", " ", "less", " ", "percipiatation", " ", 
+  "Weaker"}]], "Output",
+ CellChangeTimes->{
+  3.7374383983438616`*^9, 3.73744113308455*^9, 3.737441331980407*^9, 
+   3.7374743286939983`*^9, {3.737474543446198*^9, 3.737474582219036*^9}, 
+   3.7374754268700523`*^9},ExpressionUUID->"4869b1dc-e7de-4fbe-9994-\
+1a8feada46a1"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Problem 1d", "Subsubsection",
+ CellChangeTimes->{{3.737304909136814*^9, 
+  3.737304911402365*^9}},ExpressionUUID->"5694c008-8092-44d4-901b-\
+7c06a8790585"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", 
+  RowBox[{"h2co3", ",", "hco3", ",", "co3", ",", "oh", ",", "ca"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"pCO2now", "/", "h2co3"}], "\[Equal]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"32.2", ",", 
+       RowBox[{"\"\<Bars\>\"", "*", 
+        RowBox[{"\"\<Kilograms\>\"", "/", "\"\<Moles\>\""}]}]}], "]"}]}], "&&", 
+    RowBox[{
+     RowBox[{"hpre", "*", 
+      RowBox[{"hco3", "/", "h2co3"}]}], "\[Equal]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"10", "^", 
+        RowBox[{"-", "5.9"}]}], ",", 
+       RowBox[{"\"\<Moles\>\"", "/", "\"\<Kilograms\>\""}]}], "]"}]}], "&&", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"hpre", "*", 
+      RowBox[{"co3", "/", "hco3"}]}], "\[Equal]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"10", "^", 
+        RowBox[{"-", "9.05"}]}], ",", 
+       RowBox[{"\"\<Moles\>\"", "/", "\"\<Kilograms\>\""}]}], "]"}]}], "&&", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"2", "ca"}], "+", 
+      RowBox[{"10", "ca"}], "+", "hpre"}], "\[Equal]", 
+     RowBox[{"hco3", "+", 
+      RowBox[{"2", "co3"}], "+", "oh"}]}], "&&", 
+    RowBox[{
+     RowBox[{"hpre", "*", "oh"}], "\[Equal]", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{"10", "^", 
+        RowBox[{"-", "13.2"}]}], ",", 
+       RowBox[{
+        RowBox[{"\"\<Moles\>\"", "^", "2"}], "/", 
+        RowBox[{"(", 
+         RowBox[{"\"\<Kilograms\>\"", "^", "2"}], ")"}]}]}], "]"}]}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"h2co3", ",", "hco3", ",", "co3", ",", "ca", ",", "oh"}], "}"}]}],
+   "]"}]}], "Input",
+ CellChangeTimes->{{3.737306610730416*^9, 
+  3.7373066515897427`*^9}},ExpressionUUID->"fb671fd5-e69c-45be-badb-\
+956e4265cb7f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve","ratnz",
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"",2,486,22,32715979734522068673,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{
+  3.73730665716724*^9, {3.7374383862587557`*^9, 3.7374383987536116`*^9}, 
+   3.737441134456766*^9, 3.737441333308649*^9, 3.737474328996812*^9, {
+   3.7374745437470255`*^9, 3.737474582673766*^9}, 
+   3.7374754271778765`*^9},ExpressionUUID->"81a572b3-7dd5-49e2-9716-\
+6d242313017b"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"h2co3", "\[Rule]", 
+     TemplateBox[{
+      "0.000012732919254658385`",
+       RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+         "\"kg\""}],"moles per kilogram",FractionBox[
+       "\"Moles\"", "\"Kilograms\""]},
+      "Quantity"]}], ",", 
+    RowBox[{"hco3", "\[Rule]", 
+     TemplateBox[{
+      "0.002540551394836145`",
+       RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+         "\"kg\""}],"moles per kilogram",FractionBox[
+       "\"Moles\"", "\"Kilograms\""]},
+      "Quantity"]}], ",", 
+    RowBox[{"co3", "\[Rule]", 
+     TemplateBox[{
+      "0.000358862422924975`",
+       RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+         "\"kg\""}],"moles per kilogram",FractionBox[
+       "\"Moles\"", "\"Kilograms\""]},
+      "Quantity"]}], ",", 
+    RowBox[{"ca", "\[Rule]", 
+     TemplateBox[{
+      "0.00027235582759272087`",
+       RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+         "\"kg\""}],"moles per kilogram",FractionBox[
+       "\"Moles\"", "\"Kilograms\""]},
+      "Quantity"]}], ",", 
+    RowBox[{"oh", "\[Rule]", 
+     TemplateBox[{
+      "0.00001`",
+       RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+         "\"kg\""}],"moles per kilogram",FractionBox[
+       "\"Moles\"", "\"Kilograms\""]},
+      "Quantity"]}]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.7373066571828504`*^9, {3.737438386626545*^9, 3.7374383987706013`*^9}, 
+   3.7374411345567093`*^9, 3.7374413334085913`*^9, 3.737474329017799*^9, {
+   3.7374745437650323`*^9, 3.73747458270175*^9}, 
+   3.7374754271988664`*^9},ExpressionUUID->"cb102e8e-c8cf-4b7c-937a-\
+72dff4d30664"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"h2co3", "=", 
+  RowBox[{"pCO2now", "/", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"32.2", ",", 
+     RowBox[{"\"\<Bars\>\"", "*", 
+      RowBox[{"\"\<Kilograms\>\"", "/", "\"\<Moles\>\""}]}]}], 
+    "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"hco3", "=", 
+  RowBox[{
+   RowBox[{"Quantity", "[", 
+    RowBox[{
+     RowBox[{"10", "^", 
+      RowBox[{"-", "5.9"}]}], ",", 
+     RowBox[{"\"\<Moles\>\"", "/", "\"\<Kilograms\>\""}]}], "]"}], "*", 
+   RowBox[{"h2co3", "/", "hpre"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"co3", "=", 
+  RowBox[{
+   RowBox[{"Quantity", "[", 
+    RowBox[{
+     RowBox[{"10", "^", 
+      RowBox[{"-", "9.05"}]}], ",", 
+     RowBox[{"\"\<Moles\>\"", "/", "\"\<Kilograms\>\""}]}], "]"}], "*", 
+   RowBox[{"hco3", "/", "hpre"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"ohnow", "=", 
+  RowBox[{
+   RowBox[{"Quantity", "[", 
+    RowBox[{
+     RowBox[{"10", "^", 
+      RowBox[{"-", "13.2"}]}], ",", 
+     RowBox[{
+      RowBox[{"\"\<Moles\>\"", "^", "2"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"\"\<Kilograms\>\"", "^", "2"}], ")"}]}]}], "]"}], "/", 
+   "hpre"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ca", "=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"hco3", "+", 
+     RowBox[{"2", "co3"}], "+", "ohpre", "-", "hpre"}], ")"}], "/", 
+   "12"}]}]}], "Input",
+ CellChangeTimes->{{3.737306671495646*^9, 
+  3.737306681823908*^9}},ExpressionUUID->"9954703e-92ad-4352-832d-\
+8f29a1420a5a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "0.000012732919254658384`",
+   RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+     "\"kg\""}],"moles per kilogram",FractionBox[
+   "\"Moles\"", "\"Kilograms\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.737306682354476*^9, 3.737345278110705*^9, {3.737438389798732*^9, 
+   3.7374383987865925`*^9}, 3.7374411347436028`*^9, 3.7374413335924873`*^9, 
+   3.7374743290397873`*^9, {3.737474543783005*^9, 3.737474582748726*^9}, 
+   3.7374754272138553`*^9},ExpressionUUID->"4807f42d-3981-41cf-8fa8-\
+82ac0821004e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "0.0025405513948361445`",
+   RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+     "\"kg\""}],"moles per kilogram",FractionBox[
+   "\"Moles\"", "\"Kilograms\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.737306682354476*^9, 3.737345278110705*^9, {3.737438389798732*^9, 
+   3.7374383987865925`*^9}, 3.7374411347436028`*^9, 3.7374413335924873`*^9, 
+   3.7374743290397873`*^9, {3.737474543783005*^9, 3.737474582748726*^9}, 
+   3.7374754272168536`*^9},ExpressionUUID->"72c64e74-b991-45e6-b313-\
+5773b75994c5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "0.000358862422924975`",
+   RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+     "\"kg\""}],"moles per kilogram",FractionBox[
+   "\"Moles\"", "\"Kilograms\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.737306682354476*^9, 3.737345278110705*^9, {3.737438389798732*^9, 
+   3.7374383987865925`*^9}, 3.7374411347436028`*^9, 3.7374413335924873`*^9, 
+   3.7374743290397873`*^9, {3.737474543783005*^9, 3.737474582748726*^9}, 
+   3.737475427224849*^9},ExpressionUUID->"ebe153ff-d0d4-4149-af65-\
+464d6e04a4e3"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "0.00001`",
+   RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+     "\"kg\""}],"moles per kilogram",FractionBox[
+   "\"Moles\"", "\"Kilograms\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.737306682354476*^9, 3.737345278110705*^9, {3.737438389798732*^9, 
+   3.7374383987865925`*^9}, 3.7374411347436028`*^9, 3.7374413335924873`*^9, 
+   3.7374743290397873`*^9, {3.737474543783005*^9, 3.737474582748726*^9}, 
+   3.7374754272288465`*^9},ExpressionUUID->"06afbe09-a919-474a-a1c4-\
+bf30d0af8022"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "0.00027235582759272076`",
+   RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+     "\"kg\""}],"moles per kilogram",FractionBox[
+   "\"Moles\"", "\"Kilograms\""]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.737306682354476*^9, 3.737345278110705*^9, {3.737438389798732*^9, 
+   3.7374383987865925`*^9}, 3.7374411347436028`*^9, 3.7374413335924873`*^9, 
+   3.7374743290397873`*^9, {3.737474543783005*^9, 3.737474582748726*^9}, 
+   3.7374754272478466`*^9},ExpressionUUID->"19adfa3c-5f24-4a82-8f73-\
+841f2781f018"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"kspNew", "=", 
+  RowBox[{"ca", "*", "co3"}]}], "\[IndentingNewLine]", 
+ RowBox[{"kspNew", "/", 
+  RowBox[{"(", 
+   RowBox[{"10", "^", 
+    RowBox[{"-", "8.4"}]}], ")"}]}]}], "Input",
+ CellChangeTimes->{{3.7373473252284317`*^9, 
+  3.7373473453073473`*^9}},ExpressionUUID->"7af61922-43bf-4df0-b69d-\
+b1da66e84b07"],
+
+Cell[BoxData[
+ TemplateBox[{"9.773827218766053`*^-8",RowBox[{
+     SuperscriptBox["\"mol\"", "2"], "\[NegativeMediumSpace]", "\"/\"", 
+     "\[InvisibleSpace]", 
+     SuperscriptBox["\"kg\"", "2"]}],"moles squared per kilogram squared",
+   FractionBox[
+    SuperscriptBox["\"Moles\"", "2"], 
+    SuperscriptBox["\"Kilograms\"", "2"]]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.737347331596457*^9, 3.737347345766797*^9}, 
+   3.7374383988325663`*^9, 3.737441134927496*^9, 3.737441333945284*^9, 
+   3.7374743290687704`*^9, {3.737474543826997*^9, 3.7374745828076897`*^9}, 
+   3.7374754273038034`*^9},ExpressionUUID->"7f3f7fa0-e489-471f-82bc-\
+8effa4151e4f"],
+
+Cell[BoxData[
+ TemplateBox[{"24.550743974737486`",RowBox[{
+     SuperscriptBox["\"mol\"", "2"], "\[NegativeMediumSpace]", "\"/\"", 
+     "\[InvisibleSpace]", 
+     SuperscriptBox["\"kg\"", "2"]}],"moles squared per kilogram squared",
+   FractionBox[
+    SuperscriptBox["\"Moles\"", "2"], 
+    SuperscriptBox["\"Kilograms\"", "2"]]},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.737347331596457*^9, 3.737347345766797*^9}, 
+   3.7374383988325663`*^9, 3.737441134927496*^9, 3.737441333945284*^9, 
+   3.7374743290687704`*^9, {3.737474543826997*^9, 3.7374745828076897`*^9}, 
+   3.7374754273078012`*^9},ExpressionUUID->"d5382603-3354-4e93-b083-\
+77c7e1bb5c25"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"More", " ", "co3", " ", "and", " ", "more", " ", "ca", " ", "so", 
+  " ", "equilibrium", " ", "shift", " ", 
+  RowBox[{"right", ".", " ", "Solubility"}], " ", "product"}]], "Input",
+ CellChangeTimes->{{3.737345392113356*^9, 3.737345424981381*^9}, {
+  3.7373469791001773`*^9, 
+  3.737347022181332*^9}},ExpressionUUID->"425d4598-8c99-4904-b097-\
+909089b4afc2"],
+
+Cell[BoxData[
+ RowBox[{"and", " ", "equilibrium", " ", "more", " ", "More", " ", "product", 
+  " ", "shift", " ", "so", " ", 
+  RowBox[{"right", ".", "Solubility"}], " ", 
+  RowBox[{"(", 
+   TemplateBox[{"9.773827218766053`*^-8",RowBox[{
+       SuperscriptBox["\"mol\"", "2"], "\[NegativeMediumSpace]", "\"/\"", 
+       "\[InvisibleSpace]", 
+       SuperscriptBox["\"kg\"", "2"]}],"moles squared per kilogram squared",
+     FractionBox[
+      SuperscriptBox["\"Moles\"", "2"], 
+      SuperscriptBox["\"Kilograms\"", "2"]]},
+    "Quantity"], ")"}]}]], "Output",
+ CellChangeTimes->{
+  3.7374383988465586`*^9, 3.7374411349884624`*^9, 3.737441334084205*^9, 
+   3.737474329097768*^9, {3.7374745438529787`*^9, 3.73747458284167*^9}, 
+   3.7374754273318005`*^9},ExpressionUUID->"52f46e4b-86fa-4cdc-8896-\
+363fc226e738"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Problem 2a", "Subsubsection",
+ CellChangeTimes->{{3.737304924683507*^9, 
+  3.7373049413107405`*^9}},ExpressionUUID->"640aa797-cc55-43e3-9437-\
+887574e5aa73"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"solCO2", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{
+     RowBox[{"4.0", "*", 
+      RowBox[{"10", "^", 
+       RowBox[{"-", "2"}]}]}], ",", 
+     RowBox[{"\"\<Grams\>\"", "/", "\"\<Kilograms\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"sol02CO2", "=", 
+  RowBox[{"solCO2", "*", "0.2"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"massOcean", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{
+     RowBox[{"1.2", "*", 
+      RowBox[{"10", "^", "21"}]}], ",", "\"\<Kilograms\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"molMassCO2", "=", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{
+     RowBox[{"12", "+", 
+      RowBox[{"(", 
+       RowBox[{"16", "*", "2"}], ")"}]}], ",", 
+     RowBox[{"\"\<Grams\>\"", "/", "\"\<Moles\>\""}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.737312856804206*^9, 3.737312891723195*^9}, {
+   3.7373129692496614`*^9, 3.7373130344531126`*^9}, 3.7373474661287537`*^9, {
+   3.7374756544669275`*^9, 
+   3.737475654729762*^9}},ExpressionUUID->"460baf76-e8ae-481b-896b-\
+0348f57995cb"],
+
+Cell[BoxData["8.000000000000001`*^-6"], "Output",
+ CellChangeTimes->{
+  3.737347484212328*^9, 3.737438398877541*^9, 3.73744113504443*^9, 
+   3.7374413341431713`*^9, 3.7374743291217413`*^9, {3.737474543878962*^9, 
+   3.737474582856661*^9}, 3.737475427354788*^9, 
+   3.737475655688223*^9},ExpressionUUID->"55f2ebd1-3c17-4f99-b916-\
+b0c263e9627c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"molCO2", "=", 
+  RowBox[{"sol02CO2", "*", 
+   RowBox[{"massOcean", "/", "molMassCO2"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"UnitConvert", "[", 
+  RowBox[{
+   RowBox[{"molCO2", "*", "molMassCO2"}], ",", "\"\<Kilograms\>\""}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.737313043397111*^9, 3.737313057577343*^9}, {
+  3.7373459106283736`*^9, 3.737345915874802*^9}, {3.737347667261551*^9, 
+  3.7373476888167477`*^9}},ExpressionUUID->"1a28ac76-749c-47fc-a275-\
+bb033289636e"],
+
+Cell[BoxData[
+ TemplateBox[{"2.181818181818182`*^17","\"mol\"","moles","\"Moles\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.737313059100567*^9, 3.7373459173307695`*^9, {3.7373476729967375`*^9, 
+   3.737347689110902*^9}, 3.7374383989105253`*^9, 3.7374411352183304`*^9, 
+   3.7374413342061357`*^9, 3.7374743291447268`*^9, {3.737474543903948*^9, 
+   3.7374745828966403`*^9}, 3.737475427384763*^9, 
+   3.73747565837169*^9},ExpressionUUID->"61c438a9-b1ef-48b5-b4e7-\
+f685d134bc59"],
+
+Cell[BoxData[
+ TemplateBox[{"9.600000000000002`*^15","\"kg\"","kilograms","\"Kilograms\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.737313059100567*^9, 3.7373459173307695`*^9, {3.7373476729967375`*^9, 
+   3.737347689110902*^9}, 3.7374383989105253`*^9, 3.7374411352183304`*^9, 
+   3.7374413342061357`*^9, 3.7374743291447268`*^9, {3.737474543903948*^9, 
+   3.7374745828966403`*^9}, 3.737475427384763*^9, 
+   3.737475658375707*^9},ExpressionUUID->"95078e09-3bf3-468a-ae08-\
+e4f46bea62bf"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Problem 2b", "Subsubsection",
+ CellChangeTimes->{{3.737304944932454*^9, 
+  3.737304947270911*^9}},ExpressionUUID->"56e3bfc9-509c-479c-9e1c-\
+e6b35cbe746b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"moltot", "=", 
+  RowBox[{"Quantity", "[", 
+   RowBox[{
+    RowBox[{"2.1", "*", 
+     RowBox[{"10", "^", "20"}]}], ",", "\"\<Moles\>\""}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"molCO2", "/", "moltot"}], "*", 
+  RowBox[{"10", "^", "6"}], "*", 
+  RowBox[{"Quantity", "[", 
+   RowBox[{"1", ",", "\"\<Bars\>\""}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.737345927827918*^9, 3.7373460168277273`*^9}, 
+   3.737474323549944*^9},ExpressionUUID->"c47972dc-e8fc-4dd7-ba4f-\
+b9a69a5609dc"],
+
+Cell[BoxData[
+ TemplateBox[{"2.1`*^20","\"mol\"","moles","\"Moles\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.7373459607302866`*^9, 3.7373459745983515`*^9}, 
+   3.737346017149679*^9, 3.7374383989345083`*^9, 3.7374411354162164`*^9, 
+   3.737441334275095*^9, {3.7374743247842207`*^9, 3.7374743291597195`*^9}, {
+   3.737474543917939*^9, 3.73747458291263*^9}, 3.737475427399751*^9, 
+   3.7374757268105445`*^9},ExpressionUUID->"e62bbba2-4c1f-4bcc-9a1e-\
+d79932b4cfb1"],
+
+Cell[BoxData[
+ TemplateBox[{"1038.961038961039`","\"bars\"","bars","\"Bars\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.7373459607302866`*^9, 3.7373459745983515`*^9}, 
+   3.737346017149679*^9, 3.7374383989345083`*^9, 3.7374411354162164`*^9, 
+   3.737441334275095*^9, {3.7374743247842207`*^9, 3.7374743291597195`*^9}, {
+   3.737474543917939*^9, 3.73747458291263*^9}, 3.737475427399751*^9, 
+   3.7374757268135595`*^9},ExpressionUUID->"446591a1-e529-4d18-8234-\
+de572580f054"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{766, 772},
+WindowMargins->{{Automatic, -7}, {Automatic, 0}},
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (April 18, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 264, 7, 152, "Title", "ExpressionUUID" -> \
+"862028f8-3e79-4830-b5eb-a5052fe3ad8c"],
+Cell[CellGroupData[{
+Cell[869, 33, 163, 3, 39, "Subsubsection", "ExpressionUUID" -> \
+"1111119e-9134-47c3-839d-f74f382dfbf8"],
+Cell[CellGroupData[{
+Cell[1057, 40, 718, 20, 69, "Input", "ExpressionUUID" -> \
+"f3a33e22-9fcf-4ed7-a510-43f1b1691e0e"],
+Cell[1778, 62, 540, 12, 44, "Output", "ExpressionUUID" -> \
+"d0a25516-7a69-4e8a-ab1f-d15bf94f4b23"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2355, 79, 1930, 53, 126, "Input", "ExpressionUUID" -> \
+"e2ec5b39-fbfe-4991-a874-66798df690c5"],
+Cell[4288, 134, 715, 12, 30, "Output", "ExpressionUUID" -> \
+"60bd3090-128d-4645-b311-e11666af8621"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5040, 151, 1430, 43, 107, "Input", "ExpressionUUID" -> \
+"b0ecbc86-370c-4f96-8b86-803ebc2fe5cf"],
+Cell[6473, 196, 694, 13, 44, "Output", "ExpressionUUID" -> \
+"8b1de0d0-0431-4f9a-ae71-0381a770ac65"],
+Cell[7170, 211, 696, 13, 41, "Output", "ExpressionUUID" -> \
+"a1e787d7-ba2a-4091-b51a-d34233b605f6"],
+Cell[7869, 226, 697, 13, 41, "Output", "ExpressionUUID" -> \
+"8d52d8da-1d15-482c-a919-ea9e4b239cde"],
+Cell[8569, 241, 682, 13, 41, "Output", "ExpressionUUID" -> \
+"f85385d2-bd94-4a33-b9e9-beffee774662"],
+Cell[9254, 256, 697, 13, 41, "Output", "ExpressionUUID" -> \
+"bd809487-2538-490b-8c39-1a17d0a63c5e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9988, 274, 295, 9, 30, "Input", "ExpressionUUID" -> \
+"a83fa66a-fdea-472d-a80e-d598b8d5bf4b"],
+Cell[10286, 285, 310, 6, 30, "Output", "ExpressionUUID" -> \
+"f79167c8-9093-4cbc-aea4-e6aade621a0f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10633, 296, 344, 8, 50, "Input", "ExpressionUUID" -> \
+"8c721b56-df4e-4bef-bc6b-1fc4d21815d4"],
+Cell[10980, 306, 369, 6, 30, "Output", "ExpressionUUID" -> \
+"8f5b1ec0-69e0-43f0-a0e9-7bfe2092793d"],
+Cell[11352, 314, 562, 12, 41, "Output", "ExpressionUUID" -> \
+"91afac2e-6bae-4d2b-8ef9-e0d86f3791c8"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11963, 332, 163, 3, 39, "Subsubsection", "ExpressionUUID" -> \
+"d2ccf759-9848-47dd-a170-bc728a09b9fa"],
+Cell[CellGroupData[{
+Cell[12151, 339, 429, 10, 50, "Input", "ExpressionUUID" -> \
+"72824257-0105-4d91-aa8b-73dd339005af"],
+Cell[12583, 351, 713, 15, 44, "Output", "ExpressionUUID" -> \
+"687c6f4c-7187-42a9-b942-f07848ae08c0"],
+Cell[13299, 368, 710, 15, 44, "Output", "ExpressionUUID" -> \
+"0b661840-b515-439d-876d-b07d8934a55d"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14058, 389, 161, 3, 39, "Subsubsection", "ExpressionUUID" -> \
+"898bc7b7-369c-4cd7-a194-30b7e74306d9"],
+Cell[CellGroupData[{
+Cell[14244, 396, 2299, 63, 164, "Input", "ExpressionUUID" -> \
+"44978046-d752-47aa-be7c-63dfff995468"],
+Cell[16546, 461, 591, 11, 39, "Output", "ExpressionUUID" -> \
+"135c1273-f8db-4f0b-b245-9817d443028f"],
+Cell[17140, 474, 680, 13, 39, "Message", "ExpressionUUID" -> \
+"0ef55df9-3f34-4465-bbf9-7c0527ca2ac7"],
+Cell[17823, 489, 2212, 53, 78, "Output", "ExpressionUUID" -> \
+"aeaa91a9-82db-4f31-b8e8-8239d9795eba"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20072, 547, 1974, 56, 107, "Input", "ExpressionUUID" -> \
+"e9cf5a6a-7c4a-4674-b2c0-6f4a33d116ee"],
+Cell[22049, 605, 614, 13, 41, "Output", "ExpressionUUID" -> \
+"526735b4-051a-4914-86f8-5e642840eab8"],
+Cell[22666, 620, 442, 9, 30, "Output", "ExpressionUUID" -> \
+"2742361f-d3fa-45d0-95bd-8253412d0299"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23145, 634, 711, 19, 61, "Input", "ExpressionUUID" -> \
+"5d95ba2b-8ac8-434a-9a16-710380528cf2"],
+Cell[23859, 655, 550, 12, 44, "Output", "ExpressionUUID" -> \
+"e49366dd-b900-4c06-8939-ea47b19ff586"],
+Cell[24412, 669, 358, 6, 30, "Output", "ExpressionUUID" -> \
+"31a2d4ee-5791-49c5-9e16-7d3d1fbb3f74"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24807, 680, 674, 19, 50, "Input", "ExpressionUUID" -> \
+"b7795215-2062-4fca-a9fb-cfcb33c1ca3f"],
+Cell[25484, 701, 518, 12, 41, "Output", "ExpressionUUID" -> \
+"554351c1-827c-4074-b903-8c458c0ff0f2"],
+Cell[26005, 715, 516, 12, 41, "Output", "ExpressionUUID" -> \
+"04bbe842-2a77-4488-82d9-1a6ca7124bf0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26558, 732, 433, 10, 50, "Input", "ExpressionUUID" -> \
+"75f8e7b8-9844-4add-97bd-dec2ef511346"],
+Cell[26994, 744, 635, 13, 44, "Output", "ExpressionUUID" -> \
+"23674456-44d5-42c1-ac78-734673e2354e"],
+Cell[27632, 759, 632, 13, 44, "Output", "ExpressionUUID" -> \
+"63d82edd-e746-42ad-8531-795d59c58aa9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28301, 777, 328, 7, 30, "Input", "ExpressionUUID" -> \
+"a594e4f6-5f88-410c-883e-c0b0e936e2c5"],
+Cell[28632, 786, 363, 7, 30, "Output", "ExpressionUUID" -> \
+"4869b1dc-e7de-4fbe-9994-1a8feada46a1"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29044, 799, 161, 3, 39, "Subsubsection", "ExpressionUUID" -> \
+"5694c008-8092-44d4-901b-7c06a8790585"],
+Cell[CellGroupData[{
+Cell[29230, 806, 1853, 53, 145, "Input", "ExpressionUUID" -> \
+"fb671fd5-e69c-45be-badb-956e4265cb7f"],
+Cell[31086, 861, 599, 12, 39, "Message", "ExpressionUUID" -> \
+"81a572b3-7dd5-49e2-9716-6d242313017b"],
+Cell[31688, 875, 1770, 44, 71, "Output", "ExpressionUUID" -> \
+"cb102e8e-c8cf-4b7c-937a-72dff4d30664"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33495, 924, 1430, 43, 107, "Input", "ExpressionUUID" -> \
+"9954703e-92ad-4352-832d-8f29a1420a5a"],
+Cell[34928, 969, 569, 12, 41, "Output", "ExpressionUUID" -> \
+"4807f42d-3981-41cf-8fa8-82ac0821004e"],
+Cell[35500, 983, 567, 12, 41, "Output", "ExpressionUUID" -> \
+"72c64e74-b991-45e6-b313-5773b75994c5"],
+Cell[36070, 997, 564, 12, 41, "Output", "ExpressionUUID" -> \
+"ebe153ff-d0d4-4149-af65-464d6e04a4e3"],
+Cell[36637, 1011, 553, 12, 41, "Output", "ExpressionUUID" -> \
+"06afbe09-a919-474a-a1c4-bf30d0af8022"],
+Cell[37193, 1025, 568, 12, 41, "Output", "ExpressionUUID" -> \
+"19adfa3c-5f24-4a82-8f73-841f2781f018"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37798, 1042, 337, 9, 50, "Input", "ExpressionUUID" -> \
+"7af61922-43bf-4df0-b69d-b1da66e84b07"],
+Cell[38138, 1053, 660, 13, 44, "Output", "ExpressionUUID" -> \
+"7f3f7fa0-e489-471f-82bc-8effa4151e4f"],
+Cell[38801, 1068, 657, 13, 44, "Output", "ExpressionUUID" -> \
+"d5382603-3354-4e93-b083-77c7e1bb5c25"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39495, 1086, 382, 7, 30, "Input", "ExpressionUUID" -> \
+"425d4598-8c99-4904-b097-909089b4afc2"],
+Cell[39880, 1095, 811, 17, 46, "Output", "ExpressionUUID" -> \
+"52f46e4b-86fa-4cdc-8896-363fc226e738"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[40740, 1118, 163, 3, 39, "Subsubsection", "ExpressionUUID" -> \
+"640aa797-cc55-43e3-9437-887574e5aa73"],
+Cell[CellGroupData[{
+Cell[40928, 1125, 1102, 32, 88, "Input", "ExpressionUUID" -> \
+"460baf76-e8ae-481b-896b-0348f57995cb"],
+Cell[42033, 1159, 344, 6, 30, "Output", "ExpressionUUID" -> \
+"55f2ebd1-3c17-4f99-b916-b0c263e9627c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[42414, 1170, 497, 11, 50, "Input", "ExpressionUUID" -> \
+"1a28ac76-749c-47fc-a275-bb033289636e"],
+Cell[42914, 1183, 487, 9, 42, "Output", "ExpressionUUID" -> \
+"61c438a9-b1ef-48b5-b4e7-f685d134bc59"],
+Cell[43404, 1194, 495, 9, 44, "Output", "ExpressionUUID" -> \
+"95078e09-3bf3-468a-ae08-e4f46bea62bf"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[43948, 1209, 161, 3, 39, "Subsubsection", "ExpressionUUID" -> \
+"56e3bfc9-509c-479c-9e1c-e6b35cbe746b"],
+Cell[CellGroupData[{
+Cell[44134, 1216, 524, 14, 50, "Input", "ExpressionUUID" -> \
+"c47972dc-e8fc-4dd7-ba4f-b9a69a5609dc"],
+Cell[44661, 1232, 472, 8, 42, "Output", "ExpressionUUID" -> \
+"e62bbba2-4c1f-4bcc-9a1e-d79932b4cfb1"],
+Cell[45136, 1242, 481, 8, 72, "Output", "ExpressionUUID" -> \
+"446591a1-e529-4d18-8234-de572580f054"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
