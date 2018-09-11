@@ -1,0 +1,17 @@
+3a: What variables are currently stored in the MATLAB workspace?
+
+3b: What are the values currently stored in the daysInMonth vector?
+
+5a: What values should the daysInMonth vector hold?
+
+7a: What are the current values in the daysInMonth vector?
+
+7b: What is the current value of leapYear?
+
+11a: What is the current value of AD(2000)?
+
+11b: What should the value of AD(2000) be?
+
+11c: According the the characteristics given in step 8, is the year 2400 a leap year?
+
+11d: According the the characteristics given in step 8, is the year 2100 a leap year?
