@@ -30,7 +30,7 @@ def solveReactions(forceListDF):
 
 	print(matA)
 
-	return rrefA[0][0,2], rrefA[0][1,2]
+	return -rrefA[0][0,2], -rrefA[0][1,2]
 
 def getSimpleForceDist(distA, distB, hA, hB):
 	return lambda x : ((hB - hA)/(distB - distA)) * (x - distA) + hA \
@@ -65,10 +65,16 @@ def genDistForce(distA, distB, hA, hB):
 	return area[0], centroid
 
 def getForceDist(forceDistDF, xpts):
-	'''Returns a lambda function for the total shear force.'''
+	'''Returns an array for the total shear force.'''
 	qDist = lambda x : sum(getSimpleForceDist(qi[1], qi[2], qi[3], qi[4])(x)\
 								 for qi in forceDistDF.values)
 	return [qDist(x) for x in xpts]
+
+def getReactionPlot(forceListDF, xpts):
+	'''Returns an array for the total shear force.'''
+	reactShear = lambda x :	sum(getReactionForceFunction(ri[1], ri[2])(x) \
+								 for ri in forceListDF.values[:2])
+	return [reactShear(x) for x in xpts]
 
 def solveShearForce(forceDistDF, forceListDF, xpts):
 	''' Use the getSimpleForceDist function and integrate with the specified
@@ -96,17 +102,17 @@ def solveShearAndBendingMoment(forceDistDF, forceListDF, xpts):
 	bmomentAtXval = np.zeros(xpts.shape)
 	shearAtXval = np.zeros(xpts.shape)
 
-	qDist = lambda x : sum(getSimpleForceDist(qi[1], qi[2], qi[3], qi[4])(x)\
-								 for qi in forceDistDF.values)
-	reactShear = lambda x :	sum(getReactionForceFunction(ri[1], ri[2])(x) \
-								 for ri in forceListDF.values[:2])
+	# qDist = lambda x : sum(getSimpleForceDist(qi[1], qi[2], qi[3], qi[4])(x)\
+	# 							 for qi in forceDistDF.values)
+	# reactShear = lambda x :	sum(getReactionForceFunction(ri[1], ri[2])(x) \
+	# 							 for ri in forceListDF.values[:2])
 
 	initial = xpts[0]
 	print("initial pt: ", initial)
 
 	for index, x_curr in enumerate(xpts):
 		for indQ, qi in enumerate(forceDistDF.values):
-			if x_curr > qi[1] and x_curr < qi[2]:
+			if x_curr >= qi[1] and x_curr <= qi[2]:
 				# In the middle of the force distribution.
 				# print("Within the", qi[0], "force distribution")
 				lower_bound = qi[1]
@@ -115,10 +121,11 @@ def solveShearAndBendingMoment(forceDistDF, forceListDF, xpts):
 					lower_bound, x_curr)[0]
 				shearAtXval[index] += newShear
 
-				newBMoment = integrate.dblquad(lambda s, s2 : \
+				newBMoment = integrate.dblquad(lambda s2, s : \
 					getSimpleForceDist(qi[1], qi[2], qi[3], qi[4])(s), \
 					lower_bound, x_curr, \
-					lambda s2: lower_bound, lambda s2: x_curr)[0]
+					lambda s2: lower_bound, lambda s2: s2)[0]
+
 				bmomentAtXval[index] += newBMoment
 
 			elif x_curr > qi[2]:
@@ -130,18 +137,18 @@ def solveShearAndBendingMoment(forceDistDF, forceListDF, xpts):
 
 				lower_bound = qi[1]
 				upper_bound = qi[2]
-				newBMoment = integrate.dblquad(lambda s, s2 : \
+				newBMoment = integrate.dblquad(lambda s2, s : \
 					getSimpleForceDist(qi[1], qi[2], qi[3], qi[4])(s), \
 					lower_bound, upper_bound, \
-					lambda s2: lower_bound, lambda s2: upper_bound)[0]
+					lambda s2: lower_bound, lambda s2: s2)[0]
 
 				bmomentAtXval[index] += newBMoment
 
 		for indReact, ri in enumerate(forceListDF.values[:2]):
-			if x_curr > ri[2]:
+			if x_curr >= ri[2]:
 				# Past the reaction so we need to include it.
-				shearAtXval[index] += -ri[1]
-				bmomentAtXval[index] += (x_curr - ri[2]) * (-ri[1])
+				shearAtXval[index] += ri[1]
+				bmomentAtXval[index] += (x_curr - ri[2]) * ri[1]
 				
 		if (index + 1) % 100 == 0:
 			print("At index ", index + 1, " with x val ", x_curr)
@@ -156,21 +163,24 @@ def main(forceListDF, forceDistDF):
 	print()
 	print("Solving for Shear Force and Bending Moment \n")
 
-	xpts = np.linspace(0,10,500)
+	xpts = np.linspace(0,10,400)
 	fig, axes = plt.subplots(2, 2)
 	fig.tight_layout()
 
 	qDist = getForceDist(forceDistDF, xpts)
+	rReact = getReactionPlot(forceListDF, xpts)
 
 	# The first argument is shear and the second is bending moment
 	shearBendVals = solveShearAndBendingMoment(forceDistDF, forceListDF, xpts)
 
 	print("Beginning Plotting...\n")
 	axes[0,1].plot(xpts, qDist, color = 'blue')
+	axes[1,1].plot(xpts, rReact, color = 'blue')
 	axes[0,0].plot(xpts[:-1], shearBendVals[0][:-1], color = 'green')
 	axes[1,0].plot(xpts[:-1], shearBendVals[1][:-1], color = 'orange')
 
 	axes[0,1].set_title("Force Distribution on the Beam")
+	axes[1,1].set_title("Reaction Distribution on the Beam")
 	axes[0,0].set_title("Shear Force in the Beam")
 	axes[1,0].set_title("Bending Moment in the Beam")
 
