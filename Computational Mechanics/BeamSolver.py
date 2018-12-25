@@ -127,17 +127,24 @@ def solveShearAndBendingMoment(forceDistDF, forceListDF, xpts):
 				# print("Need to include magnitude of ", qi[0], "which is ", \
 				# 	forceListDF.loc[indQ + 2, "Magnitude"])
 				shearAtXval[index] += forceListDF.loc[indQ + 2, "Magnitude"]
-				bmomentAtXval[index] += forceListDF.loc[indQ + 2, "Location"] *\
-									(forceListDF.loc[indQ + 2, "Magnitude"])
+
+				lower_bound = qi[1]
+				upper_bound = qi[2]
+				newBMoment = integrate.dblquad(lambda s, s2 : \
+					getSimpleForceDist(qi[1], qi[2], qi[3], qi[4])(s), \
+					lower_bound, upper_bound, \
+					lambda s2: lower_bound, lambda s2: upper_bound)[0]
+
+				bmomentAtXval[index] += newBMoment
 
 		for indReact, ri in enumerate(forceListDF.values[:2]):
 			if x_curr > ri[2]:
 				# Past the reaction so we need to include it.
 				shearAtXval[index] += -ri[1]
-				bmomentAtXval[index] += x_curr * (-ri[1])
-
-		if index % 5 == 0:
-			print("At index ", index, " with x val ", x_curr)
+				bmomentAtXval[index] += (x_curr - ri[2]) * (-ri[1])
+				
+		if (index + 1) % 100 == 0:
+			print("At index ", index + 1, " with x val ", x_curr)
 
 	return shearAtXval, bmomentAtXval
 
@@ -149,8 +156,8 @@ def main(forceListDF, forceDistDF):
 	print()
 	print("Solving for Shear Force and Bending Moment \n")
 
-	xpts = np.linspace(0,10,100)
-	fig, axes = plt.subplots(3, 1)
+	xpts = np.linspace(0,10,500)
+	fig, axes = plt.subplots(2, 2)
 	fig.tight_layout()
 
 	qDist = getForceDist(forceDistDF, xpts)
@@ -159,15 +166,15 @@ def main(forceListDF, forceDistDF):
 	shearBendVals = solveShearAndBendingMoment(forceDistDF, forceListDF, xpts)
 
 	print("Beginning Plotting...\n")
-	axes[0].plot(xpts, qDist, color = 'blue')
-	axes[1].plot(xpts, shearBendVals[0], color = 'green')
-	axes[2].plot(xpts, shearBendVals[1], color = 'orange')
+	axes[0,1].plot(xpts, qDist, color = 'blue')
+	axes[0,0].plot(xpts[:-1], shearBendVals[0][:-1], color = 'green')
+	axes[1,0].plot(xpts[:-1], shearBendVals[1][:-1], color = 'orange')
 
-	axes[0].set_title("Force Distribution on the Beam")
-	axes[1].set_title("Shear Force in the Beam")
-	axes[2].set_title("Bending Moment in the Beam")
+	axes[0,1].set_title("Force Distribution on the Beam")
+	axes[0,0].set_title("Shear Force in the Beam")
+	axes[1,0].set_title("Bending Moment in the Beam")
 
-	for ax in axes:
+	for ax in axes.flatten():
 		ax.axhline(y = 0, color = 'k', linewidth = 0.5)
 
 		for qi in forceDistDF.values:
@@ -177,7 +184,7 @@ def main(forceListDF, forceDistDF):
 		ax.set_xlim(forceDistDF.values[0][1],\
 			forceDistDF.values[len(forceDistDF.values) - 1][2])
 
-		ax.grid(True, which='both')
+		# ax.grid(True, which='both')
 
 	plt.show()
 
@@ -186,9 +193,8 @@ if __name__ == '__main__':
 	# The distributed force has to be of the form
 	# [["Force Name", magnitude, [direction vec], [centroid vec], 
 	#	true if Distribution, function for distribution]]
-	forceDistDF = pd.read_csv('distBeam.csv', header = None)
+	forceDistDF = pd.read_csv('distBeam.csv')
 	forceListDF = pd.read_csv('dataBeam.csv')
-	# forceList = forceListDF.values
 
 	genCSVforDistForce(forceDistDF, 'dataBeam.csv', forceListDF)
 
