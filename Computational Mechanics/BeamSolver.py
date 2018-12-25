@@ -46,7 +46,7 @@ def genCSVforDistForce(forceDistDF, file, outDF):
 	# We only want to append the relevant about the force distributions
 	for qi in forceDistDF.values:
 		area, centroid = genDistForce(qi[1], qi[2], qi[3], qi[4])
-		outDF.loc[outDF.shape[0] + 1] = [qi[0], area, centroid]
+		outDF.loc[outDF.shape[0]] = [qi[0], area, centroid]
 	print(outDF)
 		
 def genDistForce(distA, distB, hA, hB):
@@ -63,6 +63,12 @@ def genDistForce(distA, distB, hA, hB):
 	centroid = centArea[0] / area[0]
 
 	return area[0], centroid
+
+def getForceDist(forceDistDF, xpts):
+	'''Returns a lambda function for the total shear force.'''
+	qDist = lambda x : sum(getSimpleForceDist(qi[1], qi[2], qi[3], qi[4])(x)\
+								 for qi in forceDistDF.values)
+	return [qDist(x) for x in xpts]
 
 def solveShearForce(forceDistDF, forceListDF, xpts):
 	''' Use the getSimpleForceDist function and integrate with the specified
@@ -96,57 +102,82 @@ def solveShearAndBendingMoment(forceDistDF, forceListDF, xpts):
 								 for ri in forceListDF.values[:2])
 
 	initial = xpts[0]
+	print("initial pt: ", initial)
 
-	for index, x in enumerate(xpts):
-		# if False:
-		# 	if index == 0:
-		# 		pass
-		# 	else:
-		# 		# To avoid calculating the shear force and bending moment plots
-		# 		# from the origin, we instead use the intermediate values.
-		# 		vFunc = lambda x: integrate.quad(lambda s : qDist(s), \
-		# 							xpts[index - 1], x)
-		# 		# mFunc = lambda x: integrate.quad(lambda s : \
-		# 		# 					vFunc(s)[0] - reactShear(s), \
-		# 		# 					xpts[index - 1], x)
+	for index, x_curr in enumerate(xpts):
+		for indQ, qi in enumerate(forceDistDF.values):
+			if x_curr > qi[1] and x_curr < qi[2]:
+				# In the middle of the force distribution.
+				# print("Within the", qi[0], "force distribution")
+				lower_bound = qi[1]
+				newShear = integrate.quad(lambda s : \
+					getSimpleForceDist(qi[1], qi[2], qi[3], qi[4])(s), \
+					lower_bound, x_curr)[0]
+				shearAtXval[index] += newShear
 
-		# 		shearAtXval[index] = shearAtXval[index - 1] + \
-		# 										vFunc(x)[0] - reactShear(x)
-		# 		# bmomentAtXval[index] = bmomentAtXval[index - 1] + \
-		# 		# 								mFunc(x)[0]
-		# else:
-		vFunc = lambda x: integrate.quad(lambda s : qDist(s), initial, x)
-		mFunc = lambda x: integrate.dblquad(lambda s, s2 : \
-							qDist(s), initial, x,\
-							lambda s2: initial, lambda s2: x)[0] -\
-						integrate.quad(lambda s: reactShear(s), initial, x)[0]
+				newBMoment = integrate.dblquad(lambda s, s2 : \
+					getSimpleForceDist(qi[1], qi[2], qi[3], qi[4])(s), \
+					lower_bound, x_curr, \
+					lambda s2: lower_bound, lambda s2: x_curr)[0]
+				bmomentAtXval[index] += newBMoment
 
-		shearAtXval[index] = vFunc(x)[0] - reactShear(x)
-		bmomentAtXval[index] = mFunc(x)
+			elif x_curr > qi[2]:
+				# You want to include the previous contribution of that 
+				# force distribution. This is just the force from that value.
+				# print("Need to include magnitude of ", qi[0], "which is ", \
+				# 	forceListDF.loc[indQ + 2, "Magnitude"])
+				shearAtXval[index] += forceListDF.loc[indQ + 2, "Magnitude"]
+				bmomentAtXval[index] += forceListDF.loc[indQ + 2, "Location"] *\
+									(forceListDF.loc[indQ + 2, "Magnitude"])
+
+		for indReact, ri in enumerate(forceListDF.values[:2]):
+			if x_curr > ri[2]:
+				# Past the reaction so we need to include it.
+				shearAtXval[index] += -ri[1]
+				bmomentAtXval[index] += x_curr * (-ri[1])
 
 		if index % 5 == 0:
-			print("At index ", index, " with x val ", x)
+			print("At index ", index, " with x val ", x_curr)
 
 	return shearAtXval, bmomentAtXval
 
 def main(forceListDF, forceDistDF):
 	print()
 	print(forceListDF)
-
-	print("Beginning Plotting...")
+	print()
+	print(forceDistDF)
+	print()
+	print("Solving for Shear Force and Bending Moment \n")
 
 	xpts = np.linspace(0,10,100)
-	fig, ax = plt.subplots()
+	fig, axes = plt.subplots(3, 1)
+	fig.tight_layout()
+
+	qDist = getForceDist(forceDistDF, xpts)
+
+	# The first argument is shear and the second is bending moment
 	shearBendVals = solveShearAndBendingMoment(forceDistDF, forceListDF, xpts)
-	ax.plot(xpts, shearBendVals[0])
-	ax.plot(xpts, shearBendVals[1])
 
-	#ax.grid(True, which = 'both')
-	ax.axhline(y = 0, color = 'k', linewidth = 0.5)
+	print("Beginning Plotting...\n")
+	axes[0].plot(xpts, qDist, color = 'blue')
+	axes[1].plot(xpts, shearBendVals[0], color = 'green')
+	axes[2].plot(xpts, shearBendVals[1], color = 'orange')
 
-	for qi in forceDistDF.values:
-		ax.axvline(x = qi[1], color = 'k', linewidth = 0.5)
-		ax.axvline(x = qi[2], color = 'k', linewidth = 0.5)
+	axes[0].set_title("Force Distribution on the Beam")
+	axes[1].set_title("Shear Force in the Beam")
+	axes[2].set_title("Bending Moment in the Beam")
+
+	for ax in axes:
+		ax.axhline(y = 0, color = 'k', linewidth = 0.5)
+
+		for qi in forceDistDF.values:
+			ax.axvline(x = qi[1], color = 'k', linewidth = 0.5)
+			ax.axvline(x = qi[2], color = 'k', linewidth = 0.5)
+
+		ax.set_xlim(forceDistDF.values[0][1],\
+			forceDistDF.values[len(forceDistDF.values) - 1][2])
+
+		ax.grid(True, which='both')
 
 	plt.show()
 
