@@ -1,4 +1,4 @@
-# Probability Fun: Project 3 - Normal Distribution.
+# Probability Fun: Project 4 - Poisson Distribution.
 # Daniel Neamati
 # 28 December 2018
 
@@ -6,14 +6,15 @@ import matplotlib.pyplot as plt
 import numpy as np 
 import random
 import sys
+import mpmath # gamma function (generalized factorial)
 
 from FreqVsProb import randomPick
 
 
-def normalDist(numTrials, numTosses):
-	'''We want to model a normal distribution from a symmetric binomial 
+def possionDist(numTrials, numTosses):
+	'''We want to model a poisson distribution from a symmetric binomial 
 	distribution. We want to show that for large number of trials, the 
-	binomial histogram converges to the normal distribution. 
+	binomial histogram converges to the poisson distribution. 
 
 	We do this with a (fair) coin toss.'''
 
@@ -26,7 +27,7 @@ def normalDist(numTrials, numTosses):
 		trial = []
 		for j in range(numTosses):
 			# Flip a fair coin. Did it flip heads?
-			trial.append(randomPick(1, 2))
+			trial.append(randomPick(1, numTosses))
 		# Append the average number that flipped heads.
 		results.append(np.sum(trial))
 
@@ -40,7 +41,7 @@ def normalDist(numTrials, numTosses):
 
 def main(numTrials, numTosses):
 
-	results = normalDist(numTrials, numTosses)
+	results = possionDist(numTrials, numTosses)
 	
 	# Plot the binomial distibution of results
 	numBins = int(max(results) - min(results))
@@ -48,36 +49,38 @@ def main(numTrials, numTosses):
 	print("Values in bins:", n)
 	print("Sum of these values:", sum(n))
 
-	# Now we plot normal distribution
-	sigma = np.std(results)
+	# Now we plot poisson distribution
+	# sigma = np.std(results)
 	mu = np.average(results)
 	xpts = np.linspace(min(results), max(results))
-	zVals = (xpts - 0.5 - mu) / sigma
+	# xpts = list(range(max(results)))
+	# print(xpts)
+	# zVals = (xpts - 0.5 - mu) / sigma
 
-	y = (1 / (np.sqrt(2 * np.pi) * sigma)) * np.exp(-0.5 * zVals ** 2)
-	yfunc = lambda x : (1 / (np.sqrt(2 * np.pi) * sigma)) *\
-					np.exp(-0.5 * ((x - 0.5 - mu)/sigma) ** 2)
-
-	print("Normal Distribution Probability:", y[:20])
+	# y = np.exp(- mu) * ((mu ** xpts)/ [np.math.factorial(x) for x in xpts])
+	y = np.exp(- mu) * (((mu) ** xpts)/ [mpmath.gamma(k) if k != 0 else 10 for k in xpts ])
+	yfunc = lambda k : np.exp(- mu) * ((mu ** k)/ mpmath.gamma(k))
+	print("Possion Distribution Probability:", y[:20])
 	print("Factor:", max(n) / max(y))
 
-	plt.plot(xpts, y) #* max(n) / max(y))
+	plt.plot(xpts - 0.5, y) #* max(n) / max(y))
 
 	# We now do the rest of the plotting.
-	plt.title("Normal Distribution of" + \
+	plt.title("Poisson Distribution of" + \
 		" {} Trials \n and {} Tosses per trial".\
 					format(numTrials, numTosses))
 	plt.xlabel("Number of Trials to Success")
 	plt.ylabel("Probability Density")
+	plt.xlim(0)
 
 	print("Mean prob", yfunc(mu))
 
 	_, max_ = plt.ylim()
-	plt.axvline(x = mu, ymax = yfunc(mu) / max_, color = 'black')
-	plt.axvline(x = mu + sigma, ymax = yfunc(mu + sigma) / max_,\
-					color = 'black', linestyle = '--')
-	plt.axvline(x = mu - sigma, ymax = yfunc(mu - sigma) / max_,\
-					color = 'black', linestyle = '--')
+	plt.axvline(x = mu, ymax = yfunc(mu + 0.5) / max_, color = 'black')
+	# plt.axvline(x = mu + sigma, ymax = yfunc(mu + sigma) / max_,\
+	# 				color = 'black', linestyle = '--')
+	# plt.axvline(x = mu - sigma, ymax = yfunc(mu - sigma) / max_,\
+	# 				color = 'black', linestyle = '--')
 
 	plt.show()
 
