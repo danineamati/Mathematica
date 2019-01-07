@@ -115,18 +115,23 @@ def solveShearAndBendingMoment(forceDistDF, forceListDF, xpts):
 			if x_curr >= qi[1] and x_curr <= qi[2]:
 				# In the middle of the force distribution.
 				# print("Within the", qi[0], "force distribution")
+				# qi[0] = Name
+				# qi[1] = Start X
+				# qi[2] = End X
+				# qi[3] = Start Value (at x = qi[1])
+				# qi[4] = End Value (at x = qi[2])
 				lower_bound = qi[1]
 				newShear = integrate.quad(lambda s : \
 					getSimpleForceDist(qi[1], qi[2], qi[3], qi[4])(s), \
 					lower_bound, x_curr)[0]
 				shearAtXval[index] += newShear
 
-				newBMoment = integrate.dblquad(lambda s2, s : \
+				newBMoment = integrate.dblquad(lambda s, s2 : \
 					getSimpleForceDist(qi[1], qi[2], qi[3], qi[4])(s), \
 					lower_bound, x_curr, \
-					lambda s2: lower_bound, lambda s2: s2)[0]
+					lambda s: lower_bound, lambda s: s)[0]
 
-				bmomentAtXval[index] += newBMoment
+				bmomentAtXval[index] += newBMoment # + lower_bound * (x_curr - lower_bound)
 
 			elif x_curr > qi[2]:
 				# You want to include the previous contribution of that 
@@ -137,14 +142,16 @@ def solveShearAndBendingMoment(forceDistDF, forceListDF, xpts):
 
 				lower_bound = qi[1]
 				upper_bound = qi[2]
-				newBMoment = integrate.dblquad(lambda s2, s : \
+				newBMoment = integrate.dblquad(lambda s, s2 : \
 					getSimpleForceDist(qi[1], qi[2], qi[3], qi[4])(s), \
 					lower_bound, upper_bound, \
-					lambda s2: lower_bound, lambda s2: s2)[0]
+					lambda s: lower_bound, lambda s: s)[0]
 
-				bmomentAtXval[index] += newBMoment
+				bmomentAtXval[index] += newBMoment # + lower_bound * \
+				# 								(upper_bound - lower_bound)
 
 		for indReact, ri in enumerate(forceListDF.values[:2]):
+			# Note that ri[1] is the magnitude and ri[2] is the location.
 			if x_curr >= ri[2]:
 				# Past the reaction so we need to include it.
 				shearAtXval[index] += ri[1]
