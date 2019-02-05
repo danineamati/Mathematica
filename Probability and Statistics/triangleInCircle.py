@@ -139,10 +139,12 @@ if __name__ == '__main__':
 	print(np.mean(np.array(results)))
 	plt.plot(currMean)
 	plt.axhline(np.mean(np.array(results)), color = 'black')
+	plt.xlabel("Number of Trials")
+	plt.ylabel("Mean Probability of Event")
 	plt.show()
 
 	aggResults = []
-	for i in range(numTrials):
+	for i in range(numTrials // 10):
 		results, currMean = largeNTest(numTrials, False)
 		aggResults.append(np.mean(np.array(results)))
 
