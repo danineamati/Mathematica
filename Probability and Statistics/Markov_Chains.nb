@@ -1,0 +1,385 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     15746,        377]
+NotebookOptionsPosition[     14644,        349]
+NotebookOutlinePosition[     14990,        364]
+CellTagsIndexPosition[     14947,        361]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Markov Chains Test", "Section",
+ CellChangeTimes->{{3.7589002697265434`*^9, 
+  3.758900303715728*^9}},ExpressionUUID->"88e53735-b99a-4b3a-9dc6-\
+90edf28f10e6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pMatrix", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "/", "3"}], ",", 
+       RowBox[{"1", "/", "3"}], ",", 
+       RowBox[{"1", "/", "3"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "/", "2"}], ",", "0", ",", 
+       RowBox[{"1", "/", "2"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "/", "2"}], ",", 
+       RowBox[{"1", "/", "2"}], ",", "0"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"s0", "=", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"eVal", ",", "eVec"}], "}"}], "=", 
+    RowBox[{"Eigensystem", "[", "pMatrix", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"StringForm", "[", 
+   RowBox[{
+   "\"\<The transition matrix is `` and the initial state is ``.\nThe \
+eigensystem is ``  and ``.\>\"", ",", 
+    RowBox[{"pMatrix", "//", "MatrixForm"}], ",", 
+    RowBox[{"s0", "//", "MatrixForm"}], ",", 
+    RowBox[{"eVal", "//", "MatrixForm"}], ",", 
+    RowBox[{"eVec", "//", "MatrixForm"}]}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"mp", " ", "=", 
+   RowBox[{"DiscreteMarkovProcess", "[", 
+    RowBox[{"s0", ",", "pMatrix"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"mg", "=", 
+  RowBox[{"Graph", "[", 
+   RowBox[{"mp", ",", " ", 
+    RowBox[{"EdgeLabels", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"DirectedEdge", "[", 
+        RowBox[{"i_", ",", "j_"}], "]"}], "\[RuleDelayed]", 
+       RowBox[{"pMatrix", "[", 
+        RowBox[{"[", 
+         RowBox[{"i", ",", "j"}], "]"}], "]"}]}], "}"}]}], ",", 
+    RowBox[{"EdgeStyle", "\[Rule]", 
+     RowBox[{"Directive", "[", "Black", "]"}]}], ",", 
+    RowBox[{"VertexSize", "\[Rule]", "0.4"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.758900306558855*^9, 3.7589003673356476`*^9}, {
+  3.7589004120181384`*^9, 3.7589006713305798`*^9}, {3.7589026225310125`*^9, 
+  3.7589026389123926`*^9}, {3.7589027709069376`*^9, 3.758902792226411*^9}, {
+  3.758902855400741*^9, 3.758902874044547*^9}, {3.7589030118332376`*^9, 
+  3.758903093503484*^9}, {3.7589031237702065`*^9, 3.7589031392094574`*^9}, {
+  3.75890319613081*^9, 3.758903263343827*^9}, {3.75890366476094*^9, 
+  3.758903692131133*^9}, {3.7594473422443876`*^9, 
+  3.75944734981717*^9}},ExpressionUUID->"676b312d-5360-46d3-b2be-\
+e93bd899ad3f"],
+
+Cell[BoxData[
+ InterpretationBox["\<\"The transition matrix is \
+\\!\\(\\*TagBox[RowBox[{\\\"(\\\", \\\"\[NoBreak]\\\", GridBox[{{FractionBox[\
+\\\"1\\\", \\\"3\\\"], FractionBox[\\\"1\\\", \\\"3\\\"], FractionBox[\\\"1\\\
+\", \\\"3\\\"]}, {FractionBox[\\\"1\\\", \\\"2\\\"], \\\"0\\\", \
+FractionBox[\\\"1\\\", \\\"2\\\"]}, {FractionBox[\\\"1\\\", \\\"2\\\"], \
+FractionBox[\\\"1\\\", \\\"2\\\"], \\\"0\\\"}}, Rule[RowSpacings, 1], \
+Rule[ColumnSpacings, 1], Rule[RowAlignments, Baseline], \
+Rule[ColumnAlignments, Center]], \\\"\[NoBreak]\\\", \\\")\\\"}], \
+Function[BoxForm`e$, MatrixForm[BoxForm`e$]]]\\) and the initial state is \\!\
+\\(\\*TagBox[RowBox[{\\\"(\\\", \\\"\[NoBreak]\\\", \
+TagBox[GridBox[{{\\\"1\\\"}, {\\\"0\\\"}, {\\\"0\\\"}}, \
+Rule[ColumnAlignments, Center], Rule[RowSpacings, 1], Rule[ColumnAlignments, \
+Left]], Column], \\\"\[NoBreak]\\\", \\\")\\\"}], Function[BoxForm`e$, \
+MatrixForm[BoxForm`e$]]]\\).\\nThe eigensystem is \
+\\!\\(\\*TagBox[RowBox[{\\\"(\\\", \\\"\[NoBreak]\\\", TagBox[GridBox[{{\\\"1\
+\\\"}, {RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \\\"2\\\"]}]}, \
+{RowBox[{\\\"-\\\", FractionBox[\\\"1\\\", \\\"6\\\"]}]}}, \
+Rule[ColumnAlignments, Center], Rule[RowSpacings, 1], Rule[ColumnAlignments, \
+Left]], Column], \\\"\[NoBreak]\\\", \\\")\\\"}], Function[BoxForm`e$, \
+MatrixForm[BoxForm`e$]]]\\)  and \\!\\(\\*TagBox[RowBox[{\\\"(\\\", \\\"\
+\[NoBreak]\\\", GridBox[{{\\\"1\\\", \\\"1\\\", \\\"1\\\"}, {\\\"0\\\", \
+RowBox[{\\\"-\\\", \\\"1\\\"}], \\\"1\\\"}, {RowBox[{\\\"-\\\", \
+FractionBox[\\\"4\\\", \\\"3\\\"]}], \\\"1\\\", \\\"1\\\"}}, \
+Rule[RowSpacings, 1], Rule[ColumnSpacings, 1], Rule[RowAlignments, Baseline], \
+Rule[ColumnAlignments, Center]], \\\"\[NoBreak]\\\", \\\")\\\"}], \
+Function[BoxForm`e$, MatrixForm[BoxForm`e$]]]\\).\"\>",
+  StringForm[
+  "The transition matrix is `` and the initial state is ``.\nThe eigensystem \
+is ``  and ``.", 
+   MatrixForm[{{
+      Rational[1, 3], 
+      Rational[1, 3], 
+      Rational[1, 3]}, {
+      Rational[1, 2], 0, 
+      Rational[1, 2]}, {
+      Rational[1, 2], 
+      Rational[1, 2], 0}}], 
+   MatrixForm[{1, 0, 0}], 
+   MatrixForm[{1, 
+     Rational[-1, 2], 
+     Rational[-1, 6]}], 
+   MatrixForm[{{1, 1, 1}, {0, -1, 1}, {
+      Rational[-4, 3], 1, 1}}]],
+  Editable->False]], "Output",
+ CellChangeTimes->{{3.758900330141736*^9, 3.7589003556521244`*^9}, {
+   3.758900442983611*^9, 3.758900493750605*^9}, {3.7589005399437437`*^9, 
+   3.7589006316039457`*^9}, 3.7589006716588936`*^9, {3.7589026245981274`*^9, 
+   3.7589026394931307`*^9}, 3.7589027928907332`*^9, {3.75890284706504*^9, 
+   3.7589028652231007`*^9}, {3.758903070192169*^9, 3.7589030940190687`*^9}, {
+   3.7589031318755217`*^9, 3.7589031404103117`*^9}, {3.7589036771651664`*^9, 
+   3.7589036926908627`*^9}, 3.7594473433445764`*^9, 3.7594486881958885`*^9, 
+   3.7595181897170334`*^9},ExpressionUUID->"263f889c-7e94-47a8-a0fa-\
+a70c50495280"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{1, 2, 3}, {
+      SparseArray[
+       Automatic, {3, 3}, 0, {
+        1, {{0, 3, 5, 7}, {{1}, {2}, {3}, {1}, {3}, {1}, {2}}}, {1, 1, 1, 1, 
+         1, 1, 1}}], Null}, {
+      EdgeLabels -> {
+        DirectedEdge[2, 1] -> Rational[1, 2], DirectedEdge[3, 1] -> 
+         Rational[1, 2], DirectedEdge[2, 3] -> Rational[1, 2], 
+         DirectedEdge[1, 3] -> Rational[1, 3], DirectedEdge[1, 1] -> 
+         Rational[1, 3], DirectedEdge[1, 2] -> Rational[1, 3], 
+         DirectedEdge[3, 2] -> Rational[1, 2]}, EdgeStyle -> {
+         Directive[
+          GrayLevel[0]]}, GraphLayout -> "SpringElectricalEmbedding", 
+       ImagePadding -> All, 
+       Properties -> {
+        DirectedEdge[1, 2] -> {"Probability" -> Rational[1, 3]}, 
+         DirectedEdge[1, 1] -> {"Probability" -> Rational[1, 3]}, 
+         DirectedEdge[2, 3] -> {"Probability" -> Rational[1, 2]}, 
+         DirectedEdge[1, 3] -> {"Probability" -> Rational[1, 3]}, 
+         DirectedEdge[3, 1] -> {"Probability" -> Rational[1, 2]}, 
+         DirectedEdge[3, 2] -> {"Probability" -> Rational[1, 2]}, 
+         DirectedEdge[2, 1] -> {"Probability" -> Rational[1, 2]}}, 
+       VertexLabels -> {
+         Placed["Name", Center]}, 
+       VertexShapeFunction -> {1 -> "Circle", 2 -> "Circle", 3 -> "Circle"}, 
+       VertexSize -> {0.4}, 
+       VertexStyle -> {
+        1 -> Hue[0.14, 1, 0.9], 2 -> Hue[0.14, 1, 0.9], 3 -> 
+         Hue[0.14, 1, 0.9]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {GrayLevel[0], Opacity[0.7], Arrowheads[
+        Medium], {
+         ArrowBox[BezierCurveBox[{{0.4969222153812606, 0.}, {
+          0.6873904251757703, -0.08915602018494104}, {
+          0.7430802511242329, -0.2882334630989339}, {
+          0.6836720610015965, -0.4151939759099758}, {
+          0.30722904122918515`, -0.413857514310497}, {
+          0.2487238169004704, -0.2864783810384543}, {
+          0.3058257650517279, -0.08780137555297982}, {0.4969222153812606, 0.}},
+          SplineDegree->7], 0.19999998911761807`], InsetBox[
+          FractionBox["1", "3"], {0.49514710851665783, -0.4999968489856905}, 
+          ImageScaled[{0.5, 0.5}],
+          BaseStyle->"Graphics"]}, {
+         ArrowBox[BezierCurveBox[{{0.4969222153812606, 0.}, {
+          0.6063408523521697, 0.514847913886857}, {0.9999936568025142, 
+          0.8642449403459487}}], 0.19999998911761807`], InsetBox[
+          FractionBox["1", "3"], {0.687960790267671, 0.46733747107246204}, 
+          ImageScaled[{0.5, 0.5}],
+          BaseStyle->"Graphics"]}, {
+         ArrowBox[BezierCurveBox[{{0.4969222153812606, 0.}, {
+          0.1057602456031444, 0.3521832514257624}, {0., 0.8677950236298684}}],
+           0.19999998911761807`], InsetBox[
+          FractionBox["1", "3"], {0.1877154560365395, 0.3991129567382461}, 
+          ImageScaled[{0.5, 0.5}],
+          BaseStyle->"Graphics"]}, {
+         ArrowBox[BezierCurveBox[{{0.9999936568025142, 0.8642449403459487}, {
+          0.8905750198316025, 0.3493970264591557}, {0.4969222153812606, 0.}}],
+           0.19999998911761807`], InsetBox[
+          FractionBox["1", "2"], {0.8089550819161039, 0.3969074692734865}, 
+          ImageScaled[{0.5, 0.5}],
+          BaseStyle->"Graphics"]}, {
+         ArrowBox[BezierCurveBox[{{0.9999936568025142, 0.8642449403459487}, {
+          0.4994130500534916, 0.7015802778846691}, {0., 0.8677950236298684}}],
+           0.19999998911761807`], InsetBox[
+          FractionBox["1", "2"], {0.4997483225713827, 0.7960204260117327}, 
+          ImageScaled[{0.5, 0.5}],
+          BaseStyle->"Graphics"]}, {
+         ArrowBox[BezierCurveBox[{{0., 0.8677950236298684}, {
+          0.3911619697781157, 0.5156117722041118}, {0.4969222153812606, 0.}}],
+           0.19999998911761807`], InsetBox[
+          FractionBox["1", "2"], {0.3092067593447212, 0.4686820668916224}, 
+          ImageScaled[{0.5, 0.5}],
+          BaseStyle->"Graphics"]}, {
+         ArrowBox[BezierCurveBox[{{0., 0.8677950236298684}, {
+          0.5005806067490268, 1.0304596860909105`}, {0.9999936568025142, 
+          0.8642449403459487}}], 0.19999998911761807`], InsetBox[
+          FractionBox["1", "2"], {0.5002453342311315, 0.9360195379640845}, 
+          ImageScaled[{0.5, 0.5}],
+          BaseStyle->"Graphics"]}}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[0.7]}], {
+         {Hue[0.14, 1, 0.9], 
+          DiskBox[{0.4969222153812606, 0.}, 0.19999998911761807]}, 
+         InsetBox["1", {0.4969222153812606, 0.},
+          BaseStyle->"Graphics"]}, {
+         {Hue[0.14, 1, 0.9], 
+          DiskBox[{0.9999936568025142, 0.8642449403459487}, 
+           0.19999998911761807]}, InsetBox["2", {0.9999936568025142, 0.8642449403459487},
+          BaseStyle->"Graphics"]}, {
+         {Hue[0.14, 1, 0.9], 
+          DiskBox[{0., 0.8677950236298684}, 0.19999998911761807]}, 
+         InsetBox["3", {0., 0.8677950236298684},
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->{
+   "NetworkGraphics", FrontEnd`GraphicsHighlightColor -> Hue[0.8, 1., 0.6]},
+  FormatType->TraditionalForm,
+  FrameTicks->None]], "Output",
+ CellChangeTimes->{{3.758900330141736*^9, 3.7589003556521244`*^9}, {
+   3.758900442983611*^9, 3.758900493750605*^9}, {3.7589005399437437`*^9, 
+   3.7589006316039457`*^9}, 3.7589006716588936`*^9, {3.7589026245981274`*^9, 
+   3.7589026394931307`*^9}, 3.7589027928907332`*^9, {3.75890284706504*^9, 
+   3.7589028652231007`*^9}, {3.758903070192169*^9, 3.7589030940190687`*^9}, {
+   3.7589031318755217`*^9, 3.7589031404103117`*^9}, {3.7589036771651664`*^9, 
+   3.7589036926908627`*^9}, 3.7594473433445764`*^9, 3.7594486881958885`*^9, 
+   3.759518189802984*^9},ExpressionUUID->"4fb2ff70-3a09-4b99-9cc6-\
+89962e89fccc"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Test of the Invariant Distribution", "Section",
+ CellChangeTimes->{{3.7595181997692413`*^9, 
+  3.7595182101932344`*^9}},ExpressionUUID->"0723b03e-c525-464f-88f1-\
+23f1a96a10fc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pMatrix2", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       RowBox[{"1", "/", "2"}], ",", 
+       RowBox[{"1", "/", "2"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "/", "2"}], ",", "0", ",", 
+       RowBox[{"1", "/", "2"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "/", "2"}], ",", 
+       RowBox[{"1", "/", "2"}], ",", "0"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"pMatrix2", "//", "MatrixForm"}], "\[IndentingNewLine]", 
+ RowBox[{"Eigenvectors", "[", 
+  RowBox[{"Transpose", "[", "pMatrix2", "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.75951821189725*^9, 3.759518270695364*^9}, {
+  3.759523183329192*^9, 
+  3.7595232108443356`*^9}},ExpressionUUID->"21d1c8cf-1600-4d54-a978-\
+d370c52666d6"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0", 
+      FractionBox["1", "2"], 
+      FractionBox["1", "2"]},
+     {
+      FractionBox["1", "2"], "0", 
+      FractionBox["1", "2"]},
+     {
+      FractionBox["1", "2"], 
+      FractionBox["1", "2"], "0"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.7595182446443787`*^9, 3.7595182711610975`*^9}, {
+  3.759523196259753*^9, 
+  3.7595232123744535`*^9}},ExpressionUUID->"644ed48e-ebd3-4351-bb62-\
+41815796a371"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "1"}], ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "1"}], ",", "1", ",", "0"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.7595182446443787`*^9, 3.7595182711610975`*^9}, {
+  3.759523196259753*^9, 
+  3.75952321238245*^9}},ExpressionUUID->"606f7e5a-360b-495f-b84e-\
+2e43bcd56cfd"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{766, 772},
+WindowMargins->{{-7, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 165, 3, 67, "Section",ExpressionUUID->"88e53735-b99a-4b3a-9dc6-90edf28f10e6"],
+Cell[CellGroupData[{
+Cell[770, 29, 2548, 66, 219, "Input",ExpressionUUID->"676b312d-5360-46d3-b2be-e93bd899ad3f"],
+Cell[3321, 97, 2909, 53, 190, "Output",ExpressionUUID->"263f889c-7e94-47a8-a0fa-a70c50495280"],
+Cell[6233, 152, 5845, 110, 426, "Output",ExpressionUUID->"4fb2ff70-3a09-4b99-9cc6-89962e89fccc"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12127, 268, 183, 3, 67, "Section",ExpressionUUID->"0723b03e-c525-464f-88f1-23f1a96a10fc"],
+Cell[CellGroupData[{
+Cell[12335, 275, 847, 24, 67, "Input",ExpressionUUID->"21d1c8cf-1600-4d54-a978-d370c52666d6"],
+Cell[13185, 301, 948, 28, 115, "Output",ExpressionUUID->"644ed48e-ebd3-4351-bb62-41815796a371"],
+Cell[14136, 331, 480, 14, 89, "Output",ExpressionUUID->"606f7e5a-360b-495f-b84e-2e43bcd56cfd"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
